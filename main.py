@@ -36,11 +36,20 @@ for url in feeds:
         pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
         if (datetime.now(pub_date.tzinfo) - pub_date).days > config.RUN_INTERVAL_HOURS:  # Skip too old
             continue
+
+        # Try to find image URL
+        image_url = None
+        if 'media_content' in entry:
+            image_url = entry.media_content[0].get('url', None)
+        elif 'media_thumbnail' in entry:
+            image_url = entry.media_thumbnail[0].get('url', None)
+
         articles.append({
             "title": entry.title,
             "link": entry.link,
             "summary": entry.get("summary", ""),
             "pubDate": pub_date,
+            "image": image_url
         })
 
 # Deduplicate by link
@@ -68,7 +77,7 @@ for a in articles:
         print(f"⏭️ Skipping article: {a['title']}")
         continue
 
-    # Step 2: Rewrite title (English, calming)
+    # Step 2: Rewrite title (English, calming, country/region if relevant)
     title_prompt = f"{title_prompt_template}\n\n{a['title']}"
     title_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -105,7 +114,8 @@ for a in articles:
         "link": a['link'],
         "summary": new_summary,
         "pubDate": a['pubDate'].strftime('%a, %d %b %Y %H:%M:%S +0000'),
-        "category": category
+        "category": category,
+        "image": a['image'] or ""
     })
 
 # Render RSS feed using Jinja2
