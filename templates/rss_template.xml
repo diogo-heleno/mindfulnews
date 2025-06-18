@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
   <channel>
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
@@ -13,7 +17,11 @@
       <link>{{ article.link }}</link>
       <pubDate>{{ article.pubDate }}</pubDate>
       <description><![CDATA[{{ article.summary }}]]></description>
+      <content:encoded><![CDATA[{{ article.summary }}]]></content:encoded>
       <category>{{ article.category | e }}</category>
+      {% if article.image %}
+      <media:content url="{{ article.image }}" medium="image" />
+      {% endif %}
     </item>
     {% endfor %}
 
