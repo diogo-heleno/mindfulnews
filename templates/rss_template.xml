@@ -20,7 +20,7 @@
       <content:encoded><![CDATA[{{ article.summary }}]]></content:encoded>
       <category>{{ article.category | e }}</category>
       {% if article.image %}
-      <media:content url="{{ article.image }}" medium="image" />
+      <media:content url="{{ article.image }}" medium="image"></media:content>
       {% endif %}
     </item>
     {% endfor %}
