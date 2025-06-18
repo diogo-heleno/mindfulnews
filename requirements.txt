@@ -1,6 +1,6 @@
-feedparser
 openai
-jinja2
-python-dateutil
+feedparser
 beautifulsoup4
 requests
+jinja2
+python-dateutil
