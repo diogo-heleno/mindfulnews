@@ -156,8 +156,11 @@ for a in articles:
     )
     validate_result = validate_response.choices[0].message.content.strip()
 
+    # Log the raw validator result — for debugging!
+    print(f"🟢 Validator raw result: {validate_result}")
+
     # Always extract validated category:
-    try:
+    if "Category:" in validate_result:
         validated_category = validate_result.split("Category:")[1].strip()
 
         # ⚠️ Filter invalid characters:
@@ -169,8 +172,8 @@ for a in articles:
         else:
             print(f"⚠️ Invalid category after cleanup → Using 'Other'")
             category = "Other"
-    except Exception:
-        print(f"⚠️ Could not parse validator response → Using 'Other'")
+    else:
+        print(f"⚠️ Invalid validator format → Using 'Other'")
         category = "Other"
 
     # Final article
