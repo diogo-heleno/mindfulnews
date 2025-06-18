@@ -2,6 +2,7 @@ import feedparser
 import openai
 import json
 import config
+import os
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime, timedelta
@@ -18,7 +19,7 @@ with open("prompts/category_prompt.txt", "r") as f:
     category_prompt_template = f.read()
 
 # Setup OpenAI
-openai.api_key = config.OPENAI_API_KEY
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Fetch and parse feeds
 articles = []
