@@ -1,294 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
   <channel>
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>Constructive News Aggregator Feed</description>
-    <lastBuildDate>Wed, 18 Jun 2025 20:16:08 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2025 21:10:25 +0000</lastBuildDate>
     <language>en-us</language>
 
     
     <item>
-      <title>Real Madrid vs. Al-Hilal: Club World Cup Match – Live Coverage</title>
-      <link>https://www.theguardian.com/football/live/2025/jun/18/real-madrid-v-al-hilal-club-world-cup-live-updates</link>
-      <pubDate>Wed, 18 Jun 2025 20:01:16 +0000</pubDate>
-      <description><![CDATA[Headline: Real Madrid Faces Al-Hilal in Club World Cup Match  
-Summary: The Club World Cup match between Real Madrid and Al-Hilal is set to begin at 3pm ET/8pm BST at Hard Rock Stadium. Fans can share their thoughts via email with Alexander Abnos. Additionally, interested readers can subscribe to Jonathan Wilson's weekly European soccer newsletter for more insights. The teams are preparing on the field, ready to start the game.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>"Small property owners decide to sell all their rental properties due to high concerns and low income."</title>
-      <link>https://www.lefigaro.fr/finances-perso/c-est-beaucoup-trop-de-soucis-pour-peu-de-revenus-ces-petits-proprietaires-qui-font-le-choix-de-vendre-tous-leurs-biens-locatifs-20250618</link>
-      <pubDate>Wed, 18 Jun 2025 21:57:36 +0000</pubDate>
-      <description><![CDATA[Headline: Des propriétaires choisissent de vendre leurs biens locatifs en raison de nouvelles contraintes
+      <title>Ninety elderly residents relocated from a care home in Portugal that was closed due to inadequate conditions.</title>
+      <link>https://observador.pt/2025/06/18/cerca-de-90-idosos-retirados-de-lar-encerrado-por-falta-de-condicoes-em-matosinhos/</link>
+      <pubDate>Wed, 18 Jun 2025 22:01:12 +0000</pubDate>
+      <description><![CDATA[Headline: 90 Elderly Residents Relocated from Previously Closed Care Facility
 
-Summary: Certains propriétaires de biens locatifs décident de vendre leurs propriétés en réponse à l'augmentation des exigences réglementaires et fiscales. Autrefois considéré comme un investissement optimal, le secteur immobilier évolue face à ces changements.]]></description>
-      <category>Economy</category>
+Summary: The Volunteer Firefighters of São Mamede de Infesta assisted with the transport of bedridden residents from the Coreto D'Amizade care facility.]]></description>
+      <content:encoded><![CDATA[Headline: 90 Elderly Residents Relocated from Previously Closed Care Facility
+
+Summary: The Volunteer Firefighters of São Mamede de Infesta assisted with the transport of bedridden residents from the Coreto D'Amizade care facility.]]></content:encoded>
+      <category>Social Progress</category>
+      
+      <media:content url="https://bordalo.observador.pt/v2/rs:fill:770:403/c:1608:904:nowe:0:93/q:70/plain/https://s3.observador.pt/wp-content/uploads/2025/04/06102006/captura-de-ecra-2025-04-06-as-101952.jpg" medium="image" />
+      
     </item>
     
     <item>
-      <title>Leaked letter indicates Notting Hill Carnival requires urgent funding to continue.</title>
+      <title>The United States President faces differing opinions within his team regarding the situation with Iran.</title>
+      <link>https://www.bbc.com/news/articles/c1wp72224jzo</link>
+      <pubDate>Wed, 18 Jun 2025 20:52:01 +0000</pubDate>
+      <description><![CDATA[Headline: Discussion on Iran Policy Highlights Diverse Views Within President's Advisory Team  
+Summary: Recent policy discussions concerning Iran have showcased the range of perspectives within the President's advisory group, illustrating the balance between differing viewpoints and the potential for collaborative policy-making.]]></description>
+      <content:encoded><![CDATA[Headline: Discussion on Iran Policy Highlights Diverse Views Within President's Advisory Team  
+Summary: Recent policy discussions concerning Iran have showcased the range of perspectives within the President's advisory group, illustrating the balance between differing viewpoints and the potential for collaborative policy-making.]]></content:encoded>
+      <category>Politics</category>
+      
+      <media:content url="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d705/live/3d3b1390-4c28-11f0-a466-d54f65b60deb.jpg" medium="image" />
+      
+    </item>
+    
+    <item>
+      <title>Organisers state that Notting Hill Carnival in the UK requires urgent funding to secure its future.</title>
+      <link>https://www.bbc.com/news/articles/cq8zxk083qko</link>
+      <pubDate>Wed, 18 Jun 2025 20:19:59 +0000</pubDate>
+      <description><![CDATA[Headline: Notting Hill Carnival Organizers Seek Additional Funding for Future Events  
+Summary: Ian Comfort, chair of the Notting Hill Carnival, has reached out to Culture Secretary Lisa Nandy to request additional funding, aiming to secure the event's continuity and ensure its success in upcoming years.]]></description>
+      <content:encoded><![CDATA[Headline: Notting Hill Carnival Organizers Seek Additional Funding for Future Events  
+Summary: Ian Comfort, chair of the Notting Hill Carnival, has reached out to Culture Secretary Lisa Nandy to request additional funding, aiming to secure the event's continuity and ensure its success in upcoming years.]]></content:encoded>
+      <category>Social Progress</category>
+      
+      <media:content url="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d997/live/660e6340-4c7c-11f0-86d5-3b52b53af158.jpg" medium="image" />
+      
+    </item>
+    
+    <item>
+      <title>Australia's North West Shelf project expected to generate significant greenhouse gas emissions.</title>
+      <link>https://www.theguardian.com/news/ng-interactive/2025/jun/19/north-west-shelf-project-greenhouse-gas-emissions-burrup-peninsula-western-australia</link>
+      <pubDate>Wed, 18 Jun 2025 20:00:37 +0000</pubDate>
+      <description><![CDATA[Headline: Analysis of Greenhouse Gas Emissions from the North West Shelf Project
+
+Summary: The North West Shelf gas project, situated on the Burrup Peninsula in Western Australia, is recognized as one of the world's prominent liquefied natural gas ventures. Recently, the Australian government approved a 40-year extension of the project, which will now continue from 2030 to 2070. This extension involves various types of emissions, categorized as scope 1, 2, and 3. For reference, emissions data from Qantas, the agriculture sector, and other gas plants in Australia have been assessed, using reports from credible sources such as the Clean Energy Regulator and the National Greenhouse Gas Inventory. International comparisons include data on emissions from countries like Switzerland and Ireland. Meanwhile, Apple's environmental progress report provides insights into corporate emissions. Comprehensive strategies and measures to manage and potentially mitigate these emissions can help balance development with environmental considerations.]]></description>
+      <content:encoded><![CDATA[Headline: Analysis of Greenhouse Gas Emissions from the North West Shelf Project
+
+Summary: The North West Shelf gas project, situated on the Burrup Peninsula in Western Australia, is recognized as one of the world's prominent liquefied natural gas ventures. Recently, the Australian government approved a 40-year extension of the project, which will now continue from 2030 to 2070. This extension involves various types of emissions, categorized as scope 1, 2, and 3. For reference, emissions data from Qantas, the agriculture sector, and other gas plants in Australia have been assessed, using reports from credible sources such as the Clean Energy Regulator and the National Greenhouse Gas Inventory. International comparisons include data on emissions from countries like Switzerland and Ireland. Meanwhile, Apple's environmental progress report provides insights into corporate emissions. Comprehensive strategies and measures to manage and potentially mitigate these emissions can help balance development with environmental considerations.]]></content:encoded>
+      <category>Environment</category>
+      
+      <media:content url="https://i.guim.co.uk/img/media/71995fe59ddf444b76c361f29fa9be19503ea770/0_0_1999_1600/master/1999.jpg?width=140&quality=85&auto=format&fit=max&s=e4c8a8170fb5023cde93a64984578f43" medium="image" />
+      
+    </item>
+    
+    <item>
+      <title>Leaked letter indicates that the Notting Hill Carnival in the UK requires immediate funding to continue.</title>
       <link>https://www.theguardian.com/culture/2025/jun/18/notting-hill-carnival-in-danger-without-urgent-funding-says-leaked-letter</link>
       <pubDate>Wed, 18 Jun 2025 19:55:52 +0000</pubDate>
-      <description><![CDATA[**Headline:** Notting Hill Carnival Seeks Additional Funding for Future Celebrations
-
-**Summary:** The chair of the Notting Hill Carnival, Ian Comfort, has reached out to the culture secretary, Lisa Nandy, to discuss the need for government funding to ensure the event's continuation. While the letter does not specify the amount required, it highlights the importance of financial support for sustaining the carnival.]]></description>
+      <description><![CDATA[Headline: Notting Hill Carnival Organizers Seek Government Support for Future Events  
+Summary: The chair of the Notting Hill Carnival has reached out to the culture secretary, emphasizing the importance of additional funding to ensure the continued success of the event. The request highlights the need for public support to maintain this cultural celebration.]]></description>
+      <content:encoded><![CDATA[Headline: Notting Hill Carnival Organizers Seek Government Support for Future Events  
+Summary: The chair of the Notting Hill Carnival has reached out to the culture secretary, emphasizing the importance of additional funding to ensure the continued success of the event. The request highlights the need for public support to maintain this cultural celebration.]]></content:encoded>
       <category>Social Progress</category>
+      
+      <media:content url="https://i.guim.co.uk/img/media/f7d092de49b5a0493934fc0592344b11a0c3203c/296_0_4035_3228/master/4035.jpg?width=140&quality=85&auto=format&fit=max&s=2ffabb3b62a0fd29a14c1e909a98dd86" medium="image" />
+      
     </item>
     
     <item>
-      <title>Thomas Frank emphasizes the importance of taking risks to help Spurs become consistent winners.</title>
-      <link>https://www.theguardian.com/football/2025/jun/18/thomas-frank-tottenham-ange-postecoglou-europa-league</link>
-      <pubDate>Wed, 18 Jun 2025 19:47:59 +0000</pubDate>
-      <description><![CDATA[**Headline:** Thomas Frank Aims to Build on Tottenham's Success and Encourage Attacking Play
-
-**Summary:**  
-Thomas Frank, the new Tottenham manager, expressed admiration for his predecessor Ange Postecoglou, praising his achievement of winning the Europa League, which ended the club's 17-year trophy drought. Frank, who is joining from Brentford on a three-year contract, is focused on continuing the positive momentum and is committed to fostering an attacking style of play at the club. His goal is to build on recent successes and work towards securing more victories and memorable achievements for Tottenham.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>Federal Reserve maintains current interest rates despite Trump's request for a reduction.</title>
+      <title>The Federal Reserve in the United States decides to keep interest rates unchanged, contrary to President Trump's request for a reduction.</title>
       <link>https://www.theguardian.com/business/2025/jun/18/federal-reserve-interest-rate-announcement</link>
       <pubDate>Wed, 18 Jun 2025 19:45:20 +0000</pubDate>
-      <description><![CDATA[**Headline:** Federal Reserve Maintains Interest Rates, Signals Possible Future Adjustments
+      <description><![CDATA[**Headline: Federal Reserve Maintains Current Interest Rates, Considers Future Adjustments**
 
-**Summary:** The U.S. Federal Reserve has decided to keep interest rates unchanged for the time being. It has indicated the possibility of two rate reductions later in the year. This decision is part of the Fed's ongoing assessment of economic conditions, including inflation and growth projections. President Donald Trump has expressed his preference for lower rates, but the Fed remains focused on its independent economic measures.]]></description>
+**Summary:** The Federal Reserve has decided to keep interest rates unchanged for the time being, while indicating that there may be two rate reductions later in the year. This decision occurs amid ongoing discussions about economic growth and inflation projections, which the Fed has adjusted upward for inflation and downward for economic growth. The central bank continues to monitor economic conditions closely to determine future policy actions.]]></description>
+      <content:encoded><![CDATA[**Headline: Federal Reserve Maintains Current Interest Rates, Considers Future Adjustments**
+
+**Summary:** The Federal Reserve has decided to keep interest rates unchanged for the time being, while indicating that there may be two rate reductions later in the year. This decision occurs amid ongoing discussions about economic growth and inflation projections, which the Fed has adjusted upward for inflation and downward for economic growth. The central bank continues to monitor economic conditions closely to determine future policy actions.]]></content:encoded>
       <category>Economy</category>
+      
+      <media:content url="https://i.guim.co.uk/img/media/f5208b964630457bbd696474e1273c0772481919/654_0_6537_5232/master/6537.jpg?width=140&quality=85&auto=format&fit=max&s=5ca16abc9cf46b2f79038f3fa9d01cbf" medium="image" />
+      
     </item>
     
     <item>
-      <title>Temperatures Expected to Reach 37°C in Paris and Bordeaux, 36°C in Lyon, as Heat Wave Peaks in France on Saturday</title>
+      <title>Temperatures are expected to reach 37°C in Paris and Bordeaux, and 36°C in Lyon, as the peak of the heatwave is anticipated on Saturday in France.</title>
       <link>https://www.lefigaro.fr/meteo/370c-a-paris-et-bordeaux-360c-a-lyon-le-pic-de-la-vague-de-chaleur-attendu-samedi-en-france-20250618</link>
       <pubDate>Wed, 18 Jun 2025 21:43:50 +0000</pubDate>
-      <description><![CDATA[Headline: High Temperatures Expected in Paris, Bordeaux, and Lyon; Relief Anticipated with Storms Early Next Week
+      <description><![CDATA[Headline: High Temperatures Expected in Paris, Bordeaux, and Lyon, with a Cool Down on the Way
 
-Summary: This weekend, many parts of France will experience a heatwave, with temperatures reaching 37°C in Paris and Bordeaux, and 36°C in Lyon. Cooler temperatures are expected as thunderstorms arrive on Monday.]]></description>
+Summary: Many regions in France will experience hot weather this weekend, with temperatures reaching 37°C in Paris and Bordeaux and 36°C in Lyon. However, a drop in temperatures is anticipated on Monday as thunderstorms are expected to bring relief.]]></description>
+      <content:encoded><![CDATA[Headline: High Temperatures Expected in Paris, Bordeaux, and Lyon, with a Cool Down on the Way
+
+Summary: Many regions in France will experience hot weather this weekend, with temperatures reaching 37°C in Paris and Bordeaux and 36°C in Lyon. However, a drop in temperatures is anticipated on Monday as thunderstorms are expected to bring relief.]]></content:encoded>
       <category>Environment</category>
+      
+      <media:content url="https://i.f1g.fr/media/cms/3000x1997_crop/2025/06/18/25381d79f053ca09abe137d860884d8426de9124a70a907dbdbdddf6f0945785.jpg" medium="image" />
+      
     </item>
     
     <item>
-      <title>Marcus Smith to play full-back as Lions prepare for tour against Argentina.</title>
-      <link>https://www.theguardian.com/sport/2025/jun/18/maro-itoje-captain-british-irish-lions-argentina-dublin-rugby-union-tour-australia</link>
-      <pubDate>Wed, 18 Jun 2025 19:34:04 +0000</pubDate>
-      <description><![CDATA[Headline: Marcus Smith to Play Full-Back as Lions Prepare for Match Against Argentina
-
-Summary: The British & Irish Lions have named their squad for the upcoming game against Argentina in Dublin. Maro Itoje will lead the team as captain for the first time, supported by eight other players from the English contingent. Notable inclusions in the starting lineup are Marcus Smith at full-back, with Alex Mitchell and Fin Smith in the half-back positions. Ireland's Tadhg Furlong, who recently recovered from a calf injury, will be part of the bench alongside Ronan Kelleher, providing an opportunity to prove their fitness. The team aims to set a positive tone for their forthcoming tour of Australia.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>Sp. Braga learns about its potential opponents.</title>
-      <link>https://observador.pt/2025/06/18/levski-sofia-e-hapoel-beer-sheva-no-caminho-do-sporting-de-braga/</link>
-      <pubDate>Wed, 18 Jun 2025 20:22:53 +0000</pubDate>
-      <description><![CDATA[Headline: Potential Opponents for Sp. Braga Revealed  
-Summary: The first leg of the qualifiers is scheduled to take place on July 24, and it will be an away game for Sp. Braga.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>Temperatures in the UK are expected to exceed 29°C as a heatwave approaches.</title>
+      <title>Temperatures exceed 29°C as the UK prepares for a heatwave.</title>
       <link>https://www.bbc.com/news/articles/c8d6jmmdq5go</link>
       <pubDate>Wed, 18 Jun 2025 19:20:53 +0000</pubDate>
-      <description><![CDATA[Headline: UK Experiences Warmer Temperatures with Heatwave Forecasted
+      <description><![CDATA[Headline: UK Anticipates Warmer Temperatures with Highs Over 29°C
 
-Summary: Starting Thursday, temperatures in the UK are expected to rise, with many areas experiencing warmer nights as temperatures reach the high teens.]]></description>
+Summary: The UK is expected to experience increased temperatures this week, with some areas seeing daytime temperatures surpassing 29°C. Nighttime temperatures will also remain in the higher range, particularly from Thursday, with many locations experiencing temperatures in the high teens.]]></description>
+      <content:encoded><![CDATA[Headline: UK Anticipates Warmer Temperatures with Highs Over 29°C
+
+Summary: The UK is expected to experience increased temperatures this week, with some areas seeing daytime temperatures surpassing 29°C. Nighttime temperatures will also remain in the higher range, particularly from Thursday, with many locations experiencing temperatures in the high teens.]]></content:encoded>
       <category>Environment</category>
+      
+      <media:content url="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c41e/live/85a27090-4c52-11f0-a466-d54f65b60deb.jpg" medium="image" />
+      
     </item>
     
     <item>
-      <title>Portugal Has Two Months to Adjust Wine Tax Rates</title>
+      <title>Portugal has two months to adjust wine taxes.</title>
       <link>https://observador.pt/2025/06/18/bruxelas-da-dois-meses-a-portugal-para-cumprir-lei-da-ue-sobre-impostos-no-vinho/</link>
       <pubDate>Wed, 18 Jun 2025 20:14:43 +0000</pubDate>
-      <description><![CDATA[Headline: Portugal Given Two Months to Adjust Wine Tax Rates  
-Summary: Only wines with an alcohol content between 15% and 18% by volume, achieved naturally, can benefit from a zero special consumption tax.]]></description>
+      <description><![CDATA[Headline: Portugal Given Two Months to Adjust Wine Tax Regulations
+
+Summary: Wines with an alcohol content between 15% and 18% by volume, achieved naturally, are eligible for an exemption from the special consumption tax.]]></description>
+      <content:encoded><![CDATA[Headline: Portugal Given Two Months to Adjust Wine Tax Regulations
+
+Summary: Wines with an alcohol content between 15% and 18% by volume, achieved naturally, are eligible for an exemption from the special consumption tax.]]></content:encoded>
       <category>EU Affairs</category>
+      
+      <media:content url="https://bordalo.observador.pt/v2/rs:fill:770:403/c:1280:720:nowe:0:131/q:70/plain/https://s3.observador.pt/wp-content/uploads/2023/11/29105711/imagem-1-geral-vinhos-da-peninsula-de-setubal-2.jpg" medium="image" />
+      
     </item>
     
     <item>
-      <title>The EU requests Portugal to comply with European directive.</title>
+      <title>EU Requests Portugal to Comply with European Directive</title>
       <link>https://observador.pt/2025/06/18/bruxelas-exige-a-portugal-que-cumpra-diretiva-europeia-sobre-agua-potavel/</link>
       <pubDate>Wed, 18 Jun 2025 20:13:48 +0000</pubDate>
       <description><![CDATA[Headline: EU Requests Portugal to Align with European Directive  
-Summary: In Portugal's case, the government needs to improve the implementation of several aspects of the directive, aiming for better alignment with EU standards.]]></description>
+Summary: The European Union has asked Portugal to make adjustments to fully comply with specific aspects of the directive.]]></description>
+      <content:encoded><![CDATA[Headline: EU Requests Portugal to Align with European Directive  
+Summary: The European Union has asked Portugal to make adjustments to fully comply with specific aspects of the directive.]]></content:encoded>
       <category>EU Affairs</category>
-    </item>
-    
-    <item>
-      <title>Chega States That Pedro Nuno Still Needs to Provide Answers</title>
-      <link>https://observador.pt/programas/noticiario/as-noticias-das-20h-1591/</link>
-      <pubDate>Wed, 18 Jun 2025 20:13:22 +0000</pubDate>
-      <description><![CDATA[**Headline:** Chega Requests Further Information from Pedro Nuno Santos
-
-**Summary:** Pedro Frazão, a representative from Chega, has asked Pedro Nuno Santos to provide additional clarifications. Meanwhile, the Attorney General's Office has confirmed that no criminal evidence was found in the case involving the former PS leader.]]></description>
-      <category>Politics</category>
-    </item>
-    
-    <item>
-      <title>"The 'Luanda Agreement' supports natural diamonds"</title>
-      <link>https://observador.pt/2025/06/18/assinado-acordo-de-luanda-para-a-promocao-de-diamantes-naturais-africanos/</link>
-      <pubDate>Wed, 18 Jun 2025 20:13:21 +0000</pubDate>
-      <description><![CDATA[Headline: "Luanda Agreement Supports Natural Diamond Industry"  
-Summary: The measure is considered "a strategic investment" for the future of the industry.]]></description>
-      <category>Economy</category>
-    </item>
-    
-    <item>
-      <title>Health: Chapo issues a challenge to Aga Khan</title>
-      <link>https://observador.pt/2025/06/18/presidente-mocambicano-desafia-rede-aga-khan-a-alargar-aposta-a-saude/</link>
-      <pubDate>Wed, 18 Jun 2025 20:10:27 +0000</pubDate>
-      <description><![CDATA[Headline: Saúde. Chapo Discusses Potential Expansion of Aga Khan Network  
-Summary: Daniel Chapo suggested that it would be beneficial to extend the investments of the Network across various regions and provinces.]]></description>
-      <category>Health</category>
-    </item>
-    
-    <item>
-      <title>Évora: Six Candidates Agree on Advertising Guidelines</title>
-      <link>https://observador.pt/2025/06/18/autarquicas-seis-candidaturas-concordam-em-excluir-propaganda-do-centro-historico-de-evora/</link>
-      <pubDate>Wed, 18 Jun 2025 20:09:33 +0000</pubDate>
-      <description><![CDATA[Headline: Évora: Six Candidates Agree on Advertising Guidelines
-
-Summary: The Pro-Évora Group supports the initiative to keep the area around the city wall free from advertisements and political campaign materials, encouraging a focus on preserving the historic site.]]></description>
-      <category>Politics</category>
-    </item>
-    
-    <item>
-      <title>Fed Maintains Interest Rates Contrary to Trump's Position</title>
-      <link>https://observador.pt/2025/06/18/fed-volta-a-manter-juros-apos-insultos-de-trump/</link>
-      <pubDate>Wed, 18 Jun 2025 20:08:09 +0000</pubDate>
-      <description><![CDATA[Headline: Federal Reserve Maintains Interest Rates
-
-Summary: The Federal Reserve has adjusted its economic growth projection for the United States to 1.4% for this year.]]></description>
-      <category>Economy</category>
-    </item>
-    
-    <item>
-      <title>Tel Aviv Eases Restrictions for Residents</title>
-      <link>https://observador.pt/2025/06/18/telavive-atenua-restricoes-a-populacao-ate-sexta-feira/</link>
-      <pubDate>Wed, 18 Jun 2025 20:04:21 +0000</pubDate>
-      <description><![CDATA[Headline: Tel Aviv Adjusts Restrictions for Residents  
-Summary: New guidelines will be in effect from 6:00 PM local time on Wednesday (4:00 PM in Lisbon) until 8:00 PM (6:00 PM) on Sunday, providing residents with updated information on local measures.]]></description>
-      <category>War &amp; Conflicts</category>
-    </item>
-    
-    <item>
-      <title>Prime Minister says defense investment does not impact budget.</title>
-      <link>https://observador.pt/2025/06/18/montenegro-insiste-que-esforco-em-defesa-nao-afetara-contas-e-esta-aberto-a-contributos-da-oposicao/</link>
-      <pubDate>Wed, 18 Jun 2025 20:03:51 +0000</pubDate>
-      <description><![CDATA[Headline: Prime Minister Discusses Defense Investment's Fiscal Impact
-
-Summary: The Prime Minister expressed optimism about acquiring new equipment for the armed forces from European Union partners, while maintaining fiscal balance.]]></description>
-      <category>Politics</category>
-    </item>
-    
-    <item>
-      <title>Juvenal Bucuane receives literary award</title>
-      <link>https://observador.pt/2025/06/18/mocambicano-juvenal-bucuane-vence-premio-de-literatura-jose-craveirinha-2025/</link>
-      <pubDate>Wed, 18 Jun 2025 20:02:24 +0000</pubDate>
-      <description><![CDATA[Headline: Juvenal Bucuane Honored with Literary Award
-
-Summary: The panel acknowledged Juvenal Bucuane as a distinguished figure in Mozambican literature, noting his well-established public recognition.]]></description>
-      <category>Good News</category>
-    </item>
-    
-    <item>
-      <title>Lia Gama Receives Tribute at Almada Festival</title>
-      <link>https://observador.pt/2025/06/18/lia-gama-surpreendida-e-muito-honrada-por-homenagem-do-festival-de-almada/</link>
-      <pubDate>Wed, 18 Jun 2025 19:58:16 +0000</pubDate>
-      <description><![CDATA[Headline: Lia Gama Recognized at Almada Festival
-
-Summary: Actress Lia Gama was honored at the Almada Festival. While she humorously mentioned that she might not be called for work as often now, she expressed appreciation for the recognition.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>The government plans to appeal the suspension of the decree on age verification for pornography websites.</title>
-      <link>https://www.lemonde.fr/pixels/article/2025/06/18/blocage-des-sites-pornographiques-l-etat-va-contester-la-suspension-de-l-arrete-sur-la-verification-de-l-age_6614258_4408996.html</link>
-      <pubDate>Wed, 18 Jun 2025 20:54:14 +0000</pubDate>
-      <description><![CDATA[**Headline:** The State Plans to Appeal Court Decision on Age Verification for Adult Websites
-
-**Summary:** The Administrative Court of Paris has temporarily suspended the requirement for adult websites within the European Union to verify the age of their users. In response, the Minister of State for Digital Affairs has announced plans to appeal the decision.]]></description>
-      <category>Politics</category>
-    </item>
-    
-    <item>
-      <title>Caminha Approves Support for Volunteer Firefighters</title>
-      <link>https://observador.pt/2025/06/18/camara-de-caminha-aprova-apoios-extraordinarios-aos-bombeiros-voluntarios/</link>
-      <pubDate>Wed, 18 Jun 2025 19:53:07 +0000</pubDate>
-      <description><![CDATA[Headline: Caminha Approves Support for Volunteer Firefighters
-
-Summary: Volunteer firefighters in Caminha will receive benefits similar to those of Category A in the public school network for their children.]]></description>
-      <category>Social Progress</category>
-    </item>
-    
-    <item>
-      <title>Chega Emphasizes "Pragmatism and Responsibility" in Defense Matters</title>
-      <link>https://observador.pt/2025/06/18/chega-garante-pragmatismo-e-responsabilidade-na-defesa-e-pede-maior-autonomia-europeia/</link>
-      <pubDate>Wed, 18 Jun 2025 19:52:46 +0000</pubDate>
-      <description><![CDATA[Headline: Chega Discusses Defense Strategy with Emphasis on Pragmatism and Responsibility
-
-Summary: The opposition leader commented that currently allocating 5% of GDP to Defense is not feasible.]]></description>
-      <category>Politics</category>
-    </item>
-    
-    <item>
-      <title>How the City of Orléans Successfully Addressed Youth Delinquency</title>
-      <link>https://www.lefigaro.fr/actualite-france/comment-orleans-a-reussi-a-maitriser-sa-delinquance-juvenile-20250618</link>
-      <pubDate>Wed, 18 Jun 2025 20:52:12 +0000</pubDate>
-      <description><![CDATA[Headline: How the City of Orléans Effectively Addressed Youth Delinquency
-
-Summary: The city of Orléans in the Loiret region has implemented a comprehensive approach that emphasizes prevention in managing youth delinquency. This initiative has been recognized as a model by the Minister of the Interior.]]></description>
-      <category>Social Progress</category>
-    </item>
-    
-    <item>
-      <title>Manchester City Defeats Wydad AC 2-0 in Club World Cup Match</title>
-      <link>https://www.theguardian.com/football/live/2025/jun/18/manchester-city-v-wydad-ac-club-world-cup-live</link>
-      <pubDate>Wed, 18 Jun 2025 18:51:41 +0000</pubDate>
-      <description><![CDATA[**Headline:** Manchester City Wins 2-0 Against Wydad AC in Club World Cup Match
-
-**Summary:** Phil Foden scored early in the match, followed by a second goal from Jérémy Doku, securing a win for Manchester City. Despite a late red card for Rico Lewis, the team maintained their lead. The match experienced a brief delay at the start, with players being introduced individually to the audience. The weather in Philadelphia was warm and overcast, with similar conditions elsewhere.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>AEA: Decline in Wild Pollinators Causes Concern</title>
-      <link>https://observador.pt/2025/06/18/polinizadores-selvagens-em-declinio-preocupante-alerta-agencia-europeia-do-ambiente/</link>
-      <pubDate>Wed, 18 Jun 2025 19:50:54 +0000</pubDate>
-      <description><![CDATA[Headline: AEA Highlights Importance of Wild Pollinators
-
-Summary: The European Environment Agency (AEA) reports that nearly 80% of crop and wildflower species in the European Union rely on insect pollination, underscoring the important role of these pollinators in maintaining biodiversity and ecosystem health.]]></description>
-      <category>Environment</category>
-    </item>
-    
-    <item>
-      <title>Phil Foden leads Manchester City to victory over Wydad AC, while Rico Lewis receives a red card.</title>
-      <link>https://www.theguardian.com/football/2025/jun/18/manchester-city-wydad-club-world-cup-match-report</link>
-      <pubDate>Wed, 18 Jun 2025 18:50:45 +0000</pubDate>
-      <description><![CDATA[**Headline:** Phil Foden Shines in Manchester City's Victory Against Wydad AC, Despite Rico Lewis’ Red Card
-
-**Summary:** In a midday match held in Philadelphia, Manchester City emerged victorious with a 2-0 win over Wydad AC, thanks to goals from Phil Foden and Jérémy Doku. After a review, Rico Lewis received a red card late in the game. This performance provided an early look at Manchester City's strategies for the 2025-26 season as they began their Club World Cup campaign. Tijjani Reijnders demonstrated versatility by effectively playing in midfield roles, while defensive adjustments could be seen due to the absence of Rúben Dias and John Stones from the starting lineup.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>Sines to Host Wine-Themed Diving Event</title>
-      <link>https://observador.pt/2025/06/18/sines-dedica-dois-dias-ao-enoturismo-subaquatico-com-mergulhos-provas-e-gastronomia/</link>
-      <pubDate>Wed, 18 Jun 2025 19:49:45 +0000</pubDate>
-      <description><![CDATA[Headline: Sines to Host Event Where Participants Retrieve Sea-Aged Wine
-
-Summary: The team from Adega do Mar will invite participants to take part in an activity to retrieve bottles of wine that have been aged underwater.]]></description>
-      <category>Other</category>
-    </item>
-    
-    <item>
-      <title>Brazil Declares Itself Free from Avian Influenza</title>
-      <link>https://observador.pt/2025/06/18/brasil-autodeclara-se-livre-da-gripe-aviaria-depois-de-28-dias-sem-novos-casos/</link>
-      <pubDate>Wed, 18 Jun 2025 19:48:57 +0000</pubDate>
-      <description><![CDATA[Headline: Brazil Announces Freedom from Avian Influenza  
-Summary: Brazil, recognized as the world's leading supplier of poultry, has declared itself free from avian influenza.]]></description>
-      <category>Health</category>
+      
+      <media:content url="https://bordalo.observador.pt/v2/rs:fill:770:403/c:1471:825:nowe:166:422/q:70/plain/https://s3.observador.pt/wp-content/uploads/2014/11/18553748.jpg" medium="image" />
+      
     </item>
     
 
