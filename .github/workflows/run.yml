@@ -36,3 +36,13 @@ jobs:
         with:
           name: mindfulnews.xml
           path: mindfulnews.xml
+
+      - name: Publish RSS feed to GitHub Pages
+        run: |
+          mkdir -p docs
+          cp mindfulnews.xml docs/mindfulnews.xml
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/mindfulnews.xml
+          git commit -m "Publish updated RSS feed [skip ci]" || echo "No changes to commit"
+          git push
