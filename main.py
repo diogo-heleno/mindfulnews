@@ -146,7 +146,7 @@ for a in articles:
     category = category_response.choices[0].message.content.strip()
 
     # Step 5: Validate category
-    validate_prompt = category_validation_prompt_template.replace('"Politics & Governance & Democracy"', f'"{category}"')
+    validate_prompt = category_validation_prompt_template + f'\n\nInput: "{category}"'
 
     validate_response = openai.chat.completions.create(
         model="gpt-4o",
