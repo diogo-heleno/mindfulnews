@@ -26,6 +26,9 @@ with open("prompts/rewrite_prompt.txt", "r") as f:
 with open("prompts/category_prompt.txt", "r") as f:
     category_prompt_template = f.read()
 
+with open("prompts/category_validation_prompt.txt", "r") as f:
+    category_validation_prompt_template = f.read()
+
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -111,7 +114,7 @@ for a in articles:
         print(f"⏭️ Skipping article: {a['title']}")
         continue
 
-    # Step 2: Rewrite title (English, calming, country/region if relevant)
+    # Step 2: Rewrite title
     title_prompt = f"{title_prompt_template}\n\n{a['title']}"
     title_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -120,7 +123,7 @@ for a in articles:
     )
     rewritten_title = title_response.choices[0].message.content.strip()
 
-    # Step 3: Rewrite summary (calm, neutral)
+    # Step 3: Rewrite summary
     rewrite_prompt = f"{rewrite_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
     rewrite_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -142,8 +145,32 @@ for a in articles:
     )
     category = category_response.choices[0].message.content.strip()
 
-    if category not in allowed_categories:
-        print(f"⚠️ Invalid category: {category} → Using 'Other'")
+    # Step 5: Validate category
+    validate_prompt = category_validation_prompt_template.replace('"Politics & Governance & Democracy"', f'"{category}"')
+
+    validate_response = openai.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": validate_prompt}],
+        max_tokens=20
+    )
+    validate_result = validate_response.choices[0].message.content.strip()
+
+    if validate_result.startswith("Valid"):
+        pass  # OK
+    elif validate_result.startswith("Invalid"):
+        try:
+            suggested = validate_result.split("—")[1].strip()
+            if suggested in allowed_categories:
+                print(f"⚠️ Invalid category detected: {category} → Replacing with: {suggested}")
+                category = suggested
+            else:
+                print(f"⚠️ Invalid category detected: {category} → Using 'Other'")
+                category = "Other"
+        except Exception:
+            print(f"⚠️ Could not parse validator response → Using 'Other'")
+            category = "Other"
+    else:
+        print(f"⚠️ Unexpected validator response → Using 'Other'")
         category = "Other"
 
     # Final article
@@ -156,7 +183,7 @@ for a in articles:
         "image": a['image'] or ""
     })
 
-# Render RSS feed using Jinja2
+# Render RSS feed
 env = Environment(loader=FileSystemLoader("templates"))
 template = env.get_template("rss_template.xml")
 
