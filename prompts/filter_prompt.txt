@@ -8,13 +8,13 @@ Reject articles that:
 - Are clearly far-right in bias or tone
 - Use extreme negative or alarmist framing
 - Are clickbait or sensationalist
-- Focus on violent crime, celebrity gossip, or disaster porn
+- Focus on violent crime, celebrity gossip, sports news, or “pop culture” gossip
 - Speculate on worst-case scenarios (“what if”)
 
 Accept articles that:
 
 - Provide useful, factual international or national news
-- Cover culture, science, technology
+- Cover culture, science, technology, environment
 - Highlight positive human stories
 - Provide calm, factual context on current events
 
