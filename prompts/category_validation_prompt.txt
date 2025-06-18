@@ -16,28 +16,24 @@ Other
 
 Rules:
 
-- If the input exactly matches ONE of these categories → respond: Valid
-- If the input is not an exact match → respond: Invalid — [closest matching category from the list]
-- If you are unsure, always return: Invalid — Other
+- Respond always in this format:
+Category: [one exact category name from the list above]
 
 Examples:
 
 Input: "Politics & Governance & Democracy"  
-Response: Invalid — Politics
+Category: Politics
 
 Input: "Environment & Climate"  
-Response: Invalid — Environment
+Category: Environment
 
 Input: "Social Progress"  
-Response: Valid
-
-Input: "Economy & International Trade"  
-Response: Invalid — Economy
-
-Input: "Science and Innovation"  
-Response: Valid
+Category: Social Progress
 
 Input: "Culture & Society"  
-Response: Invalid — Other
+Category: Other
 
-Respond in this exact format — do not add any other text or explanation.
+Input: "Economy"  
+Category: Economy
+
+Respond only in this exact format.
