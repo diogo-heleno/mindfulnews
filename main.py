@@ -4,6 +4,7 @@ import json
 import config
 import os
 import requests
+import re
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
@@ -158,11 +159,15 @@ for a in articles:
     # Always extract validated category:
     try:
         validated_category = validate_result.split("Category:")[1].strip()
+
+        # ⚠️ Filter invalid characters:
+        validated_category = re.sub(r'[^A-Za-z0-9 \-]', '', validated_category).strip()
+
         if validated_category in allowed_categories:
             print(f"✅ Category validated: {validated_category}")
             category = validated_category
         else:
-            print(f"⚠️ Validator returned unknown category → Using 'Other'")
+            print(f"⚠️ Invalid category after cleanup → Using 'Other'")
             category = "Other"
     except Exception:
         print(f"⚠️ Could not parse validator response → Using 'Other'")
