@@ -50,12 +50,12 @@ rewritten_articles = []
 for a in articles:
     # Rewrite
     full_prompt = f"{rewrite_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
-    rewrite_response = openai.ChatCompletion.create(
+    rewrite_response = openai.chat.completions.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": full_prompt}],
         max_tokens=500
     )
-    new_summary = rewrite_response.choices[0].message["content"]
+    new_summary = rewrite_response.choices[0].message.content
 
     # Classify
     category_prompt = f"{category_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
