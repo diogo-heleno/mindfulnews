@@ -12,14 +12,17 @@ with open("feeds.json") as f:
     feeds = json.load(f)
 
 # Load prompts
+with open("prompts/filter_prompt.txt", "r") as f:
+    filter_prompt_template = f.read()
+
+with open("prompts/title_prompt.txt", "r") as f:
+    title_prompt_template = f.read()
+
 with open("prompts/rewrite_prompt.txt", "r") as f:
     rewrite_prompt_template = f.read()
 
 with open("prompts/category_prompt.txt", "r") as f:
     category_prompt_template = f.read()
-
-with open("prompts/title_prompt.txt", "r") as f:
-    title_prompt_template = f.read()
 
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -52,16 +55,20 @@ articles = articles[:config.MAX_ARTICLES]
 rewritten_articles = []
 
 for a in articles:
-    # Rewrite summary
-    full_prompt = f"{rewrite_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
-    rewrite_response = openai.chat.completions.create(
+    # Step 1: Filter article
+    filter_prompt = f"{filter_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
+    filter_response = openai.chat.completions.create(
         model="gpt-4o",
-        messages=[{"role": "user", "content": full_prompt}],
-        max_tokens=500
+        messages=[{"role": "user", "content": filter_prompt}],
+        max_tokens=20
     )
-    new_summary = rewrite_response.choices[0].message.content
+    filter_decision = filter_response.choices[0].message.content.strip()
 
-    # Rewrite title in English
+    if filter_decision != "Acceptable":
+        print(f"⏭️ Skipping article: {a['title']}")
+        continue
+
+    # Step 2: Rewrite title (English, calming)
     title_prompt = f"{title_prompt_template}\n\n{a['title']}"
     title_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -70,7 +77,20 @@ for a in articles:
     )
     rewritten_title = title_response.choices[0].message.content.strip()
 
-    # Classify
+    # Step 3: Rewrite summary (calm, neutral)
+    rewrite_prompt = f"{rewrite_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
+    rewrite_response = openai.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": rewrite_prompt}],
+        max_tokens=500
+    )
+    new_summary = rewrite_response.choices[0].message.content
+
+    if "Skipped due to content" in new_summary:
+        print(f"⏭️ Skipping article during rewrite: {a['title']}")
+        continue
+
+    # Step 4: Classify
     category_prompt = f"{category_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
     category_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -79,6 +99,7 @@ for a in articles:
     )
     category = category_response.choices[0].message.content.strip()
 
+    # Final article
     rewritten_articles.append({
         "title": rewritten_title,
         "link": a['link'],
