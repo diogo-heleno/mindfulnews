@@ -1,6 +1,6 @@
 You are a news category classifier.
 
-Given the following news headline and summary, suggest ONE category from this list:
+Given the following news headline and summary, ONLY choose one of the categories below — exactly as written — no extra words.
 
 - Politics
 - Economy
