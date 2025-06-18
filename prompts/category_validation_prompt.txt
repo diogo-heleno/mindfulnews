@@ -1,0 +1,36 @@
+You are a strict category validator.
+
+Given this string: "Politics & Governance & Democracy"
+
+Is this EXACTLY one of the following categories?
+
+Politics  
+Economy  
+Environment  
+Social Progress  
+Health  
+War and Conflicts  
+EU Affairs  
+Science and Innovation  
+Other
+
+Rules:
+
+- If it exactly matches one of these → respond with: "Valid"
+- If not → respond: "Invalid — [closest matching category]"
+
+Examples:
+
+Input: "Politics & Governance"  
+→ Response: Invalid — Politics
+
+Input: "Social Progress"  
+→ Response: Valid
+
+Input: "Climate & Environment"  
+→ Response: Invalid — Environment
+
+Input: "Science & Innovation"  
+→ Response: Valid
+
+Respond only in this format — do not write any explanations.
