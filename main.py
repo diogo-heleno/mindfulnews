@@ -3,6 +3,8 @@ import openai
 import json
 import config
 import os
+import requests
+from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime, timedelta
@@ -27,6 +29,28 @@ with open("prompts/category_prompt.txt", "r") as f:
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# Function to fetch first image from article page
+def fetch_og_image(url):
+    try:
+        response = requests.get(url, timeout=10)
+        if response.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        og_image = soup.find("meta", property="og:image")
+        if og_image and og_image.get("content"):
+            return og_image["content"]
+        
+        # Fallback — first <img> tag
+        first_img = soup.find("img")
+        if first_img and first_img.get("src"):
+            return first_img["src"]
+
+    except Exception as e:
+        print(f"⚠️ Error fetching image from {url}: {e}")
+
+    return None
+
 # Fetch and parse feeds
 articles = []
 
@@ -37,12 +61,16 @@ for url in feeds:
         if (datetime.now(pub_date.tzinfo) - pub_date).days > config.RUN_INTERVAL_HOURS:  # Skip too old
             continue
 
-        # Try to find image URL
+        # Try to find image URL from RSS
         image_url = None
         if 'media_content' in entry:
             image_url = entry.media_content[0].get('url', None)
         elif 'media_thumbnail' in entry:
             image_url = entry.media_thumbnail[0].get('url', None)
+
+        # If still no image → try to fetch from original article
+        if not image_url:
+            image_url = fetch_og_image(entry.link)
 
         articles.append({
             "title": entry.title,
