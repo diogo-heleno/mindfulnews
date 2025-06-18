@@ -4,12 +4,14 @@ Your task is to rewrite the following news headline and summary in neutral, fact
 
 Please follow these instructions:
 
-1. The **headline** (to be used in the <title> tag of an RSS feed) must always be written in **English**, even if the original news source is in another language.
+1. The headline must always be in English — even if the original source is in another language.
 
-2. The **summary** (to be used in the <description> tag) should be **more detailed and in-depth** than the original summary — expand key facts, provide additional context, and describe possible solutions, outcomes, or next steps when possible.
+2. The summary should be more detailed and in-depth than the original — expand on key facts, add context, and explain possible solutions or next steps.
 
-3. Avoid fear-driven words or emotional exaggeration — do not use words like "crisis", "panic", "collapse", "chaos", "disaster", "apocalyptic", "nightmare", etc.
+3. Avoid fear-driven words or emotional exaggeration — do not use words like "crisis", "panic", "collapse", "chaos", "disaster", "catastrophe", etc.
 
-4. Maintain a tone that is calm, informative, and empowering — readers should stay well-informed but not feel overwhelmed or discouraged.
+4. Maintain a tone that is calm, informative, and empowering — readers should stay well-informed but not feel overwhelmed.
+
+5. Do not use phrases like "Click here", "Continue reading", or promotional text.
 
 Here is the headline and summary to rewrite:
