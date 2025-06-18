@@ -63,6 +63,12 @@ articles = articles[:config.MAX_ARTICLES]
 # Rewrite and classify
 rewritten_articles = []
 
+# List of allowed categories
+allowed_categories = [
+    "Politics", "Economy", "Environment", "Social Progress",
+    "Health", "War and Conflicts", "EU Affairs", "Science and Innovation", "Other"
+]
+
 for a in articles:
     # Step 1: Filter article
     filter_prompt = f"{filter_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
@@ -107,6 +113,10 @@ for a in articles:
         max_tokens=20
     )
     category = category_response.choices[0].message.content.strip()
+
+    if category not in allowed_categories:
+        print(f"⚠️ Invalid category: {category} → Using 'Other'")
+        category = "Other"
 
     # Final article
     rewritten_articles.append({
