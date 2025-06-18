@@ -13,7 +13,7 @@
       <link>{{ article.link }}</link>
       <pubDate>{{ article.pubDate }}</pubDate>
       <description><![CDATA[{{ article.summary }}]]></description>
-      <category>{{ article.category }}</category>
+      <category>{{ article.category | e }}</category>
     </item>
     {% endfor %}
 
