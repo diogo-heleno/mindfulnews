@@ -31,8 +31,9 @@ jobs:
       run: |
         python main.py
 
-    - name: Upload RSS feed as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: mindfulnews.xml
-        path: mindfulnews.xml
+- name: Upload RSS feed as artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: mindfulnews.xml
+    path: mindfulnews.xml
+
