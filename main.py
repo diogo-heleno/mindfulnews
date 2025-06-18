@@ -60,12 +60,12 @@ for a in articles:
 
     # Classify
     category_prompt = f"{category_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
-    category_response = openai.ChatCompletion.create(
+    category_response = openai.chat.completions.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": category_prompt}],
         max_tokens=20
     )
-    category = category_response.choices[0].message["content"].strip()
+    category = category_response.choices[0].message.content.strip()
 
     rewritten_articles.append({
         "title": a['title'],
