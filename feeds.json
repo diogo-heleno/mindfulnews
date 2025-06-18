@@ -1,5 +1,6 @@
 [
-  "https://www.theguardian.com/uk/rss",
+  "https://www.theguardian.com/europe/rss",
+  "https://www.theguardian.com/world/rss",
   "http://feeds.bbci.co.uk/news/rss.xml",
   "https://www.euronews.com/rss?level=theme&name=home",
   "https://www.lemonde.fr/rss/une.xml",
