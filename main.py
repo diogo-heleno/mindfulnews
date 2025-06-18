@@ -145,7 +145,7 @@ for a in articles:
     )
     category = category_response.choices[0].message.content.strip()
 
-    # Step 5: Validate category
+    # Step 5: Validate category — always replace category
     validate_prompt = category_validation_prompt_template + f'\n\nInput: "{category}"'
 
     validate_response = openai.chat.completions.create(
@@ -155,22 +155,17 @@ for a in articles:
     )
     validate_result = validate_response.choices[0].message.content.strip()
 
-    if validate_result.startswith("Valid"):
-        pass  # OK
-    elif validate_result.startswith("Invalid"):
-        try:
-            suggested = validate_result.split("—")[1].strip()
-            if suggested in allowed_categories:
-                print(f"⚠️ Invalid category detected: {category} → Replacing with: {suggested}")
-                category = suggested
-            else:
-                print(f"⚠️ Invalid category detected: {category} → Using 'Other'")
-                category = "Other"
-        except Exception:
-            print(f"⚠️ Could not parse validator response → Using 'Other'")
+    # Always extract validated category:
+    try:
+        validated_category = validate_result.split("Category:")[1].strip()
+        if validated_category in allowed_categories:
+            print(f"✅ Category validated: {validated_category}")
+            category = validated_category
+        else:
+            print(f"⚠️ Validator returned unknown category → Using 'Other'")
             category = "Other"
-    else:
-        print(f"⚠️ Unexpected validator response → Using 'Other'")
+    except Exception:
+        print(f"⚠️ Could not parse validator response → Using 'Other'")
         category = "Other"
 
     # Final article
