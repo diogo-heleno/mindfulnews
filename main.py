@@ -27,7 +27,7 @@ for url in feeds:
     feed = feedparser.parse(url)
     for entry in feed.entries:
         pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
-        if (datetime.utcnow() - pub_date).days > config.RUN_INTERVAL_HOURS:  # Skip too old
+        if (datetime.now(pub_date.tzinfo) - pub_date).days > config.RUN_INTERVAL_HOURS:  # Skip too old
             continue
         articles.append({
             "title": entry.title,
