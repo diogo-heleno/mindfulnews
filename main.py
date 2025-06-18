@@ -18,6 +18,9 @@ with open("prompts/rewrite_prompt.txt", "r") as f:
 with open("prompts/category_prompt.txt", "r") as f:
     category_prompt_template = f.read()
 
+with open("prompts/title_prompt.txt", "r") as f:
+    title_prompt_template = f.read()
+
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -49,7 +52,7 @@ articles = articles[:config.MAX_ARTICLES]
 rewritten_articles = []
 
 for a in articles:
-    # Rewrite
+    # Rewrite summary
     full_prompt = f"{rewrite_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
     rewrite_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -57,6 +60,15 @@ for a in articles:
         max_tokens=500
     )
     new_summary = rewrite_response.choices[0].message.content
+
+    # Rewrite title in English
+    title_prompt = f"{title_prompt_template}\n\n{a['title']}"
+    title_response = openai.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": title_prompt}],
+        max_tokens=100
+    )
+    rewritten_title = title_response.choices[0].message.content.strip()
 
     # Classify
     category_prompt = f"{category_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
@@ -68,7 +80,7 @@ for a in articles:
     category = category_response.choices[0].message.content.strip()
 
     rewritten_articles.append({
-        "title": a['title'],
+        "title": rewritten_title,
         "link": a['link'],
         "summary": new_summary,
         "pubDate": a['pubDate'].strftime('%a, %d %b %Y %H:%M:%S +0000'),
