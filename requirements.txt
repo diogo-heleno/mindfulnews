@@ -1,0 +1,4 @@
+feedparser
+openai
+jinja2
+python-dateutil
