@@ -2,7 +2,7 @@
 # Mindful News
 
 **Mindful News** — [https://MindfulNews.media](https://MindfulNews.media) — is a project to create a *calm, constructive, non-alarmist news feed* — for people who want to stay informed without being overwhelmed by fear, negativity, clickbait, or outrage.
-
+ 
 👉 Live feed: [https://diogo-heleno.github.io/mindfulnews/mindfulnews.xml](https://diogo-heleno.github.io/mindfulnews/mindfulnews.xml)
 
 ---
