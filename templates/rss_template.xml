@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mindful News Aggregator -->
-<!-- rss_template.xml version: 2025-06-18-01 -->
+<!-- rss_template.xml version: 2025-06-19-01 -->
 
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
@@ -22,8 +22,8 @@
       <description><![CDATA[{{ article.summary }}]]></description>
       <content:encoded><![CDATA[{{ article.summary }}]]></content:encoded>
       <category><![CDATA[{{ article.category }}]]></category>
-      {% if article.image %}
-      <media:content url="{{ article.image }}" medium="image"></media:content>
+      {% if article.safe_image_url %}
+      <media:content url="{{ article.safe_image_url }}" medium="image"></media:content>
       {% endif %}
     </item>
     {% endfor %}
