@@ -1,5 +1,5 @@
 # main_v3.py - Mindful News v3 engine
-# version: 2025-06-19-v3.0
+# version: 2025-06-19-v3.2
 
 import feedparser
 import openai
@@ -13,16 +13,39 @@ from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime
 
-# Load feeds
+# --- Version checker ---
+def get_file_version(filepath):
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            for line in f:
+                version_match = re.search(r'version.*?:\s*(.*)', line, re.IGNORECASE)
+                if version_match:
+                    return version_match.group(1).strip()
+    except Exception as e:
+        return "unknown"
+    return "unknown"
+
+# --- Load files ---
 with open("feeds.json") as f:
     feeds = json.load(f)
+feeds_version = get_file_version("feeds.json")
 
-# Load prompts
 with open("prompts/clustering_prompt.txt", "r") as f:
     clustering_prompt_template = f.read()
+clustering_version = get_file_version("prompts/clustering_prompt.txt")
 
 with open("prompts/synthesis_prompt.txt", "r") as f:
     synthesis_prompt_template = f.read()
+synthesis_version = get_file_version("prompts/synthesis_prompt.txt")
+
+template_version = get_file_version("templates/rss_template.xml")
+
+# --- Print version info ---
+print("\n🚀 Mindful News v3 — version check:\n")
+print(f"feeds.json version: {feeds_version}")
+print(f"clustering_prompt.txt version: {clustering_version}")
+print(f"synthesis_prompt.txt version: {synthesis_version}")
+print(f"rss_template.xml version: {template_version}\n")
 
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -95,7 +118,7 @@ for a in articles:
 
 clustering_prompt = f"{clustering_prompt_template}\n\n{clustering_input}"
 
-clustering_response = openai.chat.completions.create(
+clustering_response = openai.ChatCompletion.create(
     model="gpt-4o",
     messages=[{"role": "user", "content": clustering_prompt}],
     max_tokens=4000
@@ -136,7 +159,7 @@ for topic, url_list in topic_groups.items():
 
     synthesis_prompt = f"{synthesis_prompt_template}\n\n{synthesis_input}"
 
-    synthesis_response = openai.chat.completions.create(
+    synthesis_response = openai.ChatCompletion.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": synthesis_prompt}],
         max_tokens=1000
@@ -156,6 +179,10 @@ for topic, url_list in topic_groups.items():
 
     chosen_image = topic_articles[0]['image']
     latest_date = max([a['pubDate'] for a in topic_articles])
+
+    # IMPORTANT — escape & in image URL for XML
+    if chosen_image:
+        chosen_image = chosen_image.replace("&", "&amp;")
 
     rewritten_topics.append({
         "title": headline,
