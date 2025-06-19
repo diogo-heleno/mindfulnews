@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Mindful News Aggregator -->
+<!-- rss_template.xml version: 2025-06-18-01 -->
+
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -18,7 +21,7 @@
       <pubDate>{{ article.pubDate }}</pubDate>
       <description><![CDATA[{{ article.summary }}]]></description>
       <content:encoded><![CDATA[{{ article.summary }}]]></content:encoded>
-      <category>{{ article.category | e }}</category>
+      <category><![CDATA[{{ article.category }}]]></category>
       {% if article.image %}
       <media:content url="{{ article.image }}" medium="image"></media:content>
       {% endif %}
