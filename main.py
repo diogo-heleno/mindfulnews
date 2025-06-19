@@ -144,10 +144,10 @@ for a in articles:
         messages=[{"role": "user", "content": category_prompt}],
         max_tokens=20
     )
-    category = category_response.choices[0].message.content.strip()
+    raw_category = category_response.choices[0].message.content.strip()
 
     # Step 5: Validate category — always replace category
-    validate_prompt = category_validation_prompt_template + f'\n\nInput: "{category}"'
+    validate_prompt = category_validation_prompt_template + f'\n\nInput: "{raw_category}"'
 
     validate_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -173,8 +173,14 @@ for a in articles:
             print(f"⚠️ Invalid category after cleanup → Using 'Other'")
             category = "Other"
     else:
-        print(f"⚠️ Invalid validator format → Using 'Other'")
-        category = "Other"
+        # Fallback — attempt to clean raw_category
+        fallback_category = re.sub(r'[^A-Za-z0-9 \-]', '', raw_category).strip()
+        if fallback_category in allowed_categories:
+            print(f"✅ Fallback validated category: {fallback_category}")
+            category = fallback_category
+        else:
+            print(f"⚠️ Fallback invalid category → Using 'Other'")
+            category = "Other"
 
     # Final article
     rewritten_articles.append({
