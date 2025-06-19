@@ -1,4 +1,5 @@
-# main.py version: 2025-06-19-03
+# Mindful News Aggregator - main_v3.py
+# version: 2025-06-19-v3.0
 
 import feedparser
 import openai
@@ -12,64 +13,28 @@ from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime, timedelta
 
-# ==== Main version ====
-VERSION_MAIN = "2025-06-19-03"
-# ======================
-
-# Function to extract version from first line of prompt
-def extract_version(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        first_line = f.readline().strip()
-        if "version:" in first_line:
-            return first_line.split("version:")[1].strip()
-        else:
-            return "unknown"
-
-# Function to extract version from first 5 lines of template
-def extract_template_version(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        for _ in range(5):
-            line = f.readline().strip()
-            if "version:" in line:
-                return line.split("version:")[1].strip()
-        return "unknown"
-
 # Load feeds
 with open("feeds.json") as f:
     feeds = json.load(f)
 
-# Load prompts + versions
-VERSION_PROMPT_FILTER = extract_version("prompts/filter_prompt.txt")
-with open("prompts/filter_prompt.txt", "r", encoding="utf-8") as f:
+# Load prompts
+with open("prompts/filter_prompt.txt", "r") as f:
     filter_prompt_template = f.read()
 
-VERSION_PROMPT_TITLE = extract_version("prompts/title_prompt.txt")
-with open("prompts/title_prompt.txt", "r", encoding="utf-8") as f:
+with open("prompts/title_prompt.txt", "r") as f:
     title_prompt_template = f.read()
 
-VERSION_PROMPT_REWRITE = extract_version("prompts/rewrite_prompt.txt")
-with open("prompts/rewrite_prompt.txt", "r", encoding="utf-8") as f:
+with open("prompts/rewrite_prompt.txt", "r") as f:
     rewrite_prompt_template = f.read()
 
-VERSION_PROMPT_CATEGORY = extract_version("prompts/category_prompt.txt")
-with open("prompts/category_prompt.txt", "r", encoding="utf-8") as f:
+with open("prompts/category_prompt.txt", "r") as f:
     category_prompt_template = f.read()
 
-VERSION_PROMPT_VALIDATION = extract_version("prompts/category_validation_prompt.txt")
-with open("prompts/category_validation_prompt.txt", "r", encoding="utf-8") as f:
-    category_validation_prompt_template = f.read()
+with open("prompts/clustering_prompt.txt", "r") as f:
+    clustering_prompt_template = f.read()
 
-# Load template version
-VERSION_TEMPLATE = extract_template_version("templates/rss_template.xml")
-
-# Print versions
-print(f"🗞️ MindfulNews Aggregator - main.py version: {VERSION_MAIN}")
-print(f"📄 Using template: {VERSION_TEMPLATE}")
-print(f"📄 Using prompt_filter: {VERSION_PROMPT_FILTER}")
-print(f"📄 Using prompt_title: {VERSION_PROMPT_TITLE}")
-print(f"📄 Using prompt_rewrite: {VERSION_PROMPT_REWRITE}")
-print(f"📄 Using prompt_category: {VERSION_PROMPT_CATEGORY}")
-print(f"📄 Using prompt_validation: {VERSION_PROMPT_VALIDATION}")
+with open("prompts/synthesis_prompt.txt", "r") as f:
+    synthesis_prompt_template = f.read()
 
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -99,31 +64,33 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-for url in feeds:
-    feed = feedparser.parse(url)
-    for entry in feed.entries:
-        pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
-        if (datetime.now(pub_date.tzinfo) - pub_date).days > config.RUN_INTERVAL_HOURS:  # Skip too old
-            continue
+for region, region_feeds in feeds.items():
+    for url in region_feeds:
+        print(f"🌍 Fetching: {url} ({region})")
+        feed = feedparser.parse(url)
+        for entry in feed.entries:
+            pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
+            if (datetime.now(pub_date.tzinfo) - pub_date).days > config.RUN_INTERVAL_HOURS:
+                continue
 
-        # Try to find image URL from RSS
-        image_url = None
-        if 'media_content' in entry:
-            image_url = entry.media_content[0].get('url', None)
-        elif 'media_thumbnail' in entry:
-            image_url = entry.media_thumbnail[0].get('url', None)
+            # Try to find image URL from RSS
+            image_url = None
+            if 'media_content' in entry:
+                image_url = entry.media_content[0].get('url', None)
+            elif 'media_thumbnail' in entry:
+                image_url = entry.media_thumbnail[0].get('url', None)
 
-        # If still no image → try to fetch from original article
-        if not image_url:
-            image_url = fetch_og_image(entry.link)
+            if not image_url:
+                image_url = fetch_og_image(entry.link)
 
-        articles.append({
-            "title": entry.title,
-            "link": entry.link,
-            "summary": entry.get("summary", ""),
-            "pubDate": pub_date,
-            "image": image_url
-        })
+            articles.append({
+                "title": entry.title,
+                "link": entry.link,
+                "summary": entry.get("summary", ""),
+                "pubDate": pub_date,
+                "image": image_url,
+                "region": region
+            })
 
 # Deduplicate by link
 unique_articles = {a['link']: a for a in articles}
@@ -133,17 +100,10 @@ articles = list(unique_articles.values())
 articles = sorted(articles, key=lambda x: x['pubDate'], reverse=True)
 articles = articles[:config.MAX_ARTICLES]
 
-# Rewrite and classify
-rewritten_articles = []
-
-# List of allowed categories
-allowed_categories = [
-    "Politics", "Economy", "Environment", "Social Progress",
-    "Health", "War and Conflicts", "EU Affairs", "Science and Innovation", "Other"
-]
+# Step 1: Filter articles
+filtered_articles = []
 
 for a in articles:
-    # Step 1: Filter article
     filter_prompt = f"{filter_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
     filter_response = openai.chat.completions.create(
         model="gpt-4o",
@@ -152,89 +112,59 @@ for a in articles:
     )
     filter_decision = filter_response.choices[0].message.content.strip()
 
-    if filter_decision != "Acceptable":
-        print(f"⏭️ Skipping article: {a['title']}")
-        continue
+    if filter_decision == "Acceptable":
+        filtered_articles.append(a)
+    else:
+        print(f"⏭️ Skipping: {a['title']} ({filter_decision})")
 
-    # Step 2: Rewrite title
-    title_prompt = f"{title_prompt_template}\n\n{a['title']}"
-    title_response = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": title_prompt}],
-        max_tokens=100
-    )
-    rewritten_title = title_response.choices[0].message.content.strip()
+print(f"✅ Filtered articles: {len(filtered_articles)}")
 
-    # Step 3: Rewrite summary
-    rewrite_prompt = f"{rewrite_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
-    rewrite_response = openai.chat.completions.create(
+# Step 2: Prepare clustering prompt
+article_list_text = ""
+for a in filtered_articles:
+    article_list_text += f"Title: {a['title']}\nSummary: {a['summary']}\nURL: {a['link']}\nRegion: {a['region']}\n\n"
+
+clustering_prompt = f"{clustering_prompt_template}\n\n{article_list_text}"
+
+# Step 3: Call GPT for clustering
+clustering_response = openai.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": clustering_prompt}],
+    max_tokens=3000
+)
+
+clustering_result = clustering_response.choices[0].message.content.strip()
+print(f"🧩 Clustering result:\n{clustering_result}")
+
+# Now parse clustering result (you will need to parse GPT response here — I will help you in next version)
+
+# For this v3 skeleton — simulate 1 story per article (no actual clustering yet)
+final_articles = []
+
+for a in filtered_articles:
+    synthesis_prompt = f"{synthesis_prompt_template}\n\nTitle: {a['title']}\nSummary: {a['summary']}\nRegion: {a['region']}\nURL: {a['link']}"
+    synthesis_response = openai.chat.completions.create(
         model="gpt-4o",
-        messages=[{"role": "user", "content": rewrite_prompt}],
+        messages=[{"role": "user", "content": synthesis_prompt}],
         max_tokens=500
     )
-    new_summary = rewrite_response.choices[0].message.content
+    synthesis_result = synthesis_response.choices[0].message.content.strip()
 
-    if "Skipped due to content" in new_summary:
-        print(f"⏭️ Skipping article during rewrite: {a['title']}")
-        continue
-
-    # Step 4: Classify
-    category_prompt = f"{category_prompt_template}\n\nHeadline: {a['title']}\nSummary: {a['summary']}"
-    category_response = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": category_prompt}],
-        max_tokens=20
-    )
-    raw_category = category_response.choices[0].message.content.strip()
-
-    # Step 5: Validate category — always replace category
-    validate_prompt = category_validation_prompt_template + f'\n\nInput: "{raw_category}"'
-
-    validate_response = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": validate_prompt}],
-        max_tokens=20
-    )
-    validate_result = validate_response.choices[0].message.content.strip()
-
-    # Log the raw validator result — for debugging!
-    print(f"🟢 Validator raw result: {validate_result}")
-
-    # Always extract validated category:
-    if "Category:" in validate_result:
-        validated_category = validate_result.split("Category:")[1].strip()
-
-        # ⚠️ Filter invalid characters:
-        validated_category = re.sub(r'[^A-Za-z0-9 \-]', '', validated_category).strip()
-
-        if validated_category in allowed_categories:
-            print(f"✅ Category validated: {validated_category}")
-            category = validated_category
-        else:
-            print(f"⚠️ Invalid category after cleanup → Using 'Other'")
-            category = "Other"
+    # Parse synthesis result:
+    if "Headline:" in synthesis_result and "Summary:" in synthesis_result:
+        headline = synthesis_result.split("Headline:")[1].split("Summary:")[0].strip()
+        summary = synthesis_result.split("Summary:")[1].strip()
     else:
-        # Fallback — attempt to clean raw_category
-        fallback_category = re.sub(r'[^A-Za-z0-9 \-]', '', raw_category).strip()
-        if fallback_category in allowed_categories:
-            print(f"✅ Fallback validated category: {fallback_category}")
-            category = fallback_category
-        else:
-            print(f"⚠️ Fallback invalid category → Using 'Other'")
-            category = "Other"
+        headline = a['title']
+        summary = a['summary']
 
-    # Create safe_image_url (escapes & to &amp;)
-    safe_image_url = re.sub(r'&', '&amp;', a['image']) if a['image'] else ""
-
-    # Final article
-    rewritten_articles.append({
-        "title": rewritten_title,
+    final_articles.append({
+        "title": headline,
         "link": a['link'],
-        "summary": new_summary,
+        "summary": summary,
         "pubDate": a['pubDate'].strftime('%a, %d %b %Y %H:%M:%S +0000'),
-        "category": category,
-        "image": a['image'] or "",
-        "safe_image_url": safe_image_url
+        "category": "Other",  # For now — can be improved
+        "image": a['image'] or ""
     })
 
 # Render RSS feed
@@ -242,11 +172,11 @@ env = Environment(loader=FileSystemLoader("templates"))
 template = env.get_template("rss_template.xml")
 
 rss_content = template.render(
-    articles=rewritten_articles,
+    articles=final_articles,
     build_date=datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
 with open(config.OUTPUT_RSS_FILE, "w", encoding="utf-8") as f:
     f.write(rss_content)
 
-print(f"✅ {len(rewritten_articles)} articles written to {config.OUTPUT_RSS_FILE}")
+print(f"✅ {len(final_articles)} articles written to {config.OUTPUT_RSS_FILE}")
