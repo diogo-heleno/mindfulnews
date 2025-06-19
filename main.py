@@ -1,5 +1,4 @@
-# Mindful News Aggregator
-# main.py version: 2025-06-18-01
+# main.py version: 2025-06-19-01
 
 import feedparser
 import openai
@@ -13,25 +12,55 @@ from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime, timedelta
 
+# ==== Main version ====
+VERSION_MAIN = "2025-06-19-01"
+# ======================
+
+# Function to extract version from first line of file
+def extract_version(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        first_line = f.readline().strip()
+        if "version:" in first_line:
+            return first_line.split("version:")[1].strip()
+        else:
+            return "unknown"
+
 # Load feeds
 with open("feeds.json") as f:
     feeds = json.load(f)
 
 # Load prompts
-with open("prompts/filter_prompt.txt", "r") as f:
+VERSION_PROMPT_FILTER = extract_version("prompts/filter_prompt.txt")
+with open("prompts/filter_prompt.txt", "r", encoding="utf-8") as f:
     filter_prompt_template = f.read()
 
-with open("prompts/title_prompt.txt", "r") as f:
+VERSION_PROMPT_TITLE = extract_version("prompts/title_prompt.txt")
+with open("prompts/title_prompt.txt", "r", encoding="utf-8") as f:
     title_prompt_template = f.read()
 
-with open("prompts/rewrite_prompt.txt", "r") as f:
+VERSION_PROMPT_REWRITE = extract_version("prompts/rewrite_prompt.txt")
+with open("prompts/rewrite_prompt.txt", "r", encoding="utf-8") as f:
     rewrite_prompt_template = f.read()
 
-with open("prompts/category_prompt.txt", "r") as f:
+VERSION_PROMPT_CATEGORY = extract_version("prompts/category_prompt.txt")
+with open("prompts/category_prompt.txt", "r", encoding="utf-8") as f:
     category_prompt_template = f.read()
 
-with open("prompts/category_validation_prompt.txt", "r") as f:
+VERSION_PROMPT_VALIDATION = extract_version("prompts/category_validation_prompt.txt")
+with open("prompts/category_validation_prompt.txt", "r", encoding="utf-8") as f:
     category_validation_prompt_template = f.read()
+
+# Load template version
+VERSION_TEMPLATE = extract_version("templates/rss_template.xml")
+
+# Print versions
+print(f"🗞️ MindfulNews Aggregator - main.py version: {VERSION_MAIN}")
+print(f"📄 Using template: {VERSION_TEMPLATE}")
+print(f"📄 Using prompt_filter: {VERSION_PROMPT_FILTER}")
+print(f"📄 Using prompt_title: {VERSION_PROMPT_TITLE}")
+print(f"📄 Using prompt_rewrite: {VERSION_PROMPT_REWRITE}")
+print(f"📄 Using prompt_category: {VERSION_PROMPT_CATEGORY}")
+print(f"📄 Using prompt_validation: {VERSION_PROMPT_VALIDATION}")
 
 # Setup OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -47,7 +76,7 @@ def fetch_og_image(url):
         og_image = soup.find("meta", property="og:image")
         if og_image and og_image.get("content"):
             return og_image["content"]
-        
+
         # Fallback — first <img> tag
         first_img = soup.find("img")
         if first_img and first_img.get("src"):
@@ -184,9 +213,6 @@ for a in articles:
         else:
             print(f"⚠️ Fallback invalid category → Using 'Other'")
             category = "Other"
-
-    # Log final category that will go to RSS:
-    print(f"📢 Final category going to RSS: {category}")
 
     # Final article
     rewritten_articles.append({
