@@ -1,4 +1,4 @@
-# main_v3.8.py — version: 2025-06-19-v3.8
+# 🚀 Mindful News v4 — version: 2025-06-19-v4.0
 
 import feedparser
 import openai
@@ -10,35 +10,40 @@ import re
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
+import time
 
-# VERSION CHECK
-MAIN_VERSION = "2025-06-19-v3.8"
+# === Version check ===
+def extract_version(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                if "version:" in line:
+                    return line.strip().split("version:")[1].strip()
+    except:
+        return "unknown"
 
-# Load feeds
+print("Mindful News v4 — version check:\n")
+print("main_v4.py version: 2025-06-19-v4.0")
+print(f"feeds.json version: {extract_version('feeds.json')}")
+print(f"clustering_prompt_v4.txt version: {extract_version('prompts/clustering_prompt_v4.txt')}")
+print(f"synthesis_prompt_v4.txt version: {extract_version('prompts/synthesis_prompt_v4.txt')}")
+print(f"rss_template.xml version: {extract_version('templates/rss_template.xml')}\n")
+
+# === Load files ===
 with open("feeds.json") as f:
-    feeds_data = json.load(f)
-    feeds_version = feeds_data.get("_version", "unknown")
-    feeds = []
-    for region, urls in feeds_data.items():
-        if region != "_version":
-            feeds.extend(urls)
+    feeds = json.load(f)
 
-# Load prompts
-def load_prompt(filename):
-    with open(filename, "r") as f:
-        text = f.read()
-    version_match = re.search(r"version:\s*(\S+)", text)
-    version = version_match.group(1) if version_match else "unknown"
-    return text, version
+with open("prompts/clustering_prompt_v4.txt", "r") as f:
+    clustering_prompt_template = f.read()
 
-clustering_prompt, clustering_version = load_prompt("prompts/clustering_prompt.txt")
-synthesis_prompt, synthesis_version = load_prompt("prompts/synthesis_prompt.txt")
+with open("prompts/synthesis_prompt_v4.txt", "r") as f:
+    synthesis_prompt_template = f.read()
 
-# Setup OpenAI
+# === Setup OpenAI ===
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Function to fetch first image from article page
+# === Fetch image ===
 def fetch_og_image(url):
     try:
         response = requests.get(url, timeout=10)
@@ -55,121 +60,106 @@ def fetch_og_image(url):
         print(f"⚠️ Error fetching image from {url}: {e}")
     return None
 
-# Version check print
-print("\nMindful News v3 — version check:\n")
-print(f"main.py version: {MAIN_VERSION}")
-print(f"feeds.json version: {feeds_version}")
-print(f"clustering_prompt.txt version: {clustering_version}")
-print(f"synthesis_prompt.txt version: {synthesis_version}\n")
-
-# Fetch and parse feeds
+# === Fetch feeds ===
 articles = []
-for url in feeds:
-    print(f"🌍 Fetching feed: {url}")
-    feed = feedparser.parse(url)
-    for entry in feed.entries:
-        try:
+for region, urls in feeds.items():
+    for url in urls:
+        print(f"🌍 Fetching feed: {url}")
+        feed = feedparser.parse(url)
+        for entry in feed.entries:
             pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
-        except Exception:
-            pub_date = datetime.utcnow()
+            if pub_date.tzinfo is None:
+                pub_date = pub_date.replace(tzinfo=timezone.utc)
+            if (datetime.now(timezone.utc) - pub_date).days > config.RUN_INTERVAL_HOURS:
+                continue
 
-        image_url = None
-        if 'media_content' in entry:
-            image_url = entry.media_content[0].get('url', None)
-        elif 'media_thumbnail' in entry:
-            image_url = entry.media_thumbnail[0].get('url', None)
-        if not image_url:
-            image_url = fetch_og_image(entry.link)
+            image_url = None
+            if 'media_content' in entry:
+                image_url = entry.media_content[0].get('url', None)
+            elif 'media_thumbnail' in entry:
+                image_url = entry.media_thumbnail[0].get('url', None)
+            if not image_url:
+                image_url = fetch_og_image(entry.link)
 
-        articles.append({
-            "title": entry.title,
-            "link": entry.link,
-            "summary": entry.get("summary", ""),
-            "pubDate": pub_date,
-            "image": image_url or ""
-        })
+            articles.append({
+                "title": entry.title,
+                "link": entry.link,
+                "summary": entry.get("summary", ""),
+                "pubDate": pub_date,
+                "image": image_url
+            })
 
 print(f"\n✅ Total articles fetched: {len(articles)}")
 
-# Deduplicate
+# Deduplicate by link
 unique_articles = {a['link']: a for a in articles}
 articles = list(unique_articles.values())
-print(f"✅ Total articles after dedup: {len(articles)}\n")
 
-# Sort by date
-for article in articles:
-    if article["pubDate"].tzinfo is None:
-        article["pubDate"] = article["pubDate"].replace(tzinfo=datetime.now().astimezone().tzinfo)
-
-articles = sorted(articles, key=lambda x: x["pubDate"], reverse=True)
+# Sort
+articles = sorted(articles, key=lambda x: x['pubDate'], reverse=True)
 articles = articles[:config.MAX_ARTICLES]
 
-# Chunk into groups for clustering
-chunk_size = 20
-chunks = [articles[i:i + chunk_size] for i in range(0, len(articles), chunk_size)]
+print(f"✅ Total articles after dedup: {len(articles)}\n")
 
-clusters = []
+# === Clustering step ===
+headlines_text = "\n".join([f"- {a['title']}" for a in articles])
+clustering_prompt = clustering_prompt_template.replace("{{ headlines }}", headlines_text)
 
-for idx, chunk in enumerate(chunks):
-    print(f"🚀 Running clustering on chunk {idx + 1}/{len(chunks)} — {len(chunk)} articles")
-
-    chunk_text = ""
-    for article in chunk:
-        chunk_text += f"---\nHeadline: {article['title']}\nSummary: {article['summary']}\nLink: {article['link']}\n\n"
-
-    full_clustering_prompt = clustering_prompt + f"\n\n{chunk_text}"
-
-    response = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": full_clustering_prompt}],
-        max_tokens=3000
-    )
-    clusters_text = response.choices[0].message.content.strip()
-    clusters.append(clusters_text)
-
-print(f"\n✅ Clustering done.\n")
-
-# Combine clusters
-all_clusters_text = "\n\n".join(clusters)
-
-# Run synthesis
-print("📝 Running synthesis prompt...")
-final_prompt = synthesis_prompt + f"\n\n{all_clusters_text}"
-
-response = openai.chat.completions.create(
+# Use latest OpenAI API format
+clustering_response = openai.chat.completions.create(
     model="gpt-4o",
-    messages=[{"role": "user", "content": final_prompt}],
-    max_tokens=4000
+    messages=[{"role": "user", "content": clustering_prompt}],
+    max_tokens=2000
 )
-final_rss_text = response.choices[0].message.content.strip()
 
-# Parse final items
+cluster_text = clustering_response.choices[0].message.content
+print(f"\n✅ Clustering done.\n")
+# Parse cluster headlines (example → user must refine parsing later)
+clustered_headlines = re.findall(r"- (.+)", cluster_text)
+
+# === Synthesis step per cluster ===
 rss_items = []
-item_blocks = re.split(r"---+", final_rss_text)
+for cluster_title in clustered_headlines:
+    print(f"\n📰 Synthesizing: {cluster_title}")
 
-for block in item_blocks:
-    block = block.strip()
-    if not block:
-        continue
-    title_match = re.search(r"Title:\s*(.+)", block)
-    summary_match = re.search(r"Summary:\s*(.+)", block, re.DOTALL)
-    link_match = re.search(r"Link:\s*(.+)", block)
-    category_match = re.search(r"Category:\s*(.+)", block)
+    # Attempt to search online (browsing)
+    try:
+        browsing_response = openai.chat.completions.create(
+            model="gpt-4o",
+            messages=[{
+                "role": "user",
+                "content": synthesis_prompt_template.replace("{{ topic }}", cluster_title)
+            }],
+            max_tokens=2000
+        )
+        summary_text = browsing_response.choices[0].message.content
+        print("✅ Used GPT-4o browsing.")
+    except Exception as e:
+        print(f"⚠️ GPT browsing failed, fallback to RSS. Reason: {e}")
+        summary_text = f"Summary of latest news about {cluster_title}:\n\n"
+        for a in articles:
+            if cluster_title.lower() in a['title'].lower():
+                summary_text += f"- {a['title']}: {a['summary']}\n"
 
-    if title_match and summary_match and link_match and category_match:
-        item = {
-            "title": title_match.group(1).strip(),
-            "summary": summary_match.group(1).strip(),
-            "link": link_match.group(1).strip(),
-            "category": category_match.group(1).strip(),
-            "pubDate": datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000'),
-            "image": ""
-        }
-        rss_items.append(item)
+    # Select first valid image
+    image_url = None
+    for a in articles:
+        if cluster_title.lower() in a['title'].lower() and a['image']:
+            image_url = a['image']
+            break
+
+    # Final item
+    rss_items.append({
+        "title": cluster_title,
+        "summary": summary_text,
+        "pubDate": datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000'),
+        "link": "https://www.mindfulnews.media",  # Can be improved
+        "image": image_url or ""
+    })
 
 print(f"\n✅ Final RSS items: {len(rss_items)}")
 
-# Render RSS feed
+# === Render RSS feed ===
 env = Environment(loader=FileSystemLoader("templates"))
 template = env.get_template("rss_template.xml")
 
