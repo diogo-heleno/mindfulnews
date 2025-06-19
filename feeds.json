@@ -1,12 +1,49 @@
-[
-  "https://www.theguardian.com/europe/rss",
-  "https://www.theguardian.com/world/rss",
-  "http://feeds.bbci.co.uk/news/rss.xml",
-  "https://www.euronews.com/rss?level=theme&name=home",
-  "https://www.lemonde.fr/rss/une.xml",
-  "https://www.lefigaro.fr/rss/figaro_actualites.xml",
-  "https://elpais.com/rss/elpais/portada.xml",
-  "https://www.publico.pt/rss",
-  "https://expresso.pt/rss",
-  "https://observador.pt/feed/"
-]
+{
+  "Europe": [
+    "https://www.euronews.com/rss?level=theme&name=world",
+    "https://www.politico.eu/feed/",
+    "https://www.reuters.com/rssFeed/worldNews",
+    "https://www.theguardian.com/world/rss",
+    "https://www.lemonde.fr/rss/une.xml",
+    "https://elpais.com/rss/feed.html?feedId=1022",
+    "https://observador.pt/feed/"
+  ],
+  "Middle East": [
+    "https://www.aljazeera.com/xml/rss/all.xml",
+    "https://www.reuters.com/rssFeed/middle-eastNews",
+    "https://www.france24.com/en/middle-east/rss"
+  ],
+  "Africa": [
+    "https://www.africanews.com/feed/rss",
+    "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
+    "https://www.bbc.co.uk/africa/rss.xml"
+  ],
+  "Asia": [
+    "https://www.scmp.com/rss/asia-all.xml",
+    "https://www.reuters.com/rssFeed/asiaNews",
+    "https://asia.nikkei.com/rss/feed"
+  ],
+  "South America": [
+    "https://www.bbc.com/mundo/america_latina/rss.xml",
+    "https://www.reuters.com/rssFeed/worldNews?siteName=latin-america",
+    "https://elpais.com/rss/feed.html?feedId=1009"
+  ],
+  "North America": [
+    "https://www.reuters.com/rssFeed/ustopNews",
+    "https://www.politico.com/rss/politics08.xml",
+    "https://www.npr.org/rss/rss.php?id=1004"
+  ],
+  "Pacific Region": [
+    "https://www.abc.net.au/news/feed/51120/rss.xml",
+    "https://www.reuters.com/rssFeed/worldNews?siteName=australia",
+    "https://www.nzherald.co.nz/rss"
+  ],
+  "Science / Environment": [
+    "https://www.sciencedaily.com/rss/top/environment.xml",
+    "https://www.goodgoodgood.co/rss"
+  ],
+  "Positive News": [
+    "https://www.positive.news/feed/",
+    "https://reasonstobecheerful.world/feed/"
+  ]
+}
