@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mindful News Aggregator -->
-<!-- rss_template.xml version: 2025-06-19-v4 -->
+<!-- rss_template.xml version: 2025-06-19-v5 -->
 
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
@@ -13,6 +13,7 @@
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
     <lastBuildDate>{{ build_date }}</lastBuildDate>
     <language>en-us</language>
+    <generator>Mindful News Aggregator v5</generator>
 
     {% for article in articles %}
     <item>
