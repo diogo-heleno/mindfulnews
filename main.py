@@ -1,4 +1,4 @@
-# main.py version: 2025-06-19-01
+# main.py version: 2025-06-19-02
 
 import feedparser
 import openai
@@ -13,10 +13,10 @@ from dateutil import parser as dateparser
 from datetime import datetime, timedelta
 
 # ==== Main version ====
-VERSION_MAIN = "2025-06-19-01"
+VERSION_MAIN = "2025-06-19-02"
 # ======================
 
-# Function to extract version from first line of file
+# Function to extract version from first line of prompt
 def extract_version(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         first_line = f.readline().strip()
@@ -25,11 +25,20 @@ def extract_version(file_path):
         else:
             return "unknown"
 
+# Function to extract version from first 5 lines of template
+def extract_template_version(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        for _ in range(5):
+            line = f.readline().strip()
+            if "version:" in line:
+                return line.split("version:")[1].strip()
+        return "unknown"
+
 # Load feeds
 with open("feeds.json") as f:
     feeds = json.load(f)
 
-# Load prompts
+# Load prompts + versions
 VERSION_PROMPT_FILTER = extract_version("prompts/filter_prompt.txt")
 with open("prompts/filter_prompt.txt", "r", encoding="utf-8") as f:
     filter_prompt_template = f.read()
@@ -51,7 +60,7 @@ with open("prompts/category_validation_prompt.txt", "r", encoding="utf-8") as f:
     category_validation_prompt_template = f.read()
 
 # Load template version
-VERSION_TEMPLATE = extract_version("templates/rss_template.xml")
+VERSION_TEMPLATE = extract_template_version("templates/rss_template.xml")
 
 # Print versions
 print(f"🗞️ MindfulNews Aggregator - main.py version: {VERSION_MAIN}")
