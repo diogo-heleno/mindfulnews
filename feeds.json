@@ -31,17 +31,21 @@
   "North America": [
     "https://www.reuters.com/rssFeed/ustopNews",
     "https://www.politico.com/rss/politics08.xml",
-    "https://www.npr.org/rss/rss.php?id=1004"
+    "https://www.npr.org/rss/rss.php?id=1004",
+    "https://reasonstobecheerful.world/feed/"
   ],
   "Pacific Region": [
     "https://www.abc.net.au/news/feed/51120/rss.xml",
     "https://www.reuters.com/rssFeed/worldNews?siteName=australia",
     "https://www.nzherald.co.nz/rss"
   ],
-  "Science / Environment": [
+  "Science / Environment / Positive": [
     "https://www.sciencedaily.com/rss/top/environment.xml",
     "https://www.goodgoodgood.co/rss",
     "https://www.positive.news/feed/",
-    "https://reasonstobecheerful.world/feed/"
+    "https://reasonstobecheerful.world/feed/",
+    "https://www.optimistdaily.com/feed/",
+    "https://www.yesmagazine.org/feeds/all",
+    "https://upworthy.com/rss"
   ]
 }
