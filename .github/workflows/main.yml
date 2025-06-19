@@ -1,9 +1,12 @@
-name: Run Mindful News Aggregator v4
+# main.yml — version: 2025-06-19-v4.1
+# Runs main.py for Mindful News and deploys feed to GitHub Pages
+
+name: Run Mindful News Aggregator
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"  # Run every hour
+    - cron: '0 * * * *'  # Runs every hour
 
 jobs:
   build:
@@ -11,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -23,11 +26,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Mindful News v4
-      run: |
-        python main_v4.py
+    - name: Run Mindful News Aggregator
+      run: python main.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-    - name: Publish RSS to GitHub Pages
+    - name: Publish updated RSS feed
       run: |
         mkdir -p docs
         cp mindfulnews.xml docs/mindfulnews.xml
