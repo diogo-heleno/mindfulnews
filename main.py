@@ -1,3 +1,6 @@
+# Mindful News Aggregator
+# main.py version: 2025-06-18-01
+
 import feedparser
 import openai
 import json
@@ -181,6 +184,9 @@ for a in articles:
         else:
             print(f"⚠️ Fallback invalid category → Using 'Other'")
             category = "Other"
+
+    # Log final category that will go to RSS:
+    print(f"📢 Final category going to RSS: {category}")
 
     # Final article
     rewritten_articles.append({
