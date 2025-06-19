@@ -1,182 +1,158 @@
-# Mindful News Aggregator — main.py version: 2025-06-19-v4.2
+mindfulnews — main.py (v4.2)
 
-import feedparser
-import openai
-import json
-import config
-import os
-import requests
-import re
-import time
-from bs4 import BeautifulSoup
-from jinja2 import Environment, FileSystemLoader
-from dateutil import parser as dateparser
-from dateutil import tz
-from datetime import datetime, timezone, timedelta
+with LLM-based clustering — June 19 2025
 
-# Load feeds
-with open("feeds.json") as f:
-    feeds = json.load(f)
+import feedparser import openai import json import config import os import requests import re from bs4 import BeautifulSoup from jinja2 import Environment, FileSystemLoader from dateutil import parser as dateparser from datetime import datetime, timezone
 
-# Load prompts
-def load_prompt(path):
-    with open(path, "r") as f:
-        lines = f.readlines()
-    version_line = next((line.strip() for line in lines if "version:" in line), "unknown")
-    return "".join(lines), version_line
+Load feeds
 
-clustering_prompt_text, clustering_version = load_prompt("prompts/clustering_prompt.txt")
-synthesis_prompt_text, synthesis_version = load_prompt("prompts/synthesis_prompt.txt")
+with open("feeds.json") as f: feeds = json.load(f)
 
-# Setup OpenAI
+Load prompts
+
+with open("prompts/clustering_prompt.txt", "r") as f: clustering_prompt_template = f.read()
+
+with open("prompts/synthesis_prompt.txt", "r") as f: synthesis_prompt_template = f.read()
+
+Setup OpenAI
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Fetch version of rss_template.xml
-with open("templates/rss_template.xml", "r") as f:
-    rss_template_content = f.read()
-rss_version_match = re.search(r"version:\s*(.*?)\s*-->", rss_template_content)
-rss_version = rss_version_match.group(1) if rss_version_match else "unknown"
+Function to fetch first image from article page
 
-# Print version check
-print("\nMindful News v4 — version check:\n")
-print(f"main.py version: 2025-06-19-v4.2")
-print(f"feeds.json version: {feeds.get('version', 'unknown')}")
-print(f"clustering_prompt.txt version: {clustering_version}")
-print(f"synthesis_prompt.txt version: {synthesis_version}")
-print(f"rss_template.xml version: {rss_version}\n")
+def fetch_og_image(url): try: response = requests.get(url, timeout=10) if response.status_code != 200: return None
 
-# Function to fetch first image from article page
-def fetch_og_image(url):
-    for attempt in range(3):
-        try:
-            response = requests.get(url, timeout=15)
-            if response.status_code != 200:
-                return None
-            soup = BeautifulSoup(response.text, "html.parser")
-            og_image = soup.find("meta", property="og:image")
-            if og_image and og_image.get("content"):
-                return og_image["content"]
-            first_img = soup.find("img")
-            if first_img and first_img.get("src"):
-                return first_img["src"]
-            return None
-        except Exception as e:
-            print(f"⚠️ Error fetching image from {url} (attempt {attempt+1}): {e}")
-            time.sleep(2)
-    return None
+soup = BeautifulSoup(response.text, "html.parser")
+    og_image = soup.find("meta", property="og:image")
+    if og_image and og_image.get("content"):
+        return og_image["content"]
 
-# Fetch and parse feeds
+    first_img = soup.find("img")
+    if first_img and first_img.get("src"):
+        return first_img["src"]
+
+except Exception as e:
+    print(f"⚠️ Error fetching image from {url}: {e}")
+
+return None
+
+FETCH + PARSE
+
+print("\nMindful News v4 — version check:\n") print("main.py version: 2025-06-19-v4.2")
+
 articles = []
 
-for region, urls in feeds.items():
-    if region == "version": continue  # skip version key
-    for url in urls:
-        print(f"🌍 Fetching feed: {url}")
-        feed = feedparser.parse(url)
-        for entry in feed.entries:
-            pub_date_raw = entry.get("published", entry.get("updated", datetime.utcnow().isoformat()))
-            pub_date = dateparser.parse(pub_date_raw)
+for region, region_feeds in feeds.items(): for url in region_feeds: print(f"🌍 Fetching feed: {url}") feed = feedparser.parse(url)
 
-            # Convert to UTC to avoid timezone comparison bugs
-            if pub_date.tzinfo is None:
-                pub_date = pub_date.replace(tzinfo=timezone.utc)
-            else:
-                pub_date = pub_date.astimezone(timezone.utc)
+for entry in feed.entries:
+        pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
+        pub_date = pub_date.astimezone(timezone.utc)
 
-            if (datetime.now(timezone.utc) - pub_date).days > config.RUN_INTERVAL_HOURS:
-                continue
+        image_url = None
+        if 'media_content' in entry:
+            image_url = entry.media_content[0].get('url', None)
+        elif 'media_thumbnail' in entry:
+            image_url = entry.media_thumbnail[0].get('url', None)
 
-            image_url = None
-            if 'media_content' in entry:
-                image_url = entry.media_content[0].get('url', None)
-            elif 'media_thumbnail' in entry:
-                image_url = entry.media_thumbnail[0].get('url', None)
-            if not image_url:
-                image_url = fetch_og_image(entry.link)
+        if not image_url:
+            image_url = fetch_og_image(entry.link)
 
-            articles.append({
-                "title": entry.title,
-                "link": entry.link,
-                "summary": entry.get("summary", ""),
-                "pubDate": pub_date,
-                "image": image_url,
-                "region": region
-            })
+        articles.append({
+            "title": entry.title,
+            "link": entry.link,
+            "summary": entry.get("summary", ""),
+            "pubDate": pub_date,
+            "image": image_url,
+            "region": region
+        })
 
-# Deduplicate by link
-unique_articles = {a['link']: a for a in articles}
-articles = list(unique_articles.values())
+Dedup
+
+unique_articles = {a['link']: a for a in articles} articles = list(unique_articles.values())
+
 print(f"\n✅ Total articles fetched: {len(articles)}")
 
-# Sort by date
-articles = sorted(articles, key=lambda x: x['pubDate'], reverse=True)
-articles = articles[:config.MAX_ARTICLES]
+Sort
+
+articles = sorted(articles, key=lambda x: x['pubDate'], reverse=True) articles = articles[:config.MAX_ARTICLES]
+
 print(f"✅ Total articles after dedup: {len(articles)}")
 
-# Clustering
-print(f"\n✅ Clustering...")
-clustering_input = ""
-for a in articles:
-    clustering_input += f"---\nRegion: {a['region']}\nTitle: {a['title']}\nSummary: {a['summary']}\n"
+LLM CLUSTERING
 
-clustering_response = openai.chat.completions.create(
+headlines_block = "\n".join([f"- {a['title']}" for a in articles])
+
+clustering_prompt = f"{clustering_prompt_template}\n\n{headlines_block}"
+
+response = openai.chat.completions.create( model="gpt-4o", messages=[{"role": "user", "content": clustering_prompt}], max_tokens=4000 )
+
+clusters_raw = response.choices[0].message.content.strip()
+
+Parse clusters
+
+clusters = []
+
+current_cluster = None for line in clusters_raw.splitlines(): if re.match(r'^\d+.', line): if current_cluster: clusters.append(current_cluster) current_cluster = {"headline": line, "items": []} elif line.startswith("-") and current_cluster: current_cluster["items"].append(line[1:].strip())
+
+if current_cluster: clusters.append(current_cluster)
+
+print(f"\n✅ Clustering done.") print(f"✅ Clusters found: {len(clusters)}\n")
+
+SYNTHESIZE
+
+rewritten_articles = []
+
+for cluster in clusters: cluster_headline = cluster['headline']
+
+# Find matching articles
+matching_articles = [
+    a for a in articles
+    if any(title_fragment in a['title'] for title_fragment in cluster['items'])
+]
+
+if len(matching_articles) == 0:
+    continue
+
+cluster_text = "\n\n".join([
+    f"Headline: {a['title']}\nSummary: {a['summary']}\nLink: {a['link']}\nRegion: {a['region']}"
+    for a in matching_articles
+])
+
+synthesis_prompt = f"{synthesis_prompt_template}\n\n{cluster_text}"
+
+synthesis_response = openai.chat.completions.create(
     model="gpt-4o",
-    messages=[{"role": "user", "content": f"{clustering_prompt_text}\n\n{clustering_input}"}],
+    messages=[{"role": "user", "content": synthesis_prompt}],
     max_tokens=2000
 )
-clusters_text = clustering_response.choices[0].message.content
-clusters = re.split(r"\n-{5,}\n", clusters_text.strip())
-clusters = [c.strip() for c in clusters if c.strip()]
-print(f"\n✅ Clustering done. Found {len(clusters)} clusters.\n")
 
-# Synthesize each cluster
-rss_items = []
+content = synthesis_response.choices[0].message.content.strip()
 
-for i, cluster_text in enumerate(clusters):
-    print(f"📝 Synthesizing article {i+1}/{len(clusters)}...")
-    synthesis_response = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": f"{synthesis_prompt_text}\n\n{cluster_text}"}],
-        max_tokens=1500
-    )
-    final_article = synthesis_response.choices[0].message.content.strip()
+# Choose image (non-fearful: first image found)
+chosen_image = ""
+for a in matching_articles:
+    if a['image']:
+        chosen_image = a['image']
+        break
 
-    # Parse synthesized output
-    title_match = re.search(r"Title:\s*(.*)", final_article)
-    summary_match = re.search(r"Summary:\s*(.*)", final_article, re.DOTALL)
-    category_match = re.search(r"Category:\s*(.*)", final_article)
+rewritten_articles.append({
+    "title": cluster_headline,
+    "summary": content,
+    "link": matching_articles[0]['link'],
+    "pubDate": matching_articles[0]['pubDate'].strftime('%a, %d %b %Y %H:%M:%S +0000'),
+    "category": "Other",
+    "image": chosen_image
+})
 
-    title = title_match.group(1).strip() if title_match else f"Untitled {i+1}"
-    summary = summary_match.group(1).strip() if summary_match else ""
-    category = category_match.group(1).strip() if category_match else "Other"
+print(f"✅ Final RSS items: {len(rewritten_articles)}")
 
-    # Use first image from articles in cluster if possible
-    image_url = None
-    for a in articles:
-        if a['title'] in cluster_text and a['image']:
-            image_url = a['image']
-            break
+RENDER RSS
 
-    rss_items.append({
-        "title": title,
-        "summary": summary,
-        "category": category,
-        "link": "",  # we don't have one URL for synthesized — optional improvement
-        "pubDate": datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000'),
-        "image": image_url or ""
-    })
+env = Environment(loader=FileSystemLoader("templates")) template = env.get_template("rss_template.xml")
 
-# Render RSS feed
-env = Environment(loader=FileSystemLoader("templates"))
-template = env.get_template("rss_template.xml")
+rss_content = template.render( articles=rewritten_articles, build_date=datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000') )
 
-rss_content = template.render(
-    articles=rss_items,
-    build_date=datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000')
-)
+with open(config.OUTPUT_RSS_FILE, "w", encoding="utf-8") as f: f.write(rss_content)
 
-with open(config.OUTPUT_RSS_FILE, "w", encoding="utf-8") as f:
-    f.write(rss_content)
-
-print(f"\n✅ Final RSS items: {len(rss_items)}")
 print(f"✅ RSS feed written to {config.OUTPUT_RSS_FILE}")
+
