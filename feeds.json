@@ -1,4 +1,5 @@
 {
+  "version": "2025-06-19-03",
   "Europe": [
     "https://www.euronews.com/rss?level=theme&name=world",
     "https://www.politico.eu/feed/",
@@ -40,9 +41,7 @@
   ],
   "Science / Environment": [
     "https://www.sciencedaily.com/rss/top/environment.xml",
-    "https://www.goodgoodgood.co/rss"
-  ],
-  "Positive News": [
+    "https://www.goodgoodgood.co/rss",
     "https://www.positive.news/feed/",
     "https://reasonstobecheerful.world/feed/"
   ]
