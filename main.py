@@ -1,4 +1,4 @@
-# main.py version: 2025-06-19-02
+# main.py version: 2025-06-19-03
 
 import feedparser
 import openai
@@ -13,7 +13,7 @@ from dateutil import parser as dateparser
 from datetime import datetime, timedelta
 
 # ==== Main version ====
-VERSION_MAIN = "2025-06-19-02"
+VERSION_MAIN = "2025-06-19-03"
 # ======================
 
 # Function to extract version from first line of prompt
@@ -223,6 +223,9 @@ for a in articles:
             print(f"⚠️ Fallback invalid category → Using 'Other'")
             category = "Other"
 
+    # Create safe_image_url (escapes & to &amp;)
+    safe_image_url = re.sub(r'&', '&amp;', a['image']) if a['image'] else ""
+
     # Final article
     rewritten_articles.append({
         "title": rewritten_title,
@@ -230,7 +233,8 @@ for a in articles:
         "summary": new_summary,
         "pubDate": a['pubDate'].strftime('%a, %d %b %Y %H:%M:%S +0000'),
         "category": category,
-        "image": a['image'] or ""
+        "image": a['image'] or "",
+        "safe_image_url": safe_image_url
     })
 
 # Render RSS feed
