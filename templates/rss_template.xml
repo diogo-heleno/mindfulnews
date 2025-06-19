@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mindful News Aggregator -->
-<!-- rss_template.xml version: 2025-06-19-02 -->
+<!-- rss_template.xml version: 2025-06-19-v4 -->
 
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
@@ -10,7 +10,7 @@
   <channel>
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
-    <description>Constructive News Aggregator Feed</description>
+    <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
     <lastBuildDate>{{ build_date }}</lastBuildDate>
     <language>en-us</language>
 
@@ -19,23 +19,12 @@
       <title>{{ article.title }}</title>
       <link>{{ article.link }}</link>
       <pubDate>{{ article.pubDate }}</pubDate>
-
-      <description><![CDATA[
-        {% if article.safe_image_url %}
-        <p style="text-align:center;">
-          <img src="{{ article.safe_image_url }}" alt="{{ article.title }}" style="max-width:100%; height:auto;">
-        </p>
-        {% endif %}
-        {{ article.summary }}
-      ]]></description>
-
+      <description><![CDATA[{{ article.summary }}]]></description>
       <content:encoded><![CDATA[{{ article.summary }}]]></content:encoded>
       <category><![CDATA[{{ article.category }}]]></category>
-
-      {% if article.safe_image_url %}
-      <media:content url="{{ article.safe_image_url }}" medium="image"></media:content>
+      {% if article.image %}
+      <media:content url="{{ article.image | replace('&', '&amp;') }}" medium="image"></media:content>
       {% endif %}
-
     </item>
     {% endfor %}
 
