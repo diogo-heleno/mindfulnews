@@ -1,4 +1,4 @@
-# Mindful News — main.py v4.7
+# Mindful News — main.py v4.8
 
 import feedparser
 import openai
@@ -12,7 +12,7 @@ from dateutil import parser as dateparser
 from datetime import datetime, timezone
 
 # Version check
-MAIN_VERSION = "2025-06-20-v4.7"
+MAIN_VERSION = "2025-06-20-v4.8"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -142,13 +142,25 @@ if not clustering_json:
     print("⚠️ No clusters returned — using fallback General News.")
     clustering_json = [{"theme": "General News", "articles": titles}]
 
+# Helper to convert article to JSON-safe dict
+def json_safe_article(a):
+    return {
+        "title": a["title"],
+        "link": a["link"],
+        "summary": a["summary"],
+        "pubDate": a["pubDate"].isoformat(),  # convert datetime to string
+        "image": a["image"]
+    }
+
 # Synthesis
 rss_items = []
 for cluster in clustering_json:
     cluster_titles = cluster["articles"]
     selected_articles = [a for a in articles if a["title"] in cluster_titles]
 
-    synthesis_input = synthesis_prompt_template + "\n\n" + json.dumps(selected_articles, indent=2)
+    json_articles = [json_safe_article(a) for a in selected_articles]
+
+    synthesis_input = synthesis_prompt_template + "\n\n" + json.dumps(json_articles, indent=2)
     synthesis_response = openai.chat.completions.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": synthesis_input}],
