@@ -1,4 +1,4 @@
-# Mindful News — main.py v4.5
+# Mindful News — main.py v4.6
 
 import feedparser
 import openai
@@ -12,22 +12,25 @@ from dateutil import parser as dateparser
 from datetime import datetime, timezone
 
 # Version check
-MAIN_VERSION = "2025-06-20-v4.5"
+MAIN_VERSION = "2025-06-20-v4.6"
+
+# Detect BASE_DIR
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Load feeds
-with open("feeds.json") as f:
+with open(os.path.join(BASE_DIR, "feeds.json")) as f:
     feeds = json.load(f)
 
 # Load prompts
 def load_prompt(path):
-    with open(path, "r") as f:
+    with open(os.path.join(BASE_DIR, path), "r") as f:
         return f.read()
 
-clustering_prompt_template = load_prompt("clustering_prompt.txt")
-synthesis_prompt_template = load_prompt("synthesis_prompt.txt")
+clustering_prompt_template = load_prompt("prompts/clustering_prompt.txt")
+synthesis_prompt_template = load_prompt("prompts/synthesis_prompt.txt")
 
 # Load rss_template.xml first line
-with open("rss_template.xml", "r") as f:
+with open(os.path.join(BASE_DIR, "templates/rss_template.xml"), "r") as f:
     rss_template_version = f.readline().strip()
 
 # Setup OpenAI
@@ -165,7 +168,7 @@ for cluster in clustering_json:
     })
 
 # Render RSS
-env = Environment(loader=FileSystemLoader("."))  # project root
+env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, "templates")))
 template = env.get_template("rss_template.xml")
 
 rss_content = template.render(
@@ -173,7 +176,7 @@ rss_content = template.render(
     build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
-with open(config.OUTPUT_RSS_FILE, "w", encoding="utf-8") as f:
+with open(os.path.join(BASE_DIR, config.OUTPUT_RSS_FILE), "w", encoding="utf-8") as f:
     f.write(rss_content)
 
 print(f"\n✅ Final RSS items: {len(rss_items)}")
