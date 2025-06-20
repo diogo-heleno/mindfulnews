@@ -9,6 +9,8 @@ on:
 jobs:
   run_pipeline:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
 
     # Checkout the code
