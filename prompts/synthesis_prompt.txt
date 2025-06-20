@@ -1,4 +1,4 @@
-# Mindful News — synthesis_prompt.txt v4.3
+# Mindful News — synthesis_prompt.txt v4.4
 
 Your task is to synthesize the following list of articles into a calm, constructive, and balanced news digest, suitable for an RSS feed.
 
@@ -36,7 +36,7 @@ Format:
 Output:
 
 - Output several articles — one per <item> (3 to 8 articles per theme is ideal).
-- Do NOT include ```markdown.
+- **NEVER** include `<?xml version="1.0"?>` or any XML header anywhere in your output.
 - Do NOT wrap the articles in any extra text — only output the formatted blocks.
 - Do NOT repeat this prompt.
 
@@ -48,4 +48,4 @@ Here is the list of articles (title, link, summary, pubDate, image):
 
 ---
 
-# End of synthesis_prompt.txt v4.3
+# End of synthesis_prompt.txt v4.4
