@@ -1,4 +1,4 @@
-# Mindful News — main.py v4.8
+# Mindful News — main.py v4.9
 
 import feedparser
 import openai
@@ -12,7 +12,7 @@ from dateutil import parser as dateparser
 from datetime import datetime, timezone
 
 # Version check
-MAIN_VERSION = "2025-06-20-v4.8"
+MAIN_VERSION = "2025-06-20-v4.9"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -148,7 +148,7 @@ def json_safe_article(a):
         "title": a["title"],
         "link": a["link"],
         "summary": a["summary"],
-        "pubDate": a["pubDate"].isoformat(),  # convert datetime to string
+        "pubDate": a["pubDate"].isoformat(),
         "image": a["image"]
     }
 
@@ -168,15 +168,25 @@ for cluster in clustering_json:
     )
     synthesis_output = synthesis_response.choices[0].message.content
 
+    # Extract positivity tag from first line
+    positivity_line = synthesis_output.splitlines()[0].strip()
+    if positivity_line.startswith("<") and positivity_line.endswith(">"):
+        positivity = positivity_line
+        summary_text = "\n".join(synthesis_output.splitlines()[2:]).strip()
+    else:
+        positivity = "<Constructive>"  # fallback if tag missing
+        summary_text = synthesis_output.strip()
+
     image_url = next((a["image"] for a in selected_articles if a["image"]), "")
 
     rss_items.append({
         "title": cluster["theme"],
         "link": "",
-        "summary": synthesis_output,
+        "summary": summary_text,
         "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
         "category": "General News",
-        "image": image_url
+        "image": image_url,
+        "positivity": positivity
     })
 
 # Render RSS
