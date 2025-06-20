@@ -1,4 +1,4 @@
-# Mindful News — main.py v5.5
+# Mindful News — main.py v5.6
 
 import feedparser
 import openai
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v5.5"
+MAIN_VERSION = "2025-06-20-v5.6"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -65,7 +65,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v5.5 — version check:\n")
+print("\nMindful News v5.6 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -169,7 +169,6 @@ for cluster in clustering_json:
     )
     synthesis_output = synthesis_response.choices[0].message.content
 
-    # VERY IMPORTANT: clean full output BEFORE splitting
     synthesis_output = clean_xml_headers(synthesis_output)
 
     article_blocks = re.split(r"\n\s*\n(?=<Positive>|<Constructive>|<Cautionary>)", synthesis_output.strip())
@@ -177,7 +176,6 @@ for cluster in clustering_json:
     print(f"✅ Synthesized {len(article_blocks)} articles for theme: {cluster['theme']}")
 
     for block in article_blocks:
-        # Clean any accidental <?xml ...?> inside block
         block = clean_xml_headers(block)
 
         lines = block.strip().splitlines()
@@ -212,7 +210,16 @@ rss_content = template.render(
     build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
-with open(os.path.join(BASE_DIR, config.OUTPUT_RSS_FILE), "w", encoding="utf-8") as f:
+# Remove previous RSS file if exists
+rss_output_path = os.path.join(BASE_DIR, config.OUTPUT_RSS_FILE)
+try:
+    os.remove(rss_output_path)
+    print(f"ℹ️ Previous {config.OUTPUT_RSS_FILE} removed.")
+except FileNotFoundError:
+    pass
+
+# Write new RSS
+with open(rss_output_path, "w", encoding="utf-8") as f:
     f.write(rss_content)
 
 print(f"\n✅ Final RSS items: {len(rss_items)}")
