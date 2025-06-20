@@ -1,7 +1,7 @@
 # main.yml — version: 2025-06-19-v4.1
 # Runs main.py for Mindful News and deploys feed to GitHub Pages
 
-name: Run Mindful News Aggregator this one
+name: Run Mindful News Aggregator
 
 on:
   workflow_dispatch:
