@@ -80,7 +80,12 @@ print(f"rss_template.xml version: {rss_template_version}\n")
 
 for url in sum(feeds.values(), []):
     print(f"🌍 Fetching feed: {url}")
-    feed = feedparser.parse(url)
+    try:
+        feed = feedparser.parse(url)
+    except Exception as e:
+        print(f"⚠️ Error fetching feed {url}: {e}")
+        continue
+
     for entry in feed.entries:
         try:
             pub_date = dateparser.parse(
