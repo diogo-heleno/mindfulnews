@@ -42,9 +42,9 @@ jobs:
     - name: Validate RSS (filtered output)
       run: python validate_rss.py mindfulnews_filtered.xml
 
-    # Optionally, upload the filtered RSS as an artifact for further testing or download
+    # Upload the filtered RSS as an artifact
     - name: Upload filtered RSS as artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: mindfulnews_filtered
         path: mindfulnews_filtered.xml
