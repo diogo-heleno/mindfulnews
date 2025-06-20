@@ -1,4 +1,4 @@
-# Mindful News — main.py v4.9
+# Mindful News — main.py v5
 
 import feedparser
 import openai
@@ -10,9 +10,10 @@ from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime, timezone
+import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v4.9"
+MAIN_VERSION = "2025-06-20-v5"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -59,7 +60,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v4 — version check:\n")
+print("\nMindful News v5 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -70,7 +71,6 @@ for url in sum(feeds.values(), []):
     print(f"🌍 Fetching feed: {url}")
     feed = feedparser.parse(url)
     for entry in feed.entries:
-        # Parse publication date
         try:
             pub_date = dateparser.parse(
                 entry.get("published", datetime.now(timezone.utc).isoformat())
@@ -84,7 +84,6 @@ for url in sum(feeds.values(), []):
         if (datetime.now(timezone.utc) - pub_date).days > (config.RUN_INTERVAL_HOURS / 24):
             continue
 
-        # Image
         image_url = None
         if 'media_content' in entry:
             image_url = entry.media_content[0].get('url', None)
@@ -127,7 +126,6 @@ clustering_response = openai.chat.completions.create(
 )
 clustering_output = clustering_response.choices[0].message.content
 
-# Extract JSON from response
 try:
     json_start = clustering_output.find("[")
     json_end = clustering_output.rfind("]") + 1
@@ -137,12 +135,10 @@ except Exception as e:
     print(f"⚠️ Error parsing clustering JSON: {e}")
     clustering_json = []
 
-# Fallback if no clusters
 if not clustering_json:
     print("⚠️ No clusters returned — using fallback General News.")
     clustering_json = [{"theme": "General News", "articles": titles}]
 
-# Helper to convert article to JSON-safe dict
 def json_safe_article(a):
     return {
         "title": a["title"],
@@ -164,30 +160,38 @@ for cluster in clustering_json:
     synthesis_response = openai.chat.completions.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": synthesis_input}],
-        max_tokens=2000
+        max_tokens=4000
     )
     synthesis_output = synthesis_response.choices[0].message.content
 
-    # Extract positivity tag from first line
-    positivity_line = synthesis_output.splitlines()[0].strip()
-    if positivity_line.startswith("<") and positivity_line.endswith(">"):
-        positivity = positivity_line
-        summary_text = "\n".join(synthesis_output.splitlines()[2:]).strip()
-    else:
-        positivity = "<Constructive>"  # fallback if tag missing
-        summary_text = synthesis_output.strip()
+    # Split synthesis output into blocks — each block starts with <Positive>, <Constructive>, or <Cautionary>
+    article_blocks = re.split(r"\n\s*\n(?=<Positive>|<Constructive>|<Cautionary>)", synthesis_output.strip())
 
-    image_url = next((a["image"] for a in selected_articles if a["image"]), "")
+    print(f"✅ Synthesized {len(article_blocks)} articles for theme: {cluster['theme']}")
 
-    rss_items.append({
-        "title": cluster["theme"],
-        "link": "",
-        "summary": summary_text,
-        "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
-        "category": "General News",
-        "image": image_url,
-        "positivity": positivity
-    })
+    for block in article_blocks:
+        lines = block.strip().splitlines()
+        if len(lines) < 3:
+            continue
+
+        positivity_line = lines[0].strip()
+        headline_line = next((l for l in lines if l.startswith("**Headline:**")), "")
+        summary_index = lines.index("**Summary:**") if "**Summary:**" in lines else None
+
+        if summary_index is not None:
+            summary_text = "\n".join(lines[summary_index + 1:]).strip()
+        else:
+            summary_text = "\n".join(lines[1:]).strip()
+
+        rss_items.append({
+            "title": headline_line.replace("**Headline:**", "").strip() or cluster["theme"],
+            "link": "",
+            "summary": summary_text,
+            "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
+            "category": cluster["theme"],
+            "image": "",
+            "positivity": positivity_line
+        })
 
 # Render RSS
 env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, "templates")))
