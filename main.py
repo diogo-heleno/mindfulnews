@@ -1,4 +1,4 @@
-# Mindful News — main.py v5.6
+# Mindful News — main.py v5.7
 
 import feedparser
 import openai
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v5.6"
+MAIN_VERSION = "2025-06-20-v5.7"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -38,9 +38,15 @@ with open(os.path.join(BASE_DIR, "templates/rss_template.xml"), "r") as f:
 # Setup OpenAI — use env variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Helper: clean XML header from any text
+# Helper: clean XML header
 def clean_xml_headers(text):
     return re.sub(r'\s*<\?xml[^>]+?\?>\s*', '', text, flags=re.IGNORECASE)
+
+# Helper: remove <rss> and <channel> tags
+def strip_rss_tags(text):
+    text = re.sub(r'<\/?rss[^>]*>', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'<\/?channel[^>]*>', '', text, flags=re.IGNORECASE)
+    return text.strip()
 
 # Fetch first image from article page
 def fetch_og_image(url):
@@ -65,7 +71,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v5.6 — version check:\n")
+print("\nMindful News v5.7 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -148,7 +154,7 @@ def json_safe_article(a):
     return {
         "title": a["title"],
         "link": a["link"],
-        "summary": a["summary"],  # already cleaned at fetch
+        "summary": a["summary"],
         "pubDate": a["pubDate"].isoformat(),
         "image": a["image"]
     }
@@ -170,6 +176,7 @@ for cluster in clustering_json:
     synthesis_output = synthesis_response.choices[0].message.content
 
     synthesis_output = clean_xml_headers(synthesis_output)
+    synthesis_output = strip_rss_tags(synthesis_output)
 
     article_blocks = re.split(r"\n\s*\n(?=<Positive>|<Constructive>|<Cautionary>)", synthesis_output.strip())
 
@@ -177,6 +184,7 @@ for cluster in clustering_json:
 
     for block in article_blocks:
         block = clean_xml_headers(block)
+        block = strip_rss_tags(block)
 
         lines = block.strip().splitlines()
         if len(lines) < 3:
