@@ -1,4 +1,4 @@
-# Mindful News — main.py v4.6
+# Mindful News — main.py v4.7
 
 import feedparser
 import openai
@@ -12,7 +12,7 @@ from dateutil import parser as dateparser
 from datetime import datetime, timezone
 
 # Version check
-MAIN_VERSION = "2025-06-20-v4.6"
+MAIN_VERSION = "2025-06-20-v4.7"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -33,8 +33,8 @@ synthesis_prompt_template = load_prompt("prompts/synthesis_prompt.txt")
 with open(os.path.join(BASE_DIR, "templates/rss_template.xml"), "r") as f:
     rss_template_version = f.readline().strip()
 
-# Setup OpenAI
-openai.api_key = config.OPENAI_API_KEY
+# Setup OpenAI — use env variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Fetch first image from article page
 def fetch_og_image(url):
