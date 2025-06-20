@@ -1,9 +1,11 @@
-# validate_rss.py
-# Simple validator for mindfulnews.xml
+# validate_rss.py v1.1
+# Simple validator for mindfulnews.xml or any RSS file passed as argument
 
 import os
+import sys
 
-rss_file = "mindfulnews.xml"
+# Accept filename as argument, or default to "mindfulnews.xml"
+rss_file = sys.argv[1] if len(sys.argv) > 1 else "mindfulnews.xml"
 
 if not os.path.exists(rss_file):
     print(f"❌ File not found: {rss_file}")
@@ -16,6 +18,7 @@ xml_decl_count = content.count('<?xml')
 rss_open_count = content.count('<rss')
 rss_close_count = content.count('</rss>')
 
+print(f"\n📄 Validating file: {rss_file}")
 print(f"XML declaration count: {xml_decl_count}")
 print(f"<rss> count: {rss_open_count}")
 print(f"</rss> count: {rss_close_count}")
