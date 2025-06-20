@@ -1,4 +1,4 @@
-# Mindful News — main.py v5.3
+# Mindful News — main.py v5.4
 
 import feedparser
 import openai
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v5.3"
+MAIN_VERSION = "2025-06-20-v5.4"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -37,6 +37,10 @@ with open(os.path.join(BASE_DIR, "templates/rss_template.xml"), "r") as f:
 
 # Setup OpenAI — use env variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Helper: clean XML header from any text
+def clean_xml_headers(text):
+    return re.sub(r'\s*<\?xml[^>]+?\?>\s*', '', text, flags=re.IGNORECASE)
 
 # Fetch first image from article page
 def fetch_og_image(url):
@@ -61,7 +65,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v5.3 — version check:\n")
+print("\nMindful News v5.4 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -97,7 +101,7 @@ for url in sum(feeds.values(), []):
         articles.append({
             "title": entry.title,
             "link": entry.link,
-            "summary": entry.get("summary", ""),
+            "summary": clean_xml_headers(entry.get("summary", "")),
             "pubDate": pub_date,
             "image": image_url
         })
@@ -144,7 +148,7 @@ def json_safe_article(a):
     return {
         "title": a["title"],
         "link": a["link"],
-        "summary": a["summary"],
+        "summary": a["summary"],  # already cleaned at fetch
         "pubDate": a["pubDate"].isoformat(),
         "image": a["image"]
     }
@@ -170,8 +174,8 @@ for cluster in clustering_json:
     print(f"✅ Synthesized {len(article_blocks)} articles for theme: {cluster['theme']}")
 
     for block in article_blocks:
-        # Strong cleaning: remove accidental <?xml ...?> anywhere
-        block = re.sub(r'\s*<\?xml[^>]+?\?>\s*', '', block, flags=re.IGNORECASE)
+        # Clean any accidental <?xml ...?> inside block
+        block = clean_xml_headers(block)
 
         lines = block.strip().splitlines()
         if len(lines) < 3:
