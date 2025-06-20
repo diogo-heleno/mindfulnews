@@ -1,4 +1,4 @@
-# Mindful News — main.py v5.7
+# Mindful News — main.py v5.8
 
 import feedparser
 import openai
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v5.7"
+MAIN_VERSION = "2025-06-20-v5.8"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -71,7 +71,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v5.7 — version check:\n")
+print("\nMindful News v5.8 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -183,36 +183,17 @@ for cluster in clustering_json:
     synthesis_output = clean_xml_headers(synthesis_output)
     synthesis_output = strip_rss_tags(synthesis_output)
 
-    article_blocks = re.split(r"\n\s*\n(?=<Positive>|<Constructive>|<Cautionary>)", synthesis_output.strip())
+    print(f"✅ Synthesized article for theme: {cluster['theme']}")
 
-    print(f"✅ Synthesized {len(article_blocks)} articles for theme: {cluster['theme']}")
-
-    for block in article_blocks:
-        block = clean_xml_headers(block)
-        block = strip_rss_tags(block)
-
-        lines = block.strip().splitlines()
-        if len(lines) < 3:
-            continue
-
-        positivity_line = lines[0].strip()
-        headline_line = next((l for l in lines if l.startswith("**Headline:**")), "")
-        summary_index = lines.index("**Summary:**") if "**Summary:**" in lines else None
-
-        if summary_index is not None:
-            summary_text = "\n".join(lines[summary_index + 1:]).strip()
-        else:
-            summary_text = "\n".join(lines[1:]).strip()
-
-        rss_items.append({
-            "title": html.escape(headline_line.replace("**Headline:**", "").strip() or cluster["theme"]),
-            "link": "",
-            "summary": summary_text,
-            "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
-            "category": html.escape(cluster["theme"]),
-            "image": "",
-            "positivity": positivity_line
-        })
+    rss_items.append({
+        "title": html.escape(cluster["theme"]),
+        "link": "",
+        "summary": synthesis_output.strip(),
+        "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
+        "category": html.escape(cluster["theme"]),
+        "image": "",
+        "positivity": "Constructive"
+    })
 
 # Render RSS
 env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, "templates")))
