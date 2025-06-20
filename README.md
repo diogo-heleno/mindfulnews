@@ -1,114 +1,134 @@
 # Mindful News
 
-**A calm, positive, and constructive RSS news feed generator.**
-
-Mindful News fetches international news articles, clusters them into themes, rewrites them in a balanced and mindful tone using OpenAI, and generates a ready-to-use RSS feed (`mindfulnews.xml`).
+A personal project by [Diogo Heleno](https://github.com/diogo-heleno), designed to create a calmer, more constructive way to read world news — away from sensationalism, fear, or clickbait.
 
 ---
 
-## Features
+## 🌍 Why I built this
 
-- ✨ Calm, constructive rewriting of global news
-- ✨ Positive tagging: `<Positive>`, `<Constructive>`, `<Cautionary>`
-- ✨ Thematic clustering of articles
-- ✨ Non-sensational, international, mindful tone
-- ✨ Fully automated pipeline (GitHub Actions-ready)
+I am personally prone to anxiety.  
+Like many people, I noticed that reading "normal" news feeds — especially in today's world — can easily trigger negative emotions and stress:
 
----
+- Excessive sensationalism  
+- Catastrophic tone  
+- Focus on fear, hate, and polarisation  
+- Repetitive cycles of outrage
 
-## Project Structure
+I wanted to create a news service that would:
 
-```text
-.github/workflows/          # GitHub Action workflows
-docs/                       # Documentation (optional)
-prompts/
-    clustering_prompt.txt   # LLM prompt for article clustering
-    synthesis_prompt.txt    # LLM prompt for article synthesis
+✅ Filter out extreme negativity  
+✅ Rewrite articles in a calmer, more hopeful, more constructive tone  
+✅ Prioritise balanced information and possible solutions  
+✅ Help readers stay informed **without being overwhelmed**
 
-templates/
-    rss_template.xml        # RSS template with positivity tags
-
-config.py                   # Config options (run interval, max articles)
-feeds.json                  # List of source feeds (international + positive)
-main.py                     # Full pipeline
-main_v4.py                  # Archive of older version
-requirements.txt            # Python dependencies
-```
+This is not about "fake good news" — it is about **calm, balanced journalism** for mental well-being.
 
 ---
 
-## How it works
+## 🛠️ What this project is
 
-1. **Fetch**: loads all articles from `feeds.json` (international & positive feeds)
-2. **Deduplicate**: removes duplicate links
-3. **Cluster**: uses GPT-4o to group articles into themes
-4. **Synthesize**: uses GPT-4o to rewrite stories in calm, constructive tone with positivity tag
-5. **Output**: generates `mindfulnews.xml` — ready RSS feed
+At this stage, it is a **proof of concept**, built entirely using:
 
----
+✅ Public RSS feeds from high-quality international sources  
+✅ An automated pipeline (GitHub Actions)  
+✅ AI (LLM) to cluster, summarise and rewrite the news into a calmer tone  
+✅ An automated validator to ensure valid RSS output  
+✅ Editorial filtering using AI  
+✅ An RSS feed you can subscribe to
 
-## Usage
-
-### Local run:
-
-```bash
-python main.py
-```
-
-Requires:
-
-- Python 3.10+
-- API key in environment: `OPENAI_API_KEY`
-- Dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-### GitHub Actions:
-
-- Add `OPENAI_API_KEY` as GitHub Secret
-- Set workflow schedule as needed (daily, hourly...)
+**Important:**  
+I am not a programmer. I built this as an experiment to see if I could — and it works.
 
 ---
 
-## Output example
+## 🤖 The tech stack
 
-```xml
-<item>
-  <title>European Diplomacy and Climate Action</title>
-  <positivity>&lt;Positive&gt;</positivity>
-  <description><![CDATA[
-    **Headline:**
-    European Union leads new climate resilience fund...
-
-    **Summary:**
-    International leaders announce...
-  ]]></description>
-  ...
-</item>
-```
+- **Language:** Python  
+- **AI:** OpenAI GPT-4o  
+- **Feeds:** International RSS feeds  
+- **Pipeline:** GitHub Actions  
+- **Template engine:** Jinja2  
+- **RSS validator:** Simple script  
+- **No server-side components** — everything is built automatically by GitHub Actions
 
 ---
 
-## Current versions
+## 🚧 What difficulties we faced
 
-- main.py: v4.9
-- clustering\_prompt.txt: v4.4
-- synthesis\_prompt.txt: v4.2
-- rss\_template.xml: v1.1
-
----
-
-## Roadmap
-
--
+- Handling inconsistent RSS formats from different sources  
+- Dealing with invalid XML and RSS validation errors  
+- Ensuring that the AI output was correctly formatted and consistent  
+- Getting the AI to write **cohesive, calm, longer articles** instead of fragmented pieces  
+- Learning to tune the AI prompts to reflect the "Mindful News" philosophy  
+- Balancing automation with editorial control  
+- Achieving this **without being a programmer** — learning by doing!
 
 ---
 
-**License**: MIT (open source)
+## ⏳ How long it took (so far)
+
+Roughly **20 hours of work**, spread across a few weeks — including:
+
+- Designing the architecture  
+- Writing prompts  
+- Testing AI outputs  
+- Debugging RSS issues  
+- Learning GitHub Actions  
+- Iterating multiple versions of the pipeline
 
 ---
 
-Built with ❤️ by Diogo and ChatGPT.
+## 🚀 Current status (June 2025)
 
+- **Main pipeline is working**  
+- Feeds are fetched, deduplicated, clustered  
+- AI rewrites articles in a calm tone (target: minimum 3000 characters per article)  
+- Editorial filtering is in place  
+- RSS feed is validated  
+- GitHub Actions runs the pipeline automatically  
+- Outputs are ready for both RSS readers and a future website
+
+---
+
+## 🎯 Final goal
+
+To launch **Mindful News** as a public service:  
+
+✅ Public website: **https://mindfulnews.media** (in preparation)  
+✅ RSS feed: **https://mindfulnews.media/mindfulnews.xml** (in preparation — current feed output is being tested)
+
+The goal is:
+
+- To offer an alternative way to stay informed  
+- To reduce news-related anxiety  
+- To promote balanced, constructive, international journalism  
+- To help other people who — like me — prefer to read the news without constant stress or negativity
+
+---
+
+## 🙏 Credits and thanks
+
+This project would not have been possible without the help of [ChatGPT](https://openai.com/chatgpt), which helped me think through architecture, prompts, debugging — and learning Python and GitHub Actions step by step.
+
+---
+
+## 🚧 Work in progress
+
+Mindful News is still **a work in progress**:
+
+- The website is not yet live  
+- The pipeline will keep evolving (tone improvements, better editorial control, web-based enhancements)  
+- Feedback is very welcome!
+
+---
+
+## 📫 Contact
+
+If you like this project or want to help, you can reach me via:
+
+- GitHub: [github.com/diogo-heleno](https://github.com/diogo-heleno)  
+- Website: [https://mindfulnews.media](https://mindfulnews.media) (coming soon)
+
+---
+
+Thank you for reading — and stay mindful 🚀.
