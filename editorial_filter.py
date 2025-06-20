@@ -1,4 +1,4 @@
-# Mindful News — editorial_filter.py v1.0
+# Mindful News — editorial_filter.py v1.1
 
 import feedparser
 import openai
@@ -11,7 +11,7 @@ import re
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_RSS = os.path.join(BASE_DIR, "mindfulnews.xml")
 OUTPUT_RSS = os.path.join(BASE_DIR, "mindfulnews_filtered.xml")
-PROMPT_FILE = os.path.join(BASE_DIR, "prompts","editorial_filter_prompt.txt")
+PROMPT_FILE = os.path.join(BASE_DIR, "prompts", "editorial_filter_prompt.txt")
 RSS_TEMPLATE_FILE = "templates/rss_template.xml"
 
 # Load prompt
