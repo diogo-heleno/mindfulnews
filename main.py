@@ -1,4 +1,4 @@
-# Mindful News — main.py v5
+# Mindful News — main.py v5.1
 
 import feedparser
 import openai
@@ -6,6 +6,7 @@ import json
 import config
 import os
 import requests
+import html
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
@@ -13,7 +14,7 @@ from datetime import datetime, timezone
 import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v5"
+MAIN_VERSION = "2025-06-20-v5.1"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -60,7 +61,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v5 — version check:\n")
+print("\nMindful News v5.1 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -184,11 +185,11 @@ for cluster in clustering_json:
             summary_text = "\n".join(lines[1:]).strip()
 
         rss_items.append({
-            "title": headline_line.replace("**Headline:**", "").strip() or cluster["theme"],
+            "title": html.escape(headline_line.replace("**Headline:**", "").strip() or cluster["theme"]),
             "link": "",
             "summary": summary_text,
             "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
-            "category": cluster["theme"],
+            "category": html.escape(cluster["theme"]),
             "image": "",
             "positivity": positivity_line
         })
