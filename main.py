@@ -1,4 +1,4 @@
-# Mindful News — main.py v5.1
+# Mindful News — main.py v5.2
 
 import feedparser
 import openai
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 import re
 
 # Version check
-MAIN_VERSION = "2025-06-20-v5.1"
+MAIN_VERSION = "2025-06-20-v5.2"
 
 # Detect BASE_DIR
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -61,7 +61,7 @@ def fetch_og_image(url):
 # Fetch and parse feeds
 articles = []
 
-print("\nMindful News v5.1 — version check:\n")
+print("\nMindful News v5.2 — version check:\n")
 print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
@@ -165,12 +165,13 @@ for cluster in clustering_json:
     )
     synthesis_output = synthesis_response.choices[0].message.content
 
-    # Split synthesis output into blocks — each block starts with <Positive>, <Constructive>, or <Cautionary>
     article_blocks = re.split(r"\n\s*\n(?=<Positive>|<Constructive>|<Cautionary>)", synthesis_output.strip())
 
     print(f"✅ Synthesized {len(article_blocks)} articles for theme: {cluster['theme']}")
 
     for block in article_blocks:
+        block = re.sub(r'<\?xml .*?\?>', '', block)  # remove accidental <?xml ...?>
+
         lines = block.strip().splitlines()
         if len(lines) < 3:
             continue
