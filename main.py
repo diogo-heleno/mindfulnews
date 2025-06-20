@@ -1,4 +1,4 @@
-# Mindful News — main.py v4.3
+# Mindful News — main.py v4.5
 
 import feedparser
 import openai
@@ -6,14 +6,13 @@ import json
 import config
 import os
 import requests
-import re
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 
 # Version check
-MAIN_VERSION = "2025-06-19-v4.3"
+MAIN_VERSION = "2025-06-20-v4.5"
 
 # Load feeds
 with open("feeds.json") as f:
@@ -24,11 +23,15 @@ def load_prompt(path):
     with open(path, "r") as f:
         return f.read()
 
-clustering_prompt_template = load_prompt("prompts/clustering_prompt.txt")
-synthesis_prompt_template = load_prompt("prompts/synthesis_prompt.txt")
+clustering_prompt_template = load_prompt("clustering_prompt.txt")
+synthesis_prompt_template = load_prompt("synthesis_prompt.txt")
+
+# Load rss_template.xml first line
+with open("rss_template.xml", "r") as f:
+    rss_template_version = f.readline().strip()
 
 # Setup OpenAI
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = config.OPENAI_API_KEY
 
 # Fetch first image from article page
 def fetch_og_image(url):
@@ -58,20 +61,27 @@ print(f"main.py version: {MAIN_VERSION}")
 print(f"feeds.json version: unknown")
 print(f"clustering_prompt.txt version: {clustering_prompt_template.splitlines()[0]}")
 print(f"synthesis_prompt.txt version: {synthesis_prompt_template.splitlines()[0]}")
-print(f"rss_template.xml version: \"1.0\"\n")
+print(f"rss_template.xml version: {rss_template_version}\n")
 
 for url in sum(feeds.values(), []):
     print(f"🌍 Fetching feed: {url}")
     feed = feedparser.parse(url)
     for entry in feed.entries:
+        # Parse publication date
         try:
-            pub_date = dateparser.parse(entry.get("published", datetime.utcnow().isoformat()))
+            pub_date = dateparser.parse(
+                entry.get("published", datetime.now(timezone.utc).isoformat())
+            )
         except Exception:
-            pub_date = datetime.utcnow()
+            pub_date = datetime.now(timezone.utc)
 
-        if (datetime.now() - pub_date).days > (config.RUN_INTERVAL_HOURS / 24):
+        if pub_date.tzinfo is None:
+            pub_date = pub_date.replace(tzinfo=timezone.utc)
+
+        if (datetime.now(timezone.utc) - pub_date).days > (config.RUN_INTERVAL_HOURS / 24):
             continue
 
+        # Image
         image_url = None
         if 'media_content' in entry:
             image_url = entry.media_content[0].get('url', None)
@@ -99,7 +109,7 @@ print(f"✅ Total articles after dedup: {len(articles)}")
 # Prepare list for clustering
 titles = [a['title'] for a in articles]
 
-if len(titles) == 0:
+if not titles:
     print("⚠️ No articles found — exiting.")
     exit(0)
 
@@ -124,14 +134,10 @@ except Exception as e:
     print(f"⚠️ Error parsing clustering JSON: {e}")
     clustering_json = []
 
-# Fallback if 0 clusters:
-if len(clustering_json) == 0:
+# Fallback if no clusters
+if not clustering_json:
     print("⚠️ No clusters returned — using fallback General News.")
-    fallback_cluster = {
-        "theme": "General News",
-        "articles": titles
-    }
-    clustering_json = [fallback_cluster]
+    clustering_json = [{"theme": "General News", "articles": titles}]
 
 # Synthesis
 rss_items = []
@@ -139,9 +145,7 @@ for cluster in clustering_json:
     cluster_titles = cluster["articles"]
     selected_articles = [a for a in articles if a["title"] in cluster_titles]
 
-    # Compose synthesis input
     synthesis_input = synthesis_prompt_template + "\n\n" + json.dumps(selected_articles, indent=2)
-
     synthesis_response = openai.chat.completions.create(
         model="gpt-4o",
         messages=[{"role": "user", "content": synthesis_input}],
@@ -149,25 +153,24 @@ for cluster in clustering_json:
     )
     synthesis_output = synthesis_response.choices[0].message.content
 
-    # Choose best image:
     image_url = next((a["image"] for a in selected_articles if a["image"]), "")
 
     rss_items.append({
         "title": cluster["theme"],
         "link": "",
         "summary": synthesis_output,
-        "pubDate": datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000'),
+        "pubDate": datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
         "category": "General News",
         "image": image_url
     })
 
 # Render RSS
-env = Environment(loader=FileSystemLoader("templates"))
+env = Environment(loader=FileSystemLoader("."))  # project root
 template = env.get_template("rss_template.xml")
 
 rss_content = template.render(
     articles=rss_items,
-    build_date=datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S +0000')
+    build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
 with open(config.OUTPUT_RSS_FILE, "w", encoding="utf-8") as f:
