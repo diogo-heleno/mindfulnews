@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mindful News Aggregator -->
-<!-- rss_template.xml version: 2025-06-19-v5 -->
+<!-- rss_template.xml version: 2025-06-20-v1.1 -->
 
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
@@ -20,12 +20,15 @@
       <title>{{ article.title }}</title>
       <link>{{ article.link }}</link>
       <pubDate>{{ article.pubDate }}</pubDate>
-      <description><![CDATA[{{ article.summary }}]]></description>
-      <content:encoded><![CDATA[{{ article.summary }}]]></content:encoded>
+      <description><![CDATA[
+{{ article.summary }}
+]]></description>
+      <content:encoded><![CDATA[
+{{ article.summary }}
+]]></content:encoded>
       <category><![CDATA[{{ article.category }}]]></category>
-      {% if article.image %}
-      <media:content url="{{ article.image | replace('&', '&amp;') }}" medium="image"></media:content>
-      {% endif %}
+      <media:content url="{{ article.image }}" medium="image"></media:content>
+      <positivity>{{ article.positivity }}</positivity>
     </item>
     {% endfor %}
 
