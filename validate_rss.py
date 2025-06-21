@@ -1,8 +1,9 @@
-# validate_rss.py v1.1
+# validate_rss.py v1.2
 # Simple validator for mindfulnews.xml or any RSS file passed as argument
 
 import os
 import sys
+import re
 
 # Accept filename as argument, or default to "mindfulnews.xml"
 rss_file = sys.argv[1] if len(sys.argv) > 1 else "mindfulnews.xml"
@@ -14,7 +15,8 @@ if not os.path.exists(rss_file):
 with open(rss_file, "r", encoding="utf-8") as f:
     content = f.read()
 
-xml_decl_count = content.count('<?xml')
+# Count only true XML declarations (<?xml version=…), not stylesheet PIs
+xml_decl_count = len(re.findall(r'<\?xml\s+version=', content))
 rss_open_count = content.count('<rss')
 rss_close_count = content.count('</rss>')
 
