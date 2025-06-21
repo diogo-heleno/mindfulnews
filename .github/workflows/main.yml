@@ -13,7 +13,7 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
 
-      # 1. Checkout the code (full history required for push)
+      # 1. Checkout the code (full history required for merge)
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -27,8 +27,7 @@ jobs:
 
       # 3. Install dependencies
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       # 4. Generate RSS
       - name: Generate RSS
@@ -38,13 +37,14 @@ jobs:
       - name: Validate RSS (main output)
         run: python validate_rss.py docs/mindfulnews.xml
 
-      # 6. Commit & push updated RSS back to the repo (force-push to avoid non-fast-forward errors)
+      # 6. Commit & push updated RSS back to the repo (merge remote changes first)
       - name: Commit updated RSS
         uses: EndBug/add-and-commit@v9
         with:
-          message: "chore: update mindfulnews.xml [skip ci]"
           add: docs/mindfulnews.xml
-          force: true
+          message: "chore: update mindfulnews.xml [skip ci]"
+          pull: true
+          push: true
 
       # 7. Run editorial filter
       - name: Run editorial filter
@@ -54,13 +54,14 @@ jobs:
       - name: Validate RSS (filtered output)
         run: python validate_rss.py docs/mindfulnews_filtered.xml
 
-      # 9. Commit & push the filtered RSS as well (force-push)
+      # 9. Commit & push the filtered RSS as well (merge remote changes first)
       - name: Commit filtered RSS
         uses: EndBug/add-and-commit@v9
         with:
-          message: "chore: update mindfulnews_filtered.xml [skip ci]"
           add: docs/mindfulnews_filtered.xml
-          force: true
+          message: "chore: update mindfulnews_filtered.xml [skip ci]"
+          pull: true
+          push: true
 
       # 10. Upload filtered RSS as an artifact
       - name: Upload filtered RSS as artifact
