@@ -1,0 +1,61 @@
+/* rss_styles.css v1.0 */
+/* Styles for Mindful News RSS feed */
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fdfdfd;
+  margin: 0;
+  padding: 1em;
+}
+
+channel {
+  display: block;
+  margin-bottom: 2em;
+}
+
+item {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding: 1em 0;
+}
+
+item > title, .title {
+  font-size: 1.5em;
+  margin: 0.2em 0;
+  color: #2a5d84;
+}
+
+item > link, .link {
+  font-size: 0.9em;
+  color: #1a0dab;
+  text-decoration: none;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.summary, .content {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #444;
+}
+
+.article-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1em;
+}
+
+.category, .positivity {
+  font-size: 0.8em;
+  color: #555;
+  margin-top: 0.5em;
+  display: block;
+}
+
+/* Namespaced content:encoded selector */
+content\:encoded {
+  margin-top: 1em;
+}
