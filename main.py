@@ -139,7 +139,7 @@ for cluster in clustering_json:
         "image": a["image"]
     } for a in selected]
     synthesis_output = generate_synthesis(json_articles)
-    print(f"✅ Synthesized article for theme: {cluster.get('theme')}')
+    print(f"✅ Synthesized article for theme: {cluster.get('theme')}")
 
     link = selected[0]["link"] if selected else ""
     image = selected[0]["image"] if selected else ""
