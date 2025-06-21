@@ -1,4 +1,4 @@
-# Mindful News — editorial_filter.py v1.2
+# Mindful News — editorial_filter.py v1.3
 
 import sys
 import os
@@ -15,8 +15,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_RSS = args[0] if len(args) >= 1 else os.path.join(BASE_DIR, "mindfulnews.xml")
 OUTPUT_RSS = args[1] if len(args) >= 2 else os.path.join(BASE_DIR, "mindfulnews_filtered.xml")
 
-PROMPT_FILE = os.path.join(BASE_DIR, "prompts", "editorial_filter_prompt.txt")
-RSS_TEMPLATE_FILE = os.path.join(BASE_DIR, "templates", "rss_template.xml")
+# Paths for prompt and template
+PROMPT_FILE   = os.path.join(BASE_DIR, "prompts", "editorial_filter_prompt.txt")
+TEMPLATE_DIR  = os.path.join(BASE_DIR, "templates")
+TEMPLATE_NAME = "rss_template.xml"
 
 def load_prompt(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -56,14 +58,14 @@ for idx, entry in enumerate(feed.entries, start=1):
     result = response.choices[0].message.content.strip()
     print(result)
 
-    dec_match = re.search(r"Decision:\s*(Accept|Reject)", result, re.IGNORECASE)
+    dec_match   = re.search(r"Decision:\s*(Accept|Reject)", result, re.IGNORECASE)
     reason_match = re.search(r"Reason:\s*(.*)", result, re.IGNORECASE)
     if not dec_match:
         print("⚠️ No decision found — defaulting to Reject.")
         continue
 
     decision = dec_match.group(1).lower()
-    reason = reason_match.group(1).strip() if reason_match else "No reason provided"
+    reason   = reason_match.group(1).strip() if reason_match else "No reason provided"
     if decision == "accept":
         print(f"✅ Accepted — reason: {reason}")
         filtered.append(entry)
@@ -72,22 +74,19 @@ for idx, entry in enumerate(feed.entries, start=1):
 
 # Render filtered RSS
 print(f"\n📝 Writing filtered RSS: {OUTPUT_RSS}")
-env = Environment(loader=FileSystemLoader(BASE_DIR))
-template = env.get_template(RSS_TEMPLATE_FILE)
+env      = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+template = env.get_template(TEMPLATE_NAME)
 
 rss_content = template.render(
-    articles=[
-        {
-            "title": e.title,
-            "link": e.link,
-            "summary": e.summary,
-            "pubDate": e.published,
-            "category": e.get("category", ""),
-            "image": (e.media_content[0]["url"] if hasattr(e, "media_content") and e.media_content else ""),
-            "positivity": e.get("positivity", "")
-        }
-        for e in filtered
-    ],
+    articles=[{
+        'title': e.title,
+        'link': e.link,
+        'summary': e.summary,
+        'pubDate': e.published,
+        'category': e.get('category', ''),
+        'image':   (e.media_content[0]['url'] if hasattr(e, 'media_content') and e.media_content else ''),
+        'positivity': e.get('positivity', '')
+    } for e in filtered],
     build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
