@@ -1,76 +1,76 @@
-# Mindful News — editorial_filter.py v1.1
+# Mindful News — editorial_filter.py v1.2
 
+import sys
+import os
+import re
 import feedparser
 import openai
-import os
 from jinja2 import Environment, FileSystemLoader
 from datetime import datetime, timezone
-import re
 
-# Setup
+# Parse command-line arguments for input/output paths
+# Usage: python editorial_filter.py [input_rss] [output_rss]
+args = sys.argv[1:]
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_RSS = os.path.join(BASE_DIR, "mindfulnews.xml")
-OUTPUT_RSS = os.path.join(BASE_DIR, "mindfulnews_filtered.xml")
-PROMPT_FILE = os.path.join(BASE_DIR, "prompts", "editorial_filter_prompt.txt")
-RSS_TEMPLATE_FILE = "templates/rss_template.xml"
+INPUT_RSS = args[0] if len(args) >= 1 else os.path.join(BASE_DIR, "mindfulnews.xml")
+OUTPUT_RSS = args[1] if len(args) >= 2 else os.path.join(BASE_DIR, "mindfulnews_filtered.xml")
 
-# Load prompt
-with open(PROMPT_FILE, "r", encoding="utf-8") as f:
-    editorial_prompt = f.read()
+PROMPT_FILE = os.path.join(BASE_DIR, "prompts", "editorial_filter_prompt.txt")
+RSS_TEMPLATE_FILE = os.path.join(BASE_DIR, "templates", "rss_template.xml")
+
+def load_prompt(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read().strip()
+
+editorial_prompt = load_prompt(PROMPT_FILE)
 
 # Setup OpenAI API
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Helper: clean XML header
 def clean_xml_headers(text):
     return re.sub(r'\s*<\?xml[^>]+?\?>\s*', '', text, flags=re.IGNORECASE)
 
-# Load feed
+# Load input feed
 print(f"\n📖 Loading feed: {INPUT_RSS}")
 feed = feedparser.parse(INPUT_RSS)
 print(f"✅ Total articles loaded: {len(feed.entries)}")
 
 # Process articles
-filtered_articles = []
+filtered = []
+for idx, entry in enumerate(feed.entries, start=1):
+    prompt = (
+        f"{editorial_prompt}\n\n"
+        "Here is the article:\n"
+        f"Title: {entry.title}\n"
+        f"Category: {entry.get('category', '')}\n"
+        f"Positivity: {entry.get('positivity', '')}\n"
+        f"Summary:\n{entry.summary}\n"
+    )
 
-for i, entry in enumerate(feed.entries):
-    article_prompt = f"""{editorial_prompt}
-
-Here is the article:
-
-Title: {entry.title}
-Category: {entry.get('category', '')}
-Positivity: {entry.get('positivity', '')}
-Summary:
-{entry.summary}
-"""
-
-    print(f"\n🧠 [{i+1}/{len(feed.entries)}] Calling LLM for editorial decision...")
+    print(f"\n🧠 [{idx}/{len(feed.entries)}] Calling LLM for editorial decision...")
     response = openai.chat.completions.create(
         model="gpt-4o",
-        messages=[{"role": "user", "content": article_prompt}],
+        messages=[{"role": "user", "content": prompt}],
         max_tokens=500
     )
-    output = response.choices[0].message.content.strip()
-    print(output)
+    result = response.choices[0].message.content.strip()
+    print(result)
 
-    decision_match = re.search(r"Decision:\s*(Accept|Reject)", output, re.IGNORECASE)
-    reason_match = re.search(r"Reason:\s*(.+)", output, re.IGNORECASE)
-
-    if not decision_match:
-        print("⚠️ No decision found — rejecting by default.")
+    dec_match = re.search(r"Decision:\s*(Accept|Reject)", result, re.IGNORECASE)
+    reason_match = re.search(r"Reason:\s*(.*)", result, re.IGNORECASE)
+    if not dec_match:
+        print("⚠️ No decision found — defaulting to Reject.")
         continue
 
-    decision = decision_match.group(1).strip()
+    decision = dec_match.group(1).lower()
     reason = reason_match.group(1).strip() if reason_match else "No reason provided"
-
-    if decision.lower() == "accept":
+    if decision == "accept":
         print(f"✅ Accepted — reason: {reason}")
-        filtered_articles.append(entry)
+        filtered.append(entry)
     else:
         print(f"❌ Rejected — reason: {reason}")
 
-# Write new RSS
+# Render filtered RSS
 print(f"\n📝 Writing filtered RSS: {OUTPUT_RSS}")
 env = Environment(loader=FileSystemLoader(BASE_DIR))
 template = env.get_template(RSS_TEMPLATE_FILE)
@@ -78,22 +78,21 @@ template = env.get_template(RSS_TEMPLATE_FILE)
 rss_content = template.render(
     articles=[
         {
-            "title": entry.title,
-            "link": entry.link,
-            "summary": entry.summary,
-            "pubDate": entry.published,
-            "category": entry.get("category", ""),
-            "image": entry.get("media_content", [{}])[0].get("url", ""),
-            "positivity": entry.get("positivity", "")
+            "title": e.title,
+            "link": e.link,
+            "summary": e.summary,
+            "pubDate": e.published,
+            "category": e.get("category", ""),
+            "image": (e.media_content[0]["url"] if hasattr(e, "media_content") and e.media_content else ""),
+            "positivity": e.get("positivity", "")
         }
-        for entry in filtered_articles
+        for e in filtered
     ],
     build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
-# Save
 with open(OUTPUT_RSS, "w", encoding="utf-8") as f:
-    f.write(rss_content)
+    f.write(clean_xml_headers(rss_content))
 
 print(f"\n✅ Filtered RSS written: {OUTPUT_RSS}")
-print(f"✅ Total articles after filtering: {len(filtered_articles)}")
+print(f"✅ Total articles after filtering: {len(filtered)}")
