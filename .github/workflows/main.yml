@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Runs at the top of every hour
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
