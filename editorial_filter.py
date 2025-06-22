@@ -1,4 +1,4 @@
-# Mindful News — editorial_filter.py v1.4
+# Mindful News — editorial_filter.py v1.5
 
 import sys
 import os
@@ -20,6 +20,7 @@ PROMPT_FILE   = os.path.join(BASE_DIR, "prompts", "editorial_filter_prompt.txt")
 TEMPLATE_DIR  = os.path.join(BASE_DIR, "templates")
 TEMPLATE_NAME = "rss_template.xml"
 
+# Load prompt
 def load_prompt(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read().strip()
@@ -29,9 +30,9 @@ editorial_prompt = load_prompt(PROMPT_FILE)
 # Setup OpenAI API
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def clean_content(text):
-    # Remove any stray XML declarations from content sections
-    return re.sub(r'<\?xml[^>]+?\?>', '', text, flags=re.IGNORECASE)
+# Helper: remove any leading XML declaration
+def remove_xml_decl(text):
+    return re.sub(r'^\s*<\?xml[^>]+?\?>\s*', '', text, flags=re.IGNORECASE)
 
 # Load input feed
 print(f"\n📖 Loading feed: {INPUT_RSS}")
@@ -82,7 +83,7 @@ rss_body = template.render(
     articles=[{
         'title': e.title,
         'link': e.link,
-        'summary': clean_content(e.summary),
+        'summary': e.summary,
         'pubDate': e.published,
         'category': e.get('category', ''),
         'image': (e.media_content[0]['url'] if hasattr(e, 'media_content') and e.media_content else ''),
@@ -91,9 +92,12 @@ rss_body = template.render(
     build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
-# Prepend XML declaration
+# Strip any XML declarations from the template output
+clean_body = remove_xml_decl(rss_body)
+
+# Prepend a single XML declaration
 xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
-full_rss = xml_decl + rss_body
+full_rss = xml_decl + clean_body
 
 # Save output
 with open(OUTPUT_RSS, "w", encoding="utf-8") as f:
@@ -101,3 +105,4 @@ with open(OUTPUT_RSS, "w", encoding="utf-8") as f:
 
 print(f"\n✅ Filtered RSS written: {OUTPUT_RSS}")
 print(f"✅ Total articles after filtering: {len(filtered)}")
+
