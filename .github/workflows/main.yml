@@ -13,7 +13,7 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
 
-      # 1. Checkout the code (full history required for merge)
+      # 1. Checkout the code (full history required for pushes)
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -37,13 +37,12 @@ jobs:
       - name: Validate RSS (main output)
         run: python validate_rss.py docs/mindfulnews.xml
 
-      # 6. Commit & push updated RSS back to the repo (merge remote changes first)
+      # 6. Commit & push updated RSS back to the repo
       - name: Commit updated RSS
         uses: EndBug/add-and-commit@v9
         with:
           add: docs/mindfulnews.xml
           message: "chore: update mindfulnews.xml [skip ci]"
-          pull: true
           push: true
 
       # 7. Run editorial filter
@@ -54,13 +53,12 @@ jobs:
       - name: Validate RSS (filtered output)
         run: python validate_rss.py docs/mindfulnews_filtered.xml
 
-      # 9. Commit & push the filtered RSS as well (merge remote changes first)
+      # 9. Commit & push the filtered RSS as well
       - name: Commit filtered RSS
         uses: EndBug/add-and-commit@v9
         with:
           add: docs/mindfulnews_filtered.xml
           message: "chore: update mindfulnews_filtered.xml [skip ci]"
-          pull: true
           push: true
 
       # 10. Upload filtered RSS as an artifact
