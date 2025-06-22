@@ -1,4 +1,4 @@
-# Mindful News — editorial_filter.py v1.3
+# Mindful News — editorial_filter.py v1.4
 
 import sys
 import os
@@ -29,8 +29,9 @@ editorial_prompt = load_prompt(PROMPT_FILE)
 # Setup OpenAI API
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def clean_xml_headers(text):
-    return re.sub(r'\s*<\?xml[^>]+?\?>\s*', '', text, flags=re.IGNORECASE)
+def clean_content(text):
+    # Remove any stray XML declarations from content sections
+    return re.sub(r'<\?xml[^>]+?\?>', '', text, flags=re.IGNORECASE)
 
 # Load input feed
 print(f"\n📖 Loading feed: {INPUT_RSS}")
@@ -58,14 +59,14 @@ for idx, entry in enumerate(feed.entries, start=1):
     result = response.choices[0].message.content.strip()
     print(result)
 
-    dec_match   = re.search(r"Decision:\s*(Accept|Reject)", result, re.IGNORECASE)
+    dec_match = re.search(r"Decision:\s*(Accept|Reject)", result, re.IGNORECASE)
     reason_match = re.search(r"Reason:\s*(.*)", result, re.IGNORECASE)
     if not dec_match:
         print("⚠️ No decision found — defaulting to Reject.")
         continue
 
     decision = dec_match.group(1).lower()
-    reason   = reason_match.group(1).strip() if reason_match else "No reason provided"
+    reason = reason_match.group(1).strip() if reason_match else "No reason provided"
     if decision == "accept":
         print(f"✅ Accepted — reason: {reason}")
         filtered.append(entry)
@@ -74,24 +75,29 @@ for idx, entry in enumerate(feed.entries, start=1):
 
 # Render filtered RSS
 print(f"\n📝 Writing filtered RSS: {OUTPUT_RSS}")
-env      = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
 template = env.get_template(TEMPLATE_NAME)
 
-rss_content = template.render(
+rss_body = template.render(
     articles=[{
         'title': e.title,
         'link': e.link,
-        'summary': e.summary,
+        'summary': clean_content(e.summary),
         'pubDate': e.published,
         'category': e.get('category', ''),
-        'image':   (e.media_content[0]['url'] if hasattr(e, 'media_content') and e.media_content else ''),
+        'image': (e.media_content[0]['url'] if hasattr(e, 'media_content') and e.media_content else ''),
         'positivity': e.get('positivity', '')
     } for e in filtered],
     build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
 
+# Prepend XML declaration
+xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
+full_rss = xml_decl + rss_body
+
+# Save output
 with open(OUTPUT_RSS, "w", encoding="utf-8") as f:
-    f.write(clean_xml_headers(rss_content))
+    f.write(full_rss)
 
 print(f"\n✅ Filtered RSS written: {OUTPUT_RSS}")
 print(f"✅ Total articles after filtering: {len(filtered)}")
