@@ -1,0 +1,71 @@
+# Mindful News — clustering\_prompt.txt v4.4
+
+Your task is to cluster the following list of news article titles into logical groups based on **themes**, to help readers understand the news in a mindful and constructive way.
+
+---
+
+**Guidelines:**
+
+* Your goal is to help create a calm, non-sensational news feed.
+
+* Group titles by *theme*, not by geography or publication.
+
+* Examples of possible themes:
+
+  * Diplomacy & Peace Efforts
+  * Conflict & War
+  * Environment & Climate
+  * Health & Wellbeing
+  * Social Progress & Human Rights
+  * Science & Innovation
+  * Economy & Trade
+  * Community Resilience
+  * Positive News
+  * Cautionary / Negative News (if unavoidable)
+
+* Each theme should group together 2–7 titles.
+
+* If an article is very positive, include it in "Positive News" even if also fits another theme.
+
+* If an article is cautionary, label it "Cautionary".
+
+* It's OK to have a "Miscellaneous" cluster for unmatched items.
+
+---
+
+**Format your output as a JSON list:**
+
+```json
+[
+  {
+    "theme": "Diplomacy & Peace Efforts",
+    "articles": [
+      "title1",
+      "title2",
+      "title3"
+    ]
+  },
+  {
+    "theme": "Environment & Climate",
+    "articles": [
+      "title4",
+      "title5"
+    ]
+  }
+  ...
+]
+```
+
+---
+
+Here is the list of article titles:
+
+{{titles}}
+
+---
+
+Output only the JSON. Do not add explanations. Do not repeat this prompt.
+
+---
+
+# End of clustering\_prompt.txt v4.4
