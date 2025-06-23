@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Mon, 23 Jun 2025 20:34:28 +0000 -->
+<!-- Generated on Mon, 23 Jun 2025 21:21:41 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,21 +12,21 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Mon, 23 Jun 2025 20:34:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jun 2025 21:21:41 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
     
     <item>
       <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.politico.eu/article/canada-pact-defense-eu-mark-carney-partnership/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <link>https://www.euronews.com/my-europe/2025/06/23/china-calls-for-global-efforts-to-defuse-tension-over-vital-strait-of-hormuz</link>
       <pubDate>Mon, 23 Jun 2025 20:09:21 +0000</pubDate>
       <author></author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/13144537-scaled.jpg" alt="" class="article-image" />
+          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
           <div class="summary">
-          <img alt="" class="article-image" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/13144537-scaled.jpg" />
+          <img alt="" class="article-image" src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" />
           
         </div>
         </div>
@@ -34,15 +34,15 @@
       <guid isPermaLink="false"></guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/13144537-scaled.jpg" alt="" class="article-image" />
+          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
           <div class="summary">
-          <img alt="" class="article-image" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/13144537-scaled.jpg" />
+          <img alt="" class="article-image" src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" />
           
         </div>
         </div>
       ]]></content:encoded>
       <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/13144537-scaled.jpg" medium="image" />
+      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
