@@ -1,4 +1,4 @@
-# Mindful News - main.py v5.11
+# Mindful News - main.py v5.12
 
 import feedparser
 import openai
@@ -12,9 +12,10 @@ from jinja2 import Environment, FileSystemLoader
 from dateutil import parser as dateparser
 from datetime import datetime, timezone
 import re
+import hashlib
 
 # Version check
-MAIN_VERSION = "2025-06-21-v5.11"
+MAIN_VERSION = "2025-06-21-v5.12"
 
 # Minimum characters required per article
 MIN_CHARACTERS = 3000
@@ -202,19 +203,46 @@ def main():
             "image": a["image"]
         } for a in selected]
         synthesis_output = generate_synthesis(json_articles)
+        # Extract title from first line
+        if synthesis_output.startswith("TITLE:"):
+            lines = synthesis_output.splitlines()
+            title_line = lines[0].replace("TITLE:", "").strip()
+            synthesis_output = "\n".join(lines[1:]).strip()
+        else:
+            title_line = cluster.get("theme", "Untitled")
+        # Clean HTML: keep only <p> tags
+        soup = BeautifulSoup(synthesis_output, "html.parser")
+        clean_html = "".join([str(p) for p in soup.find_all("p")])
         print(f"✅ Synthesized article for theme: {cluster.get('theme')}")
 
         link = selected[0]["link"] if selected else ""
         image = selected[0]["image"] if selected else ""
+        # Fallback image if blank or invalid
+        default_image_url = "https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png"  # <- replace with your logo or placeholder
+        if not image or not image.startswith("http"):
+            image = default_image_url
+
+        pub_dates = [
+            a["pubDate"] for a in selected if a.get("pubDate")
+        ]
+        if pub_dates:
+            cluster_pubDate = max(pub_dates).strftime('%a, %d %b %Y %H:%M:%S +0000')
+        else:
+            cluster_pubDate = now.strftime('%a, %d %b %Y %H:%M:%S +0000')
+
+        guid_source = f"{title_line}-{cluster_pubDate}-{link}"
+        guid = hashlib.md5(guid_source.encode("utf-8")).hexdigest()
 
         rss_items.append({
-            "title": html.escape(cluster.get("theme", "")),
+            "title": html.escape(title_line),
             "link": link,
-            "summary": synthesis_output,
-            "pubDate": now.strftime('%a, %d %b %Y %H:%M:%S +0000'),
+            "summary": clean_html,
+            "pubDate": cluster_pubDate,
             "category": html.escape(cluster.get("theme", "")),
             "image": image,
-            "positivity": "Constructive"
+            "positivity": "Constructive",
+            "author": "Mindful News",
+            "guid": guid,
         })
 
     # Render RSS

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
-<!-- rss_template.xml version: 2025-06-21-v1.5 -->
+<!-- rss_template.xml version: 2025-06-21-v1.6 -->
 <!-- Generated on {{ build_date }} -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
@@ -21,12 +21,14 @@
       <title><![CDATA[{{ article.title }}]]></title>
       <link>{{ article.link | e }}</link>
       <pubDate>{{ article.pubDate }}</pubDate>
+      <author>{{ article.author }}</author>
       <description><![CDATA[
         <div class="summary">
           <img src="{{ article.image | e }}" alt="" class="article-image" />
           {{ article.summary }}
         </div>
       ]]></description>
+      <guid isPermaLink="false">{{ article.guid }}</guid>
       <content:encoded><![CDATA[
         <div class="content">
           <img src="{{ article.image | e }}" alt="" class="article-image" />
