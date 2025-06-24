@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 18:30:14 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 19:19:00 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,39 +12,10 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 18:30:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 19:19:00 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
-    
-    <item>
-      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.euronews.com/2025/06/24/merz-emphasises-germanys-support-for-israel-and-calls-for-ceasefire-in-gaza</link>
-      <pubDate>Tue, 24 Jun 2025 15:36:01 +0000</pubDate>
-      <author></author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" alt="" class="article-image" />
-          <div class="summary">
-          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" />
-          
-        </div>
-        </div>
-      ]]></description>
-      <guid isPermaLink="false"></guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" alt="" class="article-image" />
-          <div class="summary">
-          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" />
-          
-        </div>
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
     
 
   </channel>
