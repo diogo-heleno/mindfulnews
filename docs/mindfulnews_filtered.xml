@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 15:25:12 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 16:28:12 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,10 +12,68 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 15:25:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 16:28:12 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
+    
+    <item>
+      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
+      <link>https://www.euronews.com/my-europe/2025/06/24/brazilian-ambassador-denounces-disinformation-campaign-on-mercosur-deal</link>
+      <pubDate>Tue, 24 Jun 2025 18:17:27 +0000</pubDate>
+      <author></author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" alt="" class="article-image" />
+          <div class="summary">
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" />
+          
+        </div>
+        </div>
+      ]]></description>
+      <guid isPermaLink="false"></guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" alt="" class="article-image" />
+          <div class="summary">
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" />
+          
+        </div>
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Social Progress &amp; Human Rights]]></title>
+      <link>https://www.euronews.com/my-europe/2025/06/24/as-review-finds-indications-of-gaza-human-rights-breach-how-close-are-eu-israel-trade-rela</link>
+      <pubDate>Tue, 24 Jun 2025 15:00:26 +0000</pubDate>
+      <author></author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://static.euronews.com/articles/stories/09/33/96/91/1200x675_cmsv2_e470fb09-74aa-5a41-8a2e-b313a5cd568d-9339691.jpg" alt="" class="article-image" />
+          <div class="summary">
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/33/96/91/1200x675_cmsv2_e470fb09-74aa-5a41-8a2e-b313a5cd568d-9339691.jpg" />
+          
+        </div>
+        </div>
+      ]]></description>
+      <guid isPermaLink="false"></guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://static.euronews.com/articles/stories/09/33/96/91/1200x675_cmsv2_e470fb09-74aa-5a41-8a2e-b313a5cd568d-9339691.jpg" alt="" class="article-image" />
+          <div class="summary">
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/33/96/91/1200x675_cmsv2_e470fb09-74aa-5a41-8a2e-b313a5cd568d-9339691.jpg" />
+          
+        </div>
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Social Progress &amp; Human Rights]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/33/96/91/1200x675_cmsv2_e470fb09-74aa-5a41-8a2e-b313a5cd568d-9339691.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
     
 
   </channel>
