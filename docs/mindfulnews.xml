@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 14:15:06 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 15:16:57 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,15 +12,38 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 14:15:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 15:16:57 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
     
     <item>
+      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
+      <link>https://www.politico.eu/article/friedrich-merz-germany-major-nato-defense-boost-donald-trump-us-eu-military-budget-ukraine-russia/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 14:51:58 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13029326-1-scaled.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">04c245091e4f3b4fc41c30741565933f</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13029326-1-scaled.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13029326-1-scaled.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
       <title><![CDATA[Conflict &amp; War]]></title>
-      <link>https://www.euronews.com/2025/06/24/merz-emphasises-germanys-support-for-israel-and-calls-for-ceasefire-in-gaza</link>
-      <pubDate>Tue, 24 Jun 2025 13:51:24 +0000</pubDate>
+      <link>https://www.politico.com/news/2025/06/24/an-angry-trump-decries-israel-iran-for-breaking-ceasefire-00420048?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 14:12:04 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
@@ -28,7 +51,7 @@
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">6713fccf58ef0f2b60dceb62bebdb87b</guid>
+      <guid isPermaLink="false">7c6f30c593e28a3bebca599cac94aaad</guid>
       <content:encoded><![CDATA[
         <div class="content">
           <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
@@ -41,163 +64,186 @@
     </item>
     
     <item>
-      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.euronews.com/business/2025/06/24/chinas-aiib-elects-former-anti-corruption-official-as-new-president</link>
-      <pubDate>Tue, 24 Jun 2025 15:49:26 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/16/70/1200x675_cmsv2_53fd961d-fc8b-55d9-b9ec-99bfc215897a-9341670.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">3e11892052e2a5106af9171e49bacd56</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/16/70/1200x675_cmsv2_53fd961d-fc8b-55d9-b9ec-99bfc215897a-9341670.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/16/70/1200x675_cmsv2_53fd961d-fc8b-55d9-b9ec-99bfc215897a-9341670.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
       <title><![CDATA[Environment &amp; Climate]]></title>
-      <link>https://www.euronews.com/video/2025/06/24/greece-thousands-protest-over-us-strikes-on-iran-nuclear-sites</link>
-      <pubDate>Tue, 24 Jun 2025 15:33:11 +0000</pubDate>
+      <link>https://www.theguardian.com/world/2025/jun/24/europes-pledge-to-spend-more-on-military-will-hurt-climate-and-social-programmes</link>
+      <pubDate>Tue, 24 Jun 2025 12:06:55 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/14/74/1200x675_cmsv2_3eaaf1d4-a516-5467-a639-b5e0661e8b83-9341474.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/2c618821780727b794197e5be6675a4ea694eef7/0_0_5049_4037/master/5049.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=fc0e5c8f53d7e742ddf44b393259527b" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">0520a0b90db450fd964eeeb11cb01988</guid>
+      <guid isPermaLink="false">29a649daa6124cc71476c1f5849a5415</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/14/74/1200x675_cmsv2_3eaaf1d4-a516-5467-a639-b5e0661e8b83-9341474.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/2c618821780727b794197e5be6675a4ea694eef7/0_0_5049_4037/master/5049.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=fc0e5c8f53d7e742ddf44b393259527b" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Environment &amp; Climate]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/14/74/1200x675_cmsv2_3eaaf1d4-a516-5467-a639-b5e0661e8b83-9341474.jpg" medium="image" />
+      <media:content url="https://i.guim.co.uk/img/media/2c618821780727b794197e5be6675a4ea694eef7/0_0_5049_4037/master/5049.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=fc0e5c8f53d7e742ddf44b393259527b" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Economy &amp; Trade]]></title>
-      <link>https://www.euronews.com/business/2025/06/24/uzbekistan-builds-pharma-ambitions-with-12bn-investment-in-regional-production-and-export-</link>
-      <pubDate>Tue, 24 Jun 2025 15:00:47 +0000</pubDate>
+      <link>https://www.politico.eu/article/tesla-accused-of-deceptive-marketing-by-french-government/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 14:59:10 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/4354545-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">8522a61455c0be9fe5bd4be6a5530520</guid>
+      <guid isPermaLink="false">286bbbd857802eb7d77bd49840bb21c7</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/4354545-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Economy &amp; Trade]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Science &amp; Innovation]]></title>
-      <link>https://www.euronews.com/2025/06/24/japan-conducts-first-surface-to-ship-missile-test-on-its-own-territory-in-hokkaido</link>
-      <pubDate>Tue, 24 Jun 2025 13:39:49 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/29/24/21/1200x675_cmsv2_383e697c-cbf7-56e9-9ca4-44bdbe154dab-9292421.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">c387e2f34401977c4423ffcadf3ba25b</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/29/24/21/1200x675_cmsv2_383e697c-cbf7-56e9-9ca4-44bdbe154dab-9292421.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Science &amp; Innovation]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/29/24/21/1200x675_cmsv2_383e697c-cbf7-56e9-9ca4-44bdbe154dab-9292421.jpg" medium="image" />
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/4354545-scaled.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Social Progress &amp; Human Rights]]></title>
-      <link>https://www.euronews.com/my-europe/2025/06/24/portugal-tightens-citizenship-rules-doubles-residency-requirement-for-most-foreigners</link>
-      <pubDate>Tue, 24 Jun 2025 13:12:15 +0000</pubDate>
+      <link>https://www.politico.eu/article/georgia-dream-party-sentence-four-politicians-opposition-crackdown/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 14:44:32 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/08/43/1200x675_cmsv2_a866be1d-36a9-56e1-b43f-d5ea1f1da8e3-9340843.jpg" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/GettyImages-2213393563-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">cefe90134326a45bda5e4403a9b810dd</guid>
+      <guid isPermaLink="false">5d824371b053b633d745734520c21e41</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/08/43/1200x675_cmsv2_a866be1d-36a9-56e1-b43f-d5ea1f1da8e3-9340843.jpg" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/GettyImages-2213393563-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Social Progress &amp; Human Rights]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/08/43/1200x675_cmsv2_a866be1d-36a9-56e1-b43f-d5ea1f1da8e3-9340843.jpg" medium="image" />
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/GettyImages-2213393563-scaled.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
-      <title><![CDATA[Positive News]]></title>
-      <link>https://www.euronews.com/culture/2025/06/24/brad-pitt-premieres-new-f1-film-in-london-with-surprise-appearance-from-tom-cruise</link>
-      <pubDate>Tue, 24 Jun 2025 13:25:29 +0000</pubDate>
+      <title><![CDATA[Science &amp; Innovation]]></title>
+      <link>https://observador.pt/programas/brainstorming/como-a-xpeng-quer-ser-lider-em-tecnologia/</link>
+      <pubDate>Tue, 24 Jun 2025 15:38:19 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://bordalo.observador.pt/v2/rs:fill:770:403/c:770:433:nowe:0:0/q:70/plain/https://s3.observador.pt/wp-content/uploads/2021/10/19112406/770-podcast-brainstorming-obsainda-bem.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">5a66645434bdc5409efc382af7fcfbd6</guid>
+      <guid isPermaLink="false">2a1dfc2e7121082fd7f8f5d0042cba69</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://bordalo.observador.pt/v2/rs:fill:770:403/c:770:433:nowe:0:0/q:70/plain/https://s3.observador.pt/wp-content/uploads/2021/10/19112406/770-podcast-brainstorming-obsainda-bem.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
-      <category><![CDATA[Positive News]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <category><![CDATA[Science &amp; Innovation]]></category>
+      <media:content url="https://bordalo.observador.pt/v2/rs:fill:770:403/c:770:433:nowe:0:0/q:70/plain/https://s3.observador.pt/wp-content/uploads/2021/10/19112406/770-podcast-brainstorming-obsainda-bem.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Community Resilience]]></title>
+      <link>https://www.theguardian.com/world/ng-interactive/2025/jun/23/barbados-poet-laureate-esther-phillips</link>
+      <pubDate>Tue, 24 Jun 2025 14:59:29 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://i.guim.co.uk/img/media/e4e4da4dbb68026937f69a732d945d94901f223a/0_650_3264_2610/master/3264.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=beb2b17ec00d00e60c1adb3b0626bde3" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">0789d4a78dbb6145dabbf40b42e69603</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://i.guim.co.uk/img/media/e4e4da4dbb68026937f69a732d945d94901f223a/0_650_3264_2610/master/3264.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=beb2b17ec00d00e60c1adb3b0626bde3" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Community Resilience]]></category>
+      <media:content url="https://i.guim.co.uk/img/media/e4e4da4dbb68026937f69a732d945d94901f223a/0_650_3264_2610/master/3264.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=beb2b17ec00d00e60c1adb3b0626bde3" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Cautionary / Negative News]]></title>
-      <link>https://www.euronews.com/travel/2025/06/24/travel-warning-thailand-bans-tourists-from-crossing-land-borders-into-cambodia</link>
-      <pubDate>Tue, 24 Jun 2025 16:10:36 +0000</pubDate>
+      <link>https://www.politico.eu/article/france-pm-pension-reform-conclave-agreement-francois-bayrou-emmanuel-macron-unions-retirement/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 12:52:18 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/17/31/1200x675_cmsv2_c6f91e9f-2fe1-548c-b1bd-a97a2e1ce3ef-9341731.jpg" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13133166-1-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">fe7afeb9c21ef4c2d37995ba3189a86f</guid>
+      <guid isPermaLink="false">c4dde9cc12cd447a5d25707759a0f162</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/17/31/1200x675_cmsv2_c6f91e9f-2fe1-548c-b1bd-a97a2e1ce3ef-9341731.jpg" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13133166-1-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Cautionary / Negative News]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/17/31/1200x675_cmsv2_c6f91e9f-2fe1-548c-b1bd-a97a2e1ce3ef-9341731.jpg" medium="image" />
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13133166-1-scaled.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Positive News]]></title>
+      <link>https://www.theguardian.com/australia-news/2025/jun/24/youtube-fires-back-at-esafety-commissioners-push-for-platforms-inclusion-in-under-16s-social-media-ban</link>
+      <pubDate>Tue, 24 Jun 2025 14:58:49 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://i.guim.co.uk/img/media/eb474dcc1d1f389e8e7129683473903e3e2b2995/324_0_3240_2592/master/3240.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=a457ee1b87c4b4c0c6fedbd87fcd1817" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">1153a7636c3bd9f798cea937f3086306</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://i.guim.co.uk/img/media/eb474dcc1d1f389e8e7129683473903e3e2b2995/324_0_3240_2592/master/3240.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=a457ee1b87c4b4c0c6fedbd87fcd1817" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Positive News]]></category>
+      <media:content url="https://i.guim.co.uk/img/media/eb474dcc1d1f389e8e7129683473903e3e2b2995/324_0_3240_2592/master/3240.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=a457ee1b87c4b4c0c6fedbd87fcd1817" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Miscellaneous]]></title>
+      <link>https://www.politico.eu/podcast/berlin-playbook-podcast/update-spezial-aus-den-haag-mit-benedikt-franke/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 15:12:59 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/Berlin-Playbook-Website-card-1-1.png" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">8213e50f853a1eebe0508e2724729e01</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/Berlin-Playbook-Website-card-1-1.png" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Miscellaneous]]></category>
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/Berlin-Playbook-Website-card-1-1.png" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
