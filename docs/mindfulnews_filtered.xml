@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 07:20:44 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 08:27:02 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,21 +12,21 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 07:20:44 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 08:27:02 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
     
     <item>
       <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.politico.com/news/2025/06/23/israel-iran-ceasefire-trump-00419364?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
-      <pubDate>Tue, 24 Jun 2025 08:05:23 +0000</pubDate>
+      <link>https://www.euronews.com/my-europe/2025/06/24/eu-and-canada-forge-closer-defence-trade-ties</link>
+      <pubDate>Tue, 24 Jun 2025 08:06:56 +0000</pubDate>
       <author></author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" alt="" class="article-image" />
           <div class="summary">
-          <img alt="" class="article-image" src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" />
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" />
           
         </div>
         </div>
@@ -34,28 +34,28 @@
       <guid isPermaLink="false"></guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" alt="" class="article-image" />
           <div class="summary">
-          <img alt="" class="article-image" src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" />
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" />
           
         </div>
         </div>
       ]]></content:encoded>
       <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <media:content url="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
-      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.politico.eu/podcast/berlin-playbook-podcast/trump-iran-und-der-bange-blick-zum-nato-gipfel/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
-      <pubDate>Tue, 24 Jun 2025 04:05:37 +0000</pubDate>
+      <title><![CDATA[Community Resilience]]></title>
+      <link>https://www.euronews.com/next/2025/06/24/some-40000-runners-cross-europes-longest-bridge-and-tunnel-link-on-its-25th-anniversary</link>
+      <pubDate>Tue, 24 Jun 2025 07:18:41 +0000</pubDate>
       <author></author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/Berlin-Playbook-Website-card-1.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/00/63/1200x675_cmsv2_56c94d5c-3b2e-5d4e-85f3-9f530b1e7f2f-9340063.jpg" alt="" class="article-image" />
           <div class="summary">
-          <img alt="" class="article-image" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/Berlin-Playbook-Website-card-1.png" />
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/00/63/1200x675_cmsv2_56c94d5c-3b2e-5d4e-85f3-9f530b1e7f2f-9340063.jpg" />
           
         </div>
         </div>
@@ -63,15 +63,15 @@
       <guid isPermaLink="false"></guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/Berlin-Playbook-Website-card-1.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/00/63/1200x675_cmsv2_56c94d5c-3b2e-5d4e-85f3-9f530b1e7f2f-9340063.jpg" alt="" class="article-image" />
           <div class="summary">
-          <img alt="" class="article-image" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/Berlin-Playbook-Website-card-1.png" />
+          <img alt="" class="article-image" src="https://static.euronews.com/articles/stories/09/34/00/63/1200x675_cmsv2_56c94d5c-3b2e-5d4e-85f3-9f530b1e7f2f-9340063.jpg" />
           
         </div>
         </div>
       ]]></content:encoded>
-      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/23/Berlin-Playbook-Website-card-1.png" medium="image" />
+      <category><![CDATA[Community Resilience]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/00/63/1200x675_cmsv2_56c94d5c-3b2e-5d4e-85f3-9f530b1e7f2f-9340063.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
