@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 04:25:11 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 05:18:17 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,7 +12,7 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 04:25:11 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 05:18:17 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
@@ -24,42 +24,42 @@
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/06/77/1200x675_cmsv2_4a34ffe1-4811-5523-b124-2c353c776b8c-9340677.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
       <guid isPermaLink="false">c467763cf4b2b8ba5a1bb0dae30d0039</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/06/77/1200x675_cmsv2_4a34ffe1-4811-5523-b124-2c353c776b8c-9340677.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <media:content url="https://static.euronews.com/articles/stories/09/34/06/77/1200x675_cmsv2_4a34ffe1-4811-5523-b124-2c353c776b8c-9340677.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Conflict &amp; War]]></title>
-      <link>https://www.euronews.com/my-europe/2025/06/23/eu-to-revisit-suspension-of-partnership-with-israel-over-violations-in-gaza</link>
-      <pubDate>Mon, 23 Jun 2025 18:52:41 +0000</pubDate>
+      <link>https://www.euronews.com/2025/06/23/uk-to-ban-activist-group-palestine-action-after-sabotage-of-military-planes</link>
+      <pubDate>Mon, 23 Jun 2025 17:35:13 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/33/98/63/1200x675_cmsv2_ee71da90-a8c2-5cbd-9615-294538a310b1-9339863.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/02/93/1200x675_cmsv2_27f859f8-6b7c-50b5-892b-1b5d5ffc63c0-9340293.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">8124cfaa7a4819ca6944d573818acc56</guid>
+      <guid isPermaLink="false">379d678eac5fe8ac00e977d0d4340d1e</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/33/98/63/1200x675_cmsv2_ee71da90-a8c2-5cbd-9615-294538a310b1-9339863.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/02/93/1200x675_cmsv2_27f859f8-6b7c-50b5-892b-1b5d5ffc63c0-9340293.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Conflict &amp; War]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/33/98/63/1200x675_cmsv2_ee71da90-a8c2-5cbd-9615-294538a310b1-9339863.jpg" medium="image" />
+      <media:content url="https://static.euronews.com/articles/stories/09/34/02/93/1200x675_cmsv2_27f859f8-6b7c-50b5-892b-1b5d5ffc63c0-9340293.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
@@ -89,7 +89,7 @@
     <item>
       <title><![CDATA[Economy &amp; Trade]]></title>
       <link>https://www.euronews.com/business/2025/06/23/why-the-strait-of-hormuz-remains-critical-for-the-global-economy</link>
-      <pubDate>Tue, 24 Jun 2025 02:20:17 +0000</pubDate>
+      <pubDate>Mon, 23 Jun 2025 16:55:31 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
@@ -97,7 +97,7 @@
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">8d018616b524e1bb1892a09e5cb5cdf7</guid>
+      <guid isPermaLink="false">b4cbe023d556c6a0600b40ccb41714e7</guid>
       <content:encoded><![CDATA[
         <div class="content">
           <img src="https://static.euronews.com/articles/stories/09/33/93/86/1200x675_cmsv2_7191a37a-7df1-59f4-becb-bc40cfdef69b-9339386.jpg" alt="" class="article-image" />
@@ -135,7 +135,7 @@
     <item>
       <title><![CDATA[Health &amp; Wellbeing]]></title>
       <link>https://www.euronews.com/health/2025/06/23/this-is-why-you-probably-dont-need-foods-with-added-protein-according-to-nutritionists</link>
-      <pubDate>Tue, 24 Jun 2025 04:08:57 +0000</pubDate>
+      <pubDate>Mon, 23 Jun 2025 16:30:35 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
@@ -143,7 +143,7 @@
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">9ce4409757ea4ac447aaa3b4955ab437</guid>
+      <guid isPermaLink="false">d41a3ca47510999e73f3566fee715d2c</guid>
       <content:encoded><![CDATA[
         <div class="content">
           <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
@@ -156,71 +156,48 @@
     </item>
     
     <item>
-      <title><![CDATA[Positive News]]></title>
-      <link>https://www.euronews.com/2025/06/24/trump-announces-complete-and-total-ceasefire-between-israel-and-iran</link>
-      <pubDate>Tue, 24 Jun 2025 00:34:56 +0000</pubDate>
+      <title><![CDATA[Social Progress &amp; Human Rights]]></title>
+      <link>https://www.euronews.com/my-europe/2025/06/23/ukrainian-journalist-freed-from-russian-detention-in-occupied-crimea</link>
+      <pubDate>Tue, 24 Jun 2025 00:51:56 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/00/77/1200x675_cmsv2_e54136a7-85f5-5818-a27a-b491e76e6b82-9340077.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">5ea013887ae0ecf8a92e95d8fe2e695d</guid>
+      <guid isPermaLink="false">3af333b177425048a32310db8978e989</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/00/77/1200x675_cmsv2_e54136a7-85f5-5818-a27a-b491e76e6b82-9340077.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
-      <category><![CDATA[Positive News]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <category><![CDATA[Social Progress &amp; Human Rights]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/00/77/1200x675_cmsv2_e54136a7-85f5-5818-a27a-b491e76e6b82-9340077.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Cautionary]]></title>
-      <link>https://www.euronews.com/business/2025/06/23/the-dollar-sees-a-rebound-after-us-strikes-iran-but-can-it-continue</link>
-      <pubDate>Tue, 24 Jun 2025 04:00:34 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/00/82/1200x675_cmsv2_6c694847-1daa-544d-b58d-19a82b4edbee-9340082.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">5386464cf6142f2fb1424bec406df337</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/00/82/1200x675_cmsv2_6c694847-1daa-544d-b58d-19a82b4edbee-9340082.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Cautionary]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/00/82/1200x675_cmsv2_6c694847-1daa-544d-b58d-19a82b4edbee-9340082.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Miscellaneous]]></title>
-      <link>https://www.euronews.com/culture/2025/06/23/renowned-italian-sphere-sculptor-arnaldo-pomodoro-dies-aged-98</link>
+      <link>https://www.euronews.com/2025/06/23/pakistan-condemns-trumps-bombing-of-iran-after-backing-him-for-nobel-peace-prize</link>
       <pubDate>Tue, 24 Jun 2025 04:05:37 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/33/93/74/1200x675_cmsv2_f8c56818-4b4d-5bf2-9a4b-d04e5019ab55-9339374.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">f6ca4ffa5e701b3cd3d02badcdc0e562</guid>
+      <guid isPermaLink="false">0fc200f97f2a01c3f7abe0f245c479d8</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/33/93/74/1200x675_cmsv2_f8c56818-4b4d-5bf2-9a4b-d04e5019ab55-9339374.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
-      <category><![CDATA[Miscellaneous]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <category><![CDATA[Cautionary]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/33/93/74/1200x675_cmsv2_f8c56818-4b4d-5bf2-9a4b-d04e5019ab55-9339374.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
