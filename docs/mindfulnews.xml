@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 17:15:14 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 18:21:11 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,84 +12,38 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 17:15:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 18:21:11 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
     
     <item>
-      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.euronews.com/business/2025/06/24/aiib-at-10-a-decade-of-development-and-the-road-ahead</link>
-      <pubDate>Tue, 24 Jun 2025 19:14:09 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">69867f1df1e3b2c8b4358f4204434996</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
       <title><![CDATA[Conflict &amp; War]]></title>
-      <link>https://www.euronews.com/my-europe/2025/06/24/at-least-18-killed-in-strikes-across-ukraine-as-zelenskyy-meets-western-allies-at-nato-sum</link>
-      <pubDate>Tue, 24 Jun 2025 18:59:07 +0000</pubDate>
+      <link>https://www.euronews.com/my-europe/2025/06/24/nato-shifts-focus-as-us-under-trump-retreats-from-leading-role-on-ukraine</link>
+      <pubDate>Tue, 24 Jun 2025 20:11:05 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/20/55/1200x675_cmsv2_e74a1cd1-0f69-54c7-914e-82baf34dbc09-9342055.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/10/96/1200x675_cmsv2_eef25ee6-fc4a-5ac8-893e-2b23635fa1f9-9341096.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">185382ee6d77bfaa8ec906302c595ef4</guid>
+      <guid isPermaLink="false">ce18921fde87b66e9a15a883c7107974</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/20/55/1200x675_cmsv2_e74a1cd1-0f69-54c7-914e-82baf34dbc09-9342055.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/10/96/1200x675_cmsv2_eef25ee6-fc4a-5ac8-893e-2b23635fa1f9-9341096.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Conflict &amp; War]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/20/55/1200x675_cmsv2_e74a1cd1-0f69-54c7-914e-82baf34dbc09-9342055.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Human Rights &amp; Social Progress]]></title>
-      <link>https://www.euronews.com/2025/06/24/at-least-120-children-taken-by-insurgents-in-mozambique-rights-group-says</link>
-      <pubDate>Tue, 24 Jun 2025 18:43:13 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/20/52/1200x675_cmsv2_2a4385b7-761b-5958-97f5-2fe4a65d3414-9342052.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">35df3aad833e0af0561ea90bb29ed654</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/20/52/1200x675_cmsv2_2a4385b7-761b-5958-97f5-2fe4a65d3414-9342052.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Human Rights &amp; Social Progress]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/20/52/1200x675_cmsv2_2a4385b7-761b-5958-97f5-2fe4a65d3414-9342052.jpg" medium="image" />
+      <media:content url="https://static.euronews.com/articles/stories/09/34/10/96/1200x675_cmsv2_eef25ee6-fc4a-5ac8-893e-2b23635fa1f9-9341096.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Environment &amp; Climate]]></title>
       <link>https://www.euronews.com/business/2025/06/24/at-baku-energy-forum-leaders-call-for-global-action-to-triple-renewables-and-modernise-gri</link>
-      <pubDate>Tue, 24 Jun 2025 17:00:48 +0000</pubDate>
+      <pubDate>Tue, 24 Jun 2025 17:46:24 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
@@ -97,7 +51,7 @@
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">f8ba1a6f933dfe49df8513a9916c8d56</guid>
+      <guid isPermaLink="false">a9166ffbb61f508ae1be3c56efee566e</guid>
       <content:encoded><![CDATA[
         <div class="content">
           <img src="https://static.euronews.com/articles/stories/09/33/35/13/1200x675_cmsv2_a9b24777-0272-5b20-819e-336dd0262257-9333513.jpg" alt="" class="article-image" />
@@ -110,9 +64,55 @@
     </item>
     
     <item>
+      <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
+      <link>https://www.euronews.com/2025/06/24/merz-emphasises-germanys-support-for-israel-and-calls-for-ceasefire-in-gaza</link>
+      <pubDate>Tue, 24 Jun 2025 15:36:01 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">457029dae3d29bbf78319fd244edb749</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/09/60/1200x675_cmsv2_c3f4dbd9-7e9f-5c9d-9948-ca505d8c8cbd-9340960.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Economy &amp; Trade]]></title>
+      <link>https://www.euronews.com/business/2025/06/24/aiib-at-10-a-decade-of-development-and-the-road-ahead</link>
+      <pubDate>Tue, 24 Jun 2025 19:14:09 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://static.euronews.com/articles/stories/09/34/20/98/1200x675_cmsv2_0a9fbe16-9c1d-54d6-9e87-23e4f81936d8-9342098.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">fc769d82ba812297f7d33f2236c529ba</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://static.euronews.com/articles/stories/09/34/20/98/1200x675_cmsv2_0a9fbe16-9c1d-54d6-9e87-23e4f81936d8-9342098.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Economy &amp; Trade]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/20/98/1200x675_cmsv2_0a9fbe16-9c1d-54d6-9e87-23e4f81936d8-9342098.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
       <title><![CDATA[Health &amp; Wellbeing]]></title>
       <link>https://www.euronews.com/health/2025/06/24/french-doctors-warn-of-health-risks-tied-to-heavy-metal-in-bread-cereal-and-other-everyday</link>
-      <pubDate>Tue, 24 Jun 2025 15:00:58 +0000</pubDate>
+      <pubDate>Tue, 24 Jun 2025 14:48:09 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
@@ -120,7 +120,7 @@
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">41ee2753bed1b52f9b72aef67bcb1529</guid>
+      <guid isPermaLink="false">44b5181ded7f8d0b7c320595333c8d7e</guid>
       <content:encoded><![CDATA[
         <div class="content">
           <img src="https://static.euronews.com/articles/stories/09/34/09/98/1200x675_cmsv2_f5d7fad6-3359-5942-9661-3cf4ea74be3b-9340998.jpg" alt="" class="article-image" />
@@ -133,94 +133,117 @@
     </item>
     
     <item>
-      <title><![CDATA[Economy &amp; Trade]]></title>
-      <link>https://www.euronews.com/my-europe/2025/06/24/new-package-of-russia-sanctions-runs-into-trouble-ahead-of-high-stakes-eu-summit</link>
-      <pubDate>Tue, 24 Jun 2025 15:36:25 +0000</pubDate>
+      <title><![CDATA[Social Progress &amp; Human Rights]]></title>
+      <link>https://www.euronews.com/my-europe/2025/06/24/georgia-jails-opposition-figures-as-ruling-party-denies-arrests-are-politically-motivated</link>
+      <pubDate>Tue, 24 Jun 2025 18:05:08 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/16/21/1200x675_cmsv2_46797666-391a-5e90-884b-e52cf99adde7-9341621.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/21/27/1200x675_cmsv2_bc9fe755-5a50-51a3-acad-e5457332cbf7-9342127.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">f8a45cf9d299fe889098fdc7712b8402</guid>
+      <guid isPermaLink="false">c99ef9d3c795d3dd726a29e19cd42b9e</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/16/21/1200x675_cmsv2_46797666-391a-5e90-884b-e52cf99adde7-9341621.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/21/27/1200x675_cmsv2_bc9fe755-5a50-51a3-acad-e5457332cbf7-9342127.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
-      <category><![CDATA[Economy &amp; Trade]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/16/21/1200x675_cmsv2_46797666-391a-5e90-884b-e52cf99adde7-9341621.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Science &amp; Innovation]]></title>
-      <link>https://www.euronews.com/business/2025/06/24/uzbekistan-builds-pharma-ambitions-with-12bn-investment-in-regional-production-and-export-</link>
-      <pubDate>Tue, 24 Jun 2025 15:00:47 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/32/76/35/1200x675_cmsv2_c79127f4-318b-511b-9b1a-a94cd7ba879a-9327635.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">f56c29cd2feb5dc5557a68d45d77a847</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/32/76/35/1200x675_cmsv2_c79127f4-318b-511b-9b1a-a94cd7ba879a-9327635.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Science &amp; Innovation]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/32/76/35/1200x675_cmsv2_c79127f4-318b-511b-9b1a-a94cd7ba879a-9327635.jpg" medium="image" />
+      <category><![CDATA[Social Progress &amp; Human Rights]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/21/27/1200x675_cmsv2_bc9fe755-5a50-51a3-acad-e5457332cbf7-9342127.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Cautionary / Negative News]]></title>
-      <link>https://www.euronews.com/my-europe/2025/06/24/brazilian-ambassador-denounces-disinformation-campaign-on-mercosur-deal</link>
-      <pubDate>Tue, 24 Jun 2025 16:59:48 +0000</pubDate>
+      <link>https://www.euronews.com/travel/2025/06/24/travel-warning-thailand-bans-tourists-from-crossing-land-borders-into-cambodia</link>
+      <pubDate>Tue, 24 Jun 2025 15:33:51 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/17/31/1200x675_cmsv2_c6f91e9f-2fe1-548c-b1bd-a97a2e1ce3ef-9341731.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">67e02f34f13b0f98c9485d9ea971798c</guid>
+      <guid isPermaLink="false">87ade2f1a5ef3b88ca12c49ddb6b389f</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/17/31/1200x675_cmsv2_c6f91e9f-2fe1-548c-b1bd-a97a2e1ce3ef-9341731.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Cautionary / Negative News]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/19/67/1200x675_cmsv2_ea1745f7-9e60-5de7-8033-5a518b1a191d-9341967.jpg" medium="image" />
+      <media:content url="https://static.euronews.com/articles/stories/09/34/17/31/1200x675_cmsv2_c6f91e9f-2fe1-548c-b1bd-a97a2e1ce3ef-9341731.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Positive News]]></title>
+      <link>https://www.euronews.com/business/2025/06/24/german-business-sentiment-rises-ifo-sees-sixth-consecutive-lift</link>
+      <pubDate>Tue, 24 Jun 2025 14:58:55 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://static.euronews.com/articles/stories/09/34/16/36/1200x675_cmsv2_3bee0576-ed9d-525e-920e-aa8f8dcd208a-9341636.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">3bebc8cd32f0d5c0119a1705063f3d72</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://static.euronews.com/articles/stories/09/34/16/36/1200x675_cmsv2_3bee0576-ed9d-525e-920e-aa8f8dcd208a-9341636.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Positive News]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/16/36/1200x675_cmsv2_3bee0576-ed9d-525e-920e-aa8f8dcd208a-9341636.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Science &amp; Innovation]]></title>
+      <link>https://www.euronews.com/next/2025/06/24/nato-summit-the-defence-tech-race-is-on-this-is-how-nato-aims-to-get-ahead</link>
+      <pubDate>Tue, 24 Jun 2025 19:49:22 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://static.euronews.com/articles/stories/09/34/18/49/1200x675_cmsv2_6223e886-1522-56fd-895e-fbc9460b7e65-9341849.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">bb7fec466af40e2b1855334686e76fc7</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://static.euronews.com/articles/stories/09/34/18/49/1200x675_cmsv2_6223e886-1522-56fd-895e-fbc9460b7e65-9341849.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Science &amp; Innovation]]></category>
+      <media:content url="https://static.euronews.com/articles/stories/09/34/18/49/1200x675_cmsv2_6223e886-1522-56fd-895e-fbc9460b7e65-9341849.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Miscellaneous]]></title>
-      <link>https://www.euronews.com/culture/2025/06/24/brad-pitt-premieres-new-f1-film-in-london-with-surprise-appearance-from-tom-cruise</link>
-      <pubDate>Tue, 24 Jun 2025 16:52:21 +0000</pubDate>
+      <link>https://www.euronews.com/culture/2025/06/24/james-bond-in-danger-why-is-007-under-threat-from-a-property-tycoon</link>
+      <pubDate>Tue, 24 Jun 2025 16:02:32 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/16/72/1200x675_cmsv2_35e054a4-977c-5eef-99da-4f3322e0ee75-9341672.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">da8867a89b3ac393b38a1ba14bd3be1e</guid>
+      <guid isPermaLink="false">9ac1c6678a1f5e7ca00014c52975693e</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://static.euronews.com/articles/stories/09/34/16/72/1200x675_cmsv2_35e054a4-977c-5eef-99da-4f3322e0ee75-9341672.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Miscellaneous]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <media:content url="https://static.euronews.com/articles/stories/09/34/16/72/1200x675_cmsv2_35e054a4-977c-5eef-99da-4f3322e0ee75-9341672.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
