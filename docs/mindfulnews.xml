@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="rss_styles.css"?>
 <!-- Mindful News Aggregator -->
 <!-- rss_template.xml version: 2025-06-21-v1.6 -->
-<!-- Generated on Tue, 24 Jun 2025 12:31:26 +0000 -->
+<!-- Generated on Tue, 24 Jun 2025 13:30:20 +0000 -->
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,192 +12,169 @@
     <title>Mindful News Digest</title>
     <link>https://mindfulnews.media</link>
     <description>A calm, constructive news digest — non-sensational, international, mindful.</description>
-    <lastBuildDate>Tue, 24 Jun 2025 12:31:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 13:30:20 +0000</lastBuildDate>
     <language>en-us</language>
     <generator>Mindful News Aggregator v5.10</generator>
 
     
     <item>
-      <title><![CDATA[Conflict &amp; War]]></title>
-      <link>https://www.euronews.com/2025/06/24/at-least-25-killed-after-israeli-army-opens-fire-near-aid-trucks-in-gaza-hospitals-say</link>
-      <pubDate>Tue, 24 Jun 2025 12:06:43 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/10/73/1200x675_cmsv2_7483f65c-dcab-5654-8c41-8ce8e51d460d-9341073.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">02c046add954b0cb2d5ad7e233ab2549</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/10/73/1200x675_cmsv2_7483f65c-dcab-5654-8c41-8ce8e51d460d-9341073.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Conflict &amp; War]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/10/73/1200x675_cmsv2_7483f65c-dcab-5654-8c41-8ce8e51d460d-9341073.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
       <title><![CDATA[Diplomacy &amp; Peace Efforts]]></title>
-      <link>https://www.euronews.com/my-europe/2025/06/24/eu-and-canada-forge-closer-defence-trade-ties</link>
-      <pubDate>Tue, 24 Jun 2025 09:29:19 +0000</pubDate>
+      <link>https://www.theguardian.com/world/2025/jun/23/canada-eu-defense-trump-us-allies</link>
+      <pubDate>Tue, 24 Jun 2025 12:07:45 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/b4f667c7bbc18690b36daaf3ae44d1c3a97f342d/464_0_2501_2000/master/2501.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=37b3e2078d1b25b28f9fd3f539a2c41a" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">3c9a734e0258791566f53537f6604b4c</guid>
+      <guid isPermaLink="false">3faa7026aab15df09e650903f22c99d4</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/b4f667c7bbc18690b36daaf3ae44d1c3a97f342d/464_0_2501_2000/master/2501.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=37b3e2078d1b25b28f9fd3f539a2c41a" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Diplomacy &amp; Peace Efforts]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/04/13/1200x675_cmsv2_3129ffd4-66dd-5030-9a40-295318daf404-9340413.jpg" medium="image" />
+      <media:content url="https://i.guim.co.uk/img/media/b4f667c7bbc18690b36daaf3ae44d1c3a97f342d/464_0_2501_2000/master/2501.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=37b3e2078d1b25b28f9fd3f539a2c41a" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Conflict &amp; War]]></title>
+      <link>https://www.politico.com/news/2025/06/24/an-angry-trump-decries-israel-iran-for-breaking-ceasefire-00420048?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 13:06:43 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">7e2b122cabf8f05f3969182f20e97e59</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Conflict &amp; War]]></category>
+      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Environment &amp; Climate]]></title>
-      <link>https://www.euronews.com/health/2025/06/24/how-to-keep-cool-during-heatwaves-in-europe</link>
+      <link>https://www.theguardian.com/world/2025/jun/24/europes-pledge-to-spend-more-on-military-will-hurt-climate-and-social-programmes</link>
       <pubDate>Tue, 24 Jun 2025 12:06:55 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/08/28/1200x675_cmsv2_b1a6cb16-5d23-5b3d-a440-e84629c7b51e-9340828.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/2c618821780727b794197e5be6675a4ea694eef7/0_0_5049_4037/master/5049.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=fc0e5c8f53d7e742ddf44b393259527b" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">dd1e0b6de90db07405bceb95ae5a985d</guid>
+      <guid isPermaLink="false">29a649daa6124cc71476c1f5849a5415</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/08/28/1200x675_cmsv2_b1a6cb16-5d23-5b3d-a440-e84629c7b51e-9340828.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/2c618821780727b794197e5be6675a4ea694eef7/0_0_5049_4037/master/5049.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=fc0e5c8f53d7e742ddf44b393259527b" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Environment &amp; Climate]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/08/28/1200x675_cmsv2_b1a6cb16-5d23-5b3d-a440-e84629c7b51e-9340828.jpg" medium="image" />
+      <media:content url="https://i.guim.co.uk/img/media/2c618821780727b794197e5be6675a4ea694eef7/0_0_5049_4037/master/5049.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=fc0e5c8f53d7e742ddf44b393259527b" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Social Progress &amp; Human Rights]]></title>
-      <link>https://www.euronews.com/2025/06/23/uk-to-ban-activist-group-palestine-action-after-sabotage-of-military-planes</link>
-      <pubDate>Mon, 23 Jun 2025 17:35:13 +0000</pubDate>
+      <link>https://www.theguardian.com/us-news/2025/jun/23/emerson-colindres-ohio-teen-ice-deportation</link>
+      <pubDate>Tue, 24 Jun 2025 13:14:48 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/02/93/1200x675_cmsv2_27f859f8-6b7c-50b5-892b-1b5d5ffc63c0-9340293.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/1737c8d13d680ae85be78f4ca8a0c0e33cb8f51e/171_0_1705_1365/master/1705.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=a2f6460007724c238acad02c0b94c94e" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">117459f494dc993caadd710ce108a92b</guid>
+      <guid isPermaLink="false">d77680f4060ac63b3d4508dc99b013a1</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/02/93/1200x675_cmsv2_27f859f8-6b7c-50b5-892b-1b5d5ffc63c0-9340293.jpg" alt="" class="article-image" />
+          <img src="https://i.guim.co.uk/img/media/1737c8d13d680ae85be78f4ca8a0c0e33cb8f51e/171_0_1705_1365/master/1705.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=a2f6460007724c238acad02c0b94c94e" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Social Progress &amp; Human Rights]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/02/93/1200x675_cmsv2_27f859f8-6b7c-50b5-892b-1b5d5ffc63c0-9340293.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Science &amp; Innovation]]></title>
-      <link>https://www.euronews.com/next/2025/06/24/openai-scrubs-mention-of-jony-ive-partnership-after-judges-ruling-over-trademark-dispute</link>
-      <pubDate>Tue, 24 Jun 2025 10:59:54 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/05/10/20/1200x675_cmsv2_c2ae9803-4707-5b8a-b580-ea5ff771b8ca-9051020.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">0898b08ed528d1ac5c610d96dd2aadb2</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/05/10/20/1200x675_cmsv2_c2ae9803-4707-5b8a-b580-ea5ff771b8ca-9051020.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Science &amp; Innovation]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/05/10/20/1200x675_cmsv2_c2ae9803-4707-5b8a-b580-ea5ff771b8ca-9051020.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Cautionary]]></title>
-      <link>https://www.euronews.com/travel/2025/06/24/flight-cancelled-to-israel-or-iran-here-are-your-passenger-rights-and-travel-insurance-adv</link>
-      <pubDate>Tue, 24 Jun 2025 12:58:39 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/33/17/39/1200x675_cmsv2_927f1832-3a16-54ea-aab8-2e2bbaa231ea-9331739.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">363783c68c0cf8e83c0eae4e831c9e85</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/33/17/39/1200x675_cmsv2_927f1832-3a16-54ea-aab8-2e2bbaa231ea-9331739.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Cautionary]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/33/17/39/1200x675_cmsv2_927f1832-3a16-54ea-aab8-2e2bbaa231ea-9331739.jpg" medium="image" />
-      <positivity><![CDATA[Constructive]]></positivity>
-    </item>
-    
-    <item>
-      <title><![CDATA[Positive News]]></title>
-      <link>https://www.euronews.com/video/2025/06/24/jeff-bezos-and-lauren-sanchezs-wedding-sparks-protests-in-venice</link>
-      <pubDate>Tue, 24 Jun 2025 10:15:45 +0000</pubDate>
-      <author>Mindful News</author>
-      <description><![CDATA[
-        <div class="summary">
-          <img src="https://static.euronews.com/articles/stories/09/34/08/26/1200x675_cmsv2_23f9e95f-a085-5da9-abcb-4bbebccdd988-9340826.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></description>
-      <guid isPermaLink="false">8ada0139c34c426a5d8351c1326c4692</guid>
-      <content:encoded><![CDATA[
-        <div class="content">
-          <img src="https://static.euronews.com/articles/stories/09/34/08/26/1200x675_cmsv2_23f9e95f-a085-5da9-abcb-4bbebccdd988-9340826.jpg" alt="" class="article-image" />
-          
-        </div>
-      ]]></content:encoded>
-      <category><![CDATA[Positive News]]></category>
-      <media:content url="https://static.euronews.com/articles/stories/09/34/08/26/1200x675_cmsv2_23f9e95f-a085-5da9-abcb-4bbebccdd988-9340826.jpg" medium="image" />
+      <media:content url="https://i.guim.co.uk/img/media/1737c8d13d680ae85be78f4ca8a0c0e33cb8f51e/171_0_1705_1365/master/1705.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=a2f6460007724c238acad02c0b94c94e" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
     <item>
       <title><![CDATA[Economy &amp; Trade]]></title>
-      <link>https://www.euronews.com/business/2025/06/23/why-the-strait-of-hormuz-remains-critical-for-the-global-economy</link>
-      <pubDate>Tue, 24 Jun 2025 12:12:20 +0000</pubDate>
+      <link>https://www.politico.eu/article/german-finance-minister-lars-klingbeil-eu-deficit-rules-spending-merz/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 12:22:11 +0000</pubDate>
       <author>Mindful News</author>
       <description><![CDATA[
         <div class="summary">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13145281-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></description>
-      <guid isPermaLink="false">9d582a50d2928522d543fb0ea90a3552</guid>
+      <guid isPermaLink="false">c934af3d7772cf90872196dabdf1f06b</guid>
       <content:encoded><![CDATA[
         <div class="content">
-          <img src="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" alt="" class="article-image" />
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13145281-scaled.jpg" alt="" class="article-image" />
           
         </div>
       ]]></content:encoded>
       <category><![CDATA[Economy &amp; Trade]]></category>
-      <media:content url="https://www.mindfulnews.media/wp-content/uploads/2025/06/ChatGPT-Image-Jun-18-2025-07_46_58-PM.png" medium="image" />
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13145281-scaled.jpg" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Community Resilience]]></title>
+      <link>https://www.theguardian.com/world/ng-interactive/2025/jun/23/barbados-poet-laureate-esther-phillips</link>
+      <pubDate>Tue, 24 Jun 2025 12:44:48 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://i.guim.co.uk/img/media/e4e4da4dbb68026937f69a732d945d94901f223a/0_650_3264_2610/master/3264.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=beb2b17ec00d00e60c1adb3b0626bde3" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">b979d7f42f2ff4312b949fc53458ba75</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://i.guim.co.uk/img/media/e4e4da4dbb68026937f69a732d945d94901f223a/0_650_3264_2610/master/3264.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=beb2b17ec00d00e60c1adb3b0626bde3" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Community Resilience]]></category>
+      <media:content url="https://i.guim.co.uk/img/media/e4e4da4dbb68026937f69a732d945d94901f223a/0_650_3264_2610/master/3264.jpg?width=140&amp;quality=85&amp;auto=format&amp;fit=max&amp;s=beb2b17ec00d00e60c1adb3b0626bde3" medium="image" />
+      <positivity><![CDATA[Constructive]]></positivity>
+    </item>
+    
+    <item>
+      <title><![CDATA[Cautionary / Negative News]]></title>
+      <link>https://www.politico.eu/article/train-cable-fire-nato-summit-fears-sabotage-netherlands-david-van-weel-security-cyberattack-russia/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</link>
+      <pubDate>Tue, 24 Jun 2025 10:46:46 +0000</pubDate>
+      <author>Mindful News</author>
+      <description><![CDATA[
+        <div class="summary">
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13145096-scaled.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></description>
+      <guid isPermaLink="false">106afdc3c19cd710f12a579e9c0254ef</guid>
+      <content:encoded><![CDATA[
+        <div class="content">
+          <img src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13145096-scaled.jpg" alt="" class="article-image" />
+          
+        </div>
+      ]]></content:encoded>
+      <category><![CDATA[Cautionary / Negative News]]></category>
+      <media:content url="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2025/06/24/13145096-scaled.jpg" medium="image" />
       <positivity><![CDATA[Constructive]]></positivity>
     </item>
     
